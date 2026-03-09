@@ -22,6 +22,24 @@
 \usepackage{subcaption}
 \usepackage{marginnote}
 \usepackage[hidelinks]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins}
+
+% Kurose-style Case History box
+\newtcolorbox{casehistory}[1][]{%
+  enhanced,
+  breakable,
+  colback=blue!5!white,
+  colframe=blue!40!black,
+  fonttitle=\bfseries\sffamily\large,
+  title={\MakeUppercase{Case History}},
+  coltitle=white,
+  colbacktitle=blue!40!black,
+  attach boxed title to top right={yshift=-\tcboxedtitleheight},
+  boxed title style={colback=blue!40!black},
+  top=4mm,
+  after title={\par\medskip\textbf{#1}\par\smallskip},
+}
 
 \setlength{\parskip}{0.5em}
 \setlength{\parindent}{0pt}
