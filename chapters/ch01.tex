@@ -1,9 +1,99 @@
-\chapter{Foundations: Physics Before Formulas}
+\chapter{Physics Before Formulas}
 
-Every system in this book starts with structure, constraints, and incentives before code.
+Today's global financial market is arguably one of the largest engineered systems in existence: millions of instruments, fragmented venues, market makers, brokers, clearing systems, 
+data centers, scripts, and autonomous agents interacting in nanoseconds. 
+The New York Stock Exchange, which started when 24 brokers signed the Buttonwood Agreement in 1792, has grown into a global network of exchanges and trading venues that operate around the clock. 
+In the modern era, the conception of a "market" has expanded to include not only traditional stock exchanges but also electronic trading platforms, dark pools, decentralized finance (DeFi) networks, prediction markets.
+
+When viewing the market as an independent patchwork of venues, participants, and instruments, 
+it is easy to get lost in the details. The goal of this chapter is the opposite: 
+to abstract the market into a system that can be reasoned about, and then use that 
+abstraction to guide the design of trading strategies that are robust by construction, 
+not by accident.
+
+This chapter provides a broad overview to see the forest through the trees: 
+terminology first, then market edge (participants and workflows), market core (venues, execution, and data flow), 
+and finally the intelligence layer (models, agents, risk controls, and failure modes).
+
+\section{What Is the Market?}
+
+When most people hear "the market," they imagine a building, a bell, and a chart on a screen. 
+That picture is not wrong, but it is incomplete enough to hurt you if you trade from it. 
+The market is a social, technical, and economic system that is bigger than any one person, firm, or venue. 
+There are many ways to slice it, but the most useful for our purposes is to think of it as a system of interacting agents and venues that collectively determine prices and allocate capital.
+The market is not a single entity, but rather a complex network of participants, each with their own objectives, constraints, and information. 
+To understand the complexities of the environment we plan to operate in, we need to first define the market in a way that captures its essential characteristics and dynamics.
+To start, we will define the market from a high level perspective, focusing on its structure, participants, and the flow of information and capital.
+The second half of the chapter will focus on the market from a system engineering perspective, where we will explore the market as a complex adaptive system that can be modeled, analyzed, and optimized.
+
+\subsection{The Market as a Social System}
+The New York Stock Exchange traces back to the Buttonwood Agreement, signed by 24 brokers in New York on May 17, 1792.
+From a developer perspective, Buttonwood was effectively a protocol: it defined who could trade with whom and standardized commissions. 
+The point was trust and control, not speed. By requiring a broker for every trade, the agreement ensured that every transaction passed through a verified member who was personally responsible for the deal's success.
+Prior to the Buttonwood Agreement, trading was more informal and less regulated, with brokers negotiating deals directly with each other in coffee houses and other informal venues.
+This often led to disputes, lack of transparency, inconsistent pricing, and a fear of "counterparty risk", you didn't know if the person you were trading with would actually deliver the stock or the cash.
+This shift towards a more formalized and regulated market structure helped to establish trust and confidence in the financial system, it was an early form of whitelist, where brokers were essentially transparent validator nodes in a distributed network. 
+This public trust and confidence in the market was crucial for its growth and development, as it allowed for more efficient price discovery, increased liquidity, and greater participation from investors. 
+This growth grew directly with the expansion of the American economy, as more companies sought to raise capital and more investors sought to participate in the market. 
+by 1886, trading volume had topped 1 million shares per day, and the NYSE had become a central hub for global finance. 
+This incredible growth led to a significant technical challange, markets were moving faster than the ability to communicate prices and trades.
+Trades on the ground were being asked to execute trades on information that was already stale, and the market was becoming more volatile as a result.
+This was perhaps the first instance of a \textbf{latency arbitrage} problem, where traders with faster access to information could exploit those with slower access. 
+To manage this, Edward Calahan invented the ticker tape machine, which allowed stock prices to be transmitted over existing infastructure that came in the form of telegraph lines.  
+This was a technological advancement that was one of the first instances of near real time data dissemination, allowing traders to make more informed decisions based on the latest market information. 
+Ticker tap machines used analog signals for stock quotes, working as as specialized telegraph whos only function was to print stock symbols, prices, and volume onto a narrow paper strip.
+It significantly improved both the speed and accuracy of information flow from wall street to the rest of the country, and it marked the beginning of a new era in financial markets. 
+
+
+\subsection{The Digital Revolution and the NASDAQ Era}
+
+Computerization changed market structure. NASDAQ launched in 1971 as the first electronic stock market, and over time electronic routing, matching, and reporting became normal across venues.
+
+Digital systems made market data more machine-readable and more available at scale, which is exactly what quantitative research needed. But this did not magically "clean" the data. It introduced new forms of noise, latency effects, and cross-venue inconsistency that quants still have to model explicitly.
+
+\subsection{The Market as a Real-Time Decision Field}
+
+In this course, we treat the market as a high-dimensional, real-time decision environment.
+
+Every tick is a decision event. It may be generated by a human, an automated strategy, or a hybrid workflow. Either way, each print is an action taken under constraints, not a timeless truth.
+
+\subsection{Primary vs Secondary Markets}
+
+Primary markets are where new securities are issued (for example, IPO allocation and initial sale). Secondary markets are where existing claims are continuously repriced and transferred.
+
+Most daily equity trading you see is secondary-market activity. That flow is less about raising new capital for firms and more about ongoing price discovery among holders with competing views.
+
+\subsection{Core Market Participants}
+
+The high-level player map from lecture is the right starting point:
+
+\begin{itemize}
+	\item Dealers/market makers: provide liquidity, quote two-sided prices, and manage inventory risk.
+	\item Brokers: route and execute customer orders, with explicit obligations around execution quality.
+	\item Speculators (including retail, quants, and students): seek returns from directional, statistical, or structural edges.
+\end{itemize}
+
+If you only look at exchanges and ignore these actors, you are not modeling the market. You are modeling a dashboard.
+
+\subsection{Dealers and Market Making}
+
+Dealers do not behave like long-only investors. Their core business is facilitating flow while managing inventory and spread risk.
+
+In practice, many realized fills are the product of a dealer's willingness to hold risk briefly in exchange for spread economics and flow scale.
+
+\subsection{Brokers and Order Routing}
+
+Brokers are the transport layer between client intent and executable flow. Route choice, venue selection, and timing directly affect realized outcomes.
+
+"Best execution" is not a slogan. It is an operational constraint with measurable consequences for slippage, fill quality, and strategy PnL.
+
+\subsection{Financial Intermediaries}
+
+Beyond brokers and dealers, large intermediaries (banks, funds, and asset managers) pool capital, transform exposures, and repackage risk.
+
+These institutions change both the shape of order flow and the risk topology of the system. Ignoring them leads to naive causal stories.
+
 
 \section{System Lens}
-
-\metaphor{Market Microstructure}{Price is a gravestone, not a map.}
 
 \sidenote{Anchor each implementation step to market mechanics first.}

@@ -1,0 +1,23 @@
+% Metaphor registry to keep recurring semantic anchors consistent.
+% Usage:
+%   \registermetaphor{key}{Canonical sentence.}
+%   \metaphorbykey{key}{Context Label}
+
+\newcommand{\registermetaphor}[2]{%
+    \expandafter\def\csname metaphor@#1\endcsname{#2}%
+}
+
+\newcommand{\metaphortext}[1]{%
+    \ifcsname metaphor@#1\endcsname
+        \csname metaphor@#1\endcsname
+    \else
+        \textbf{[Undefined metaphor key: #1]}%
+    \fi
+}
+
+\newcommand{\metaphorbykey}[2]{\metaphor{#2}{\metaphortext{#1}}}
+
+% Canonical metaphor entries used across chapters.
+\registermetaphor{gravestone}{Price is a gravestone, not a map.}
+\registermetaphor{pancake}{A clean backtest is a pancake: it can look perfect while still hiding bad ingredients.}
+\registermetaphor{hotcake}{Live capital is a hotcake: touch it carelessly and you get burned fast.}
