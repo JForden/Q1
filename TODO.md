@@ -72,3 +72,65 @@
     - **Review Questions:** 6-8 conceptual checks (no code).
     - **Problems:** 3-5 applied prompts (event reconstruction, macro interpretation, data-quality checks).
     - **Further Reading:** Lopez de Prado Ch. 1-2, one market microstructure paper, one accessible practitioner source.
+
+### 4: Machine Learning
+
+- [ ] **Chapter Placement (Intentional Skip Ahead):** Mark this chapter as modular and assignable later in the book (not required to come right after Chapter 3).
+- [ ] **State zero-prerequisite entry contract:** Explicitly assume no prior ML knowledge; define every term from first principles before using it.
+
+- [ ] **Open with "Physics before algorithms":** Re-anchor the student in market data logic before ML jargon.
+    - **4.1 Why ML appears here (and not earlier):** We first needed data integrity (tick -> bars -> stationarity/memory trade-off) before prediction.
+    - **4.2 What problem we are solving:** "Given current bar conditions, predict next bar direction."
+    - **4.3 Inputs are hypotheses, not magic:** Indicators/features are economic assumptions encoded numerically.
+
+- [ ] **Build ML intuition from scratch (no math gatekeeping):**
+    - **4.4 Traditional programming vs ML:** Handwritten rules vs learned rules from examples.
+    - **4.5 Supervised learning only:** Inputs `X` + known outcomes `y`; defer unsupervised/reinforcement to a short awareness sidebar.
+    - **4.6 Decision trees as 20-questions logic:** Sequential yes/no splits over features.
+    - **4.7 Overfitting as memorization:** Why perfect training accuracy can fail in live markets.
+    - **4.8 Random forest intuition:** Many constrained trees + voting to reduce noise memorization.
+
+- [ ] **Define the chapter data contract clearly:**
+    - **4.9 Feature matrix (`X`) structure:** Rows = dollar bars; columns = engineered features.
+    - **4.10 Target variable (`y`) definition:** `1` if next bar closes higher, `0` otherwise.
+    - **4.11 Causality rule:** Every feature at time `t` may use only information available at or before `t`.
+
+- [ ] **Feature engineering roadmap (from your Week 9 flow):**
+    - **4.12 Trend/Momentum block:** EMA variants and crossover logic.
+    - **4.13 Mean-reversion block:** Bollinger bands and z-score distance from local mean.
+    - **4.14 Volatility block:** Rolling dispersion/range-style volatility summaries.
+    - **4.15 Statistical moments block:** Rolling mean, variance, skewness, kurtosis as shape descriptors.
+    - **4.16 Feature intent labeling:** Require one-line economic rationale per feature to prevent indicator dumping.
+
+- [ ] **Experiment design: the A/B shootout:**
+    - **4.17 Pipeline A (`d=0`) baseline:** Raw-price-derived features (non-stationary benchmark).
+    - **4.18 Pipeline B (`d=x`) candidate:** Fractionally differentiated features (stationarity + retained memory).
+    - **4.19 Fair-test constraints:** Same tickers, same dates, same model config, same train/test window.
+    - **4.20 Hypothesis-first workflow:** Students must write expected outcome before training.
+
+- [ ] **Leakage defense as a core learning objective:**
+    - **4.21 The "time machine" bug:** Why shuffling financial rows leaks future information.
+    - **4.22 Golden split rule:** Strict time-ordered split (past train, future test).
+    - **4.23 Validation hygiene checklist:** Timestamp monotonicity, NaN handling, alignment checks, no forward-looking transforms.
+
+- [ ] **Training and evaluation without ML prerequisites:**
+    - **4.24 Minimal model recipe:** RandomForestClassifier as implementation detail, not chapter centerpiece.
+    - **4.25 Report-card interpretation:** Accuracy, precision, recall, F1-macro in trading language.
+    - **4.26 What "better" means:** Prefer robust out-of-sample behavior over headline training accuracy.
+
+- [ ] **Team workflow mirrors research practice:**
+    - **4.27 Role framing:** Data Curator, Feature Analyst, Strategist, Backtester responsibilities.
+    - **4.28 Reproducibility requirements:** Fixed random seed, logged configs, preserved feature lists.
+    - **4.29 Scope control:** Use representative subset (30-50 tickers), not entire universe.
+
+- [ ] **Close the chapter with realism and transition:**
+    - **4.30 Limits of this chapter:** We built a classifier, not a profitable trading system.
+    - **4.31 Common failure modes:** Regime shifts, transaction costs, class imbalance, false edge.
+    - **4.32 Forward pointer:** Next chapter on validation/backtesting architecture and execution realism.
+
+- [ ] **Add end-of-chapter apparatus (textbook-ready):**
+    - **Chapter Summary:** Short paragraph for foundations, features, leakage, evaluation, and shootout findings.
+    - **Key Terms:** supervised learning, feature matrix, target variable, overfitting, random forest, leakage, time split, F1-macro.
+    - **Review Questions:** 6-8 conceptual checks requiring no coding background.
+    - **Problems:** 3-5 applied prompts (label construction, leakage diagnosis, hypothesis writing, metric interpretation).
+    - **Further Reading:** One beginner ML-for-finance primer + one robust validation reference.

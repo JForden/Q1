@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.8)  9 MAR 2026 11:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.8)  9 MAR 2026 22:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -844,7 +844,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count354
-) (main.aux (chapters/ch01.aux) (chapters/ch02.aux))
+) (main.aux (chapters/ch01.aux) (chapters/ch02.aux) (chapters/ch0X.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -882,7 +882,6 @@ Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
@@ -1069,20 +1068,34 @@ Chapter 2.
 
 
 
-] (main.aux (chapters/ch01.aux) (chapters/ch02.aux))
+]
+\openout2 = `chapters/ch0X.aux'.
+
+ (chapters/ch0X.tex
+Chapter 3.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9
+
+
+
+
+]
+[10] (main.aux (chapters/ch01.aux) (chapters/ch02.aux) (chapters/ch0X.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FACA6E5AF15246562C7569B52D25B11F;2481.
+(rerunfilecheck)             Checksum: ABF605AB509814ED3405CB7271903EC2;2822.
  ) 
 Here is how much of TeX's memory you used:
- 29834 strings out of 467871
- 581414 string characters out of 5418377
- 1023508 words of memory out of 5000000
- 58056 multiletter control sequences out of 15000+600000
- 701010 words of font info for 154 fonts, out of 8000000 for 9000
+ 29867 strings out of 467871
+ 582211 string characters out of 5418377
+ 1024033 words of memory out of 5000000
+ 58076 multiletter control sequences out of 15000+600000
+ 701093 words of font info for 155 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,7n,111p,1003b,1227s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jrfas/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
@@ -1094,9 +1107,9 @@ C:/Users/jrfas/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:
 /Users/jrfas/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:
 /Users/jrfas/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:
 /Users/jrfas/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on c:/Repos\Q1\main.pdf (10 pages, 279618 bytes).
+Output written on c:/Repos\Q1\main.pdf (12 pages, 285281 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
- 43125 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 192 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 43141 words of extra memory for PDF output out of 51595 (max. 10000000)
 

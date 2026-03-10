@@ -11,3 +11,5 @@
 \contentsline {section}{\numberline {1.2}System Lens}{7}{section.1.2}%
 \contentsline {chapter}{\numberline {2}From Intuition to Measurement}{8}{chapter.2}%
 \contentsline {section}{\numberline {2.1}What We Measure}{8}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Machine Learning}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Principles of Machine Learning}{10}{section.3.1}%
