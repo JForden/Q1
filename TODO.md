@@ -75,9 +75,6 @@
 
 ### 4: Machine Learning
 
-- [ ] **Chapter Placement (Intentional Skip Ahead):** Mark this chapter as modular and assignable later in the book (not required to come right after Chapter 3).
-- [ ] **State zero-prerequisite entry contract:** Explicitly assume no prior ML knowledge; define every term from first principles before using it.
-
 - [ ] **Open with "Physics before algorithms":** Re-anchor the student in market data logic before ML jargon.
     - **4.1 Why ML appears here (and not earlier):** We first needed data integrity (tick -> bars -> stationarity/memory trade-off) before prediction.
     - **4.2 What problem we are solving:** "Given current bar conditions, predict next bar direction."
