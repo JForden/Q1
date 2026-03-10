@@ -1,9 +1,7 @@
 
 \chapter{Machine Learning}
 
-Why is everyone talking about machine learning?
-
-From Netflix recommendations to self-driving cars, and yes, even the stock market---machine learning (ML) is quietly shaping the
+From Netflix recommendations to self-driving cars, to the stock market, machine learning (ML) is quietly shaping the
 systems we use every day. But what is it, really?
 
 At its heart, machine learning is about teaching computers to learn from experience. In a standard setting, this is like teaching a
@@ -15,8 +13,7 @@ Today, ML powers everything from voice assistants to medical diagnosis. In finan
 predict future market direction. But financial machine learning has a unique challenge: unlike a clear picture of a cat, market data
 is incredibly noisy.
 
-That is why the secret to algorithmic trading isn't just building a complex model; it's getting the data right to begin with (luckily,
-we already did this!). As you saw in the last chapter, high-quality, stationary data that preserves market memory is the real fuel for
+That is why the secret to algorithmic trading isn't just building a complex model; it's getting the data right to begin with. As you saw in the last chapter, high-quality, stationary data that preserves market memory is the real fuel for
 any financial ML system.
 
 In this chapter, we'll focus on the most practical and widely used branch for our pipeline: supervised learning. We'll also briefly
@@ -26,14 +23,58 @@ you'll be ready to judge whether your model is actually uncovering a true market
 
 \section{Principles of Machine Learning}
 
-Before we dive into the mechanics of machine learning, let us pause and consider how algorithms already shape our daily lives. 
-Every time you unlock your phone with your face, get a movie suggestion from Netflix, or even follow a recipe to bake cookies, you are relying on algorithms at work.
+Before we dive into the mechanics of machine learning, let us pause and consider how algorithms already shape our daily lives.
+Every time you unlock your phone with your face, get a movie suggestion from Netflix, or follow a recipe to bake cookies, you are relying on algorithms at work.
 These are not just abstract computer concepts, they are the invisible instructions guiding everything from your morning routine to the apps you use.
+In fact, we have all been using algorithms our entire lives, often without realizing it. Whether you are tying your shoes, solving a Rubik's cube, or deciding what to eat for breakfast, your daily routines are full of these stepwise procedures.
+So, what exactly is an \textbf{algorithm}? Think of it as a recipe: a clear, step-by-step set of instructions for turning raw ingredients (your input) into a finished dish (your output).
+In machine learning, algorithms are the backbone: they tell the computer exactly how to turn real-world data into useful predictions or decisions. 
 
-So, what exactly is an \textbf{algorithm}? Think of it as a recipe: a clear, step-by-step set of instructions for turning raw ingredients (your input) into a finished dish (your output). 
-Whether you are following directions to bake a cake, tie your shoes, or solve a Rubik's cube, you are using an algorithm.
+In traditional programming, a developer writes explicit rules that the computer must follow, a series of \texttt{if-then-else} statements and conditions that form the basis of a program.
+Want to detect spam email? A traditional programmer might write: ``\textit{if the subject line contains the word `FREE' and the sender is unknown, mark as spam.}''
+This works reasonably well,  until the spammers start writing ``FR\$\$'' instead of ``FREE,'' and the programmer has to update the rules again.
+The fundamental limitation is clear: \textit{the programmer must anticipate every case in advance}. 
 
-In fact, we have all been using algorithms our entire lives, often without realizing it. From the way we open a door to the process of deciding what to eat for breakfast, our daily routines are full of these stepwise procedures. 
-In machine learning, algorithms are the backbone: they tell the computer exactly how to turn messy, real-world data into useful predictions or decisions.
-In traditional programming, a developer writes explicit rules that the computer must follow. 
+\textbf{Machine learning} (ML) flips this model on its head. Rather than a human writing the rules, we give the computer \textit{examples} of correct behavior and let the computer \textit{figure out the rules itself}.
+Feed it thousands of spam emails and thousands of legitimate ones, and the algorithm will discover, on its own, what patterns distinguish the two!  
+This shift, from rule-writing to example-showing, is the core idea that makes machine learning so powerful and so different from everything that came before it (see Figure~\ref{fig:traditional_vs_ml}). 
+In traditional programming, data and rules go \textit{in}, and answers come \textit{out}. 
+In machine learning, data and answers (examples) go \textit{in}, and \textit{rules} come out. 
+The output of a machine learning system is not a prediction by itself. In this context, a model is a compact, learned representation of the patterns in the data that can then be applied to new, unseen inputs.
+
+Given how central machine learning has become, it's natural to wonder: if the field has existed since the 1950s, why are we only now seeing it become so widespread?
+The practical answer lies in two major limitations that held the field back for decades: the availability of large, high-quality datasets, and the sheer amount of computing power required. Machine learning is, at its core, a way to overcome a lack of explicit knowledge by leveraging an abundance of data. For much of its history, this abundance simply did not exist. The advent of cloud computing and advances in computer technology have enabled researchers and companies not only to store and process vast amounts of data, but also to access it seamlessly from anywhere in the world over the internet. Seemingly, companies across the world had a collective awakening to the importance of data collection and information modeling. This shift was not just about better algorithms, but about the sudden availability of massive datasets and the computing power, especially GPUs, needed to process them \cite{ibm2012bigdata,idc2021datasphere}.
+To put this explosion in perspective: in 2010, the world generated about 2 zettabytes of data over the entire year. \cite{statista2024data,idc2021datasphere}. 
+Today, we generate roughly 402 million terabytes of data every single day \cite{statista2024data}. For scale, one zettabyte is equal to one billion terabytes \cite{nistZB}. 
+Data collection has become so desirable that companies are even offering hardware products for free, simply to gather consumer usage data. This relentless pursuit of information underscores how valuable data has become in the modern economy, fueling advances in machine learning and finance alike.
+
+For decades, computing was all about the Central Processing Unit (CPU). 
+The CPU was the ``chef'' in the kitchen, following recipes (programs) step by step, one dish at a time.
+Programs were written, compiled or interpreted, and executed via the CPU, which excelled at handling a wide variety of tasks, but only a few at once.
+Incremental improvements in CPU performance have mostly come from smarter designs—such as adding more cores (moving from single-core to quad-core and beyond), refining how instructions are processed, and squeezing out more parallelism where possible. 
+But even with these advances, CPUs are still generalists: great at juggling many different tasks, but not built for the kind of massive, simultaneous number-crunching that modern machine learning demands.
+Researchers 
+
+For the last twenty years, it was widely claimed by the media, politicians, and parents, that the video game industry wouldn't amount to much.
+Ironic, isn't it? The same industry, once dismissed as a frivolous pastime, became the unlikely hero in the story of machine learning's rise. 
+Why? Because the relentless quest for ever more realistic graphics, such as lifelike shadows, explosions, and shimmering water, drove the development of the Graphical Processing Unit (GPU).
+Rendering a single video game scene means calculating the color and brightness of millions of pixels, all at once. 
+Each calculation is simple, but there are so many of them that only a processor designed for massive parallelism can keep up.
+This native design, centered around parallel processing, is perfectly suited for machine learning. 
+Training a modern ML model rarely requires solving one giant, complicated equation. 
+Instead, it involves doing millions of simple math operations, like matrix multiplications, at the same time.
+If a CPU is like one brilliant professor, a GPU is a stadium filled with 10,000 diligent students. Individually, each student can only do basic arithmetic, but working together, they can crunch through mountains of data.
+
+When researchers realized they could repurpose gaming GPUs to train machine learning models, the field exploded. 
+Algorithms that used to take months to train on a traditional computer could suddenly be completed in a few hours.
+Today, with the rise of cloud computing, this barrier has been significantly lowered. 
+You no longer need to buy a supercomputer to run advanced financial models. 
+
+This democratization of cheap, powerful computation has opened the door for financial machine learning, allowing even small teams to build and test sophisticated trading algorithms that once required the resources of Wall Street giants.
+
+\section{Supervised Learning}
+
+
+
+\input{figures/chapter0x/ML_vs_programming.tex}
 

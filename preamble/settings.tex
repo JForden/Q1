@@ -17,6 +17,15 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{enumitem}
+\definecolor{darkred}{RGB}{110,28,28}
+\definecolor{darkgreen}{RGB}{30,90,50}
+\newcommand{\circled}[1]{%
+  \tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1.5pt, line width=0.6pt] (char) {\small #1};
+  }%
+}
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{subcaption}

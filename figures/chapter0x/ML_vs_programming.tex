@@ -1,0 +1,79 @@
+% Requires: tcolorbox, tikz, xcolor (with darkred, darkgreen defined in preamble)
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+    box/.style={draw, rounded corners=3pt, minimum width=3.8cm, minimum height=1.2cm, align=center, font=\small},
+    arrow/.style={->, thick, >=stealth},
+    label/.style={font=\footnotesize\itshape, text width=2.5cm, align=center}
+]
+
+% ============ TRADITIONAL PROGRAMMING (Left) ============
+\node[font=\bfseries\sffamily, text=darkred] at (-4.5, 3.2) {Traditional Programming};
+
+% Input boxes
+\node[box, fill=gray!10] (data1) at (-5.8, 1.8) {Data};
+\node[box, fill=red!10, draw=darkred] (rules1) at (-3.2, 1.8) {Rules\\{\footnotesize (written by you)}};
+
+% Computer box
+\node[box, fill=blue!8, draw=blue!40!black, minimum width=4cm] (computer1) at (-4.5, 0) {Computer};
+
+% Output box
+\node[box, fill=green!10, draw=darkgreen] (output1) at (-4.5, -1.8) {Answers};
+
+% Arrows
+\draw[arrow] (data1.south) -- ++(0,-0.4) -| (computer1.north west);
+\draw[arrow] (rules1.south) -- ++(0,-0.4) -| (computer1.north east);
+\draw[arrow] (computer1.south) -- (output1.north);
+
+% Labels
+\node[label, anchor=east] at (-6.8, 1.8) {input};
+\node[label, anchor=west] at (-2.2, 1.8) {input};
+\node[label, anchor=east] at (-6.2, -1.8) {output};
+
+% ============ DIVIDER ============
+\draw[thick, dashed, gray] (0, 3.5) -- (0, -2.8);
+\node[font=\Large\bfseries, gray] at (0, -3.2) {vs};
+
+% ============ MACHINE LEARNING (Right) ============
+\node[font=\bfseries\sffamily, text=darkgreen] at (4.5, 3.2) {Machine Learning};
+
+% Input boxes
+\node[box, fill=gray!10] (data2) at (3.2, 1.8) {Data};
+\node[box, fill=green!10, draw=darkgreen] (answers2) at (5.8, 1.8) {Answers\\{\footnotesize (examples)}};
+
+% Computer box
+\node[box, fill=blue!8, draw=blue!40!black, minimum width=4cm] (computer2) at (4.5, 0) {Computer};
+
+% Output box
+\node[box, fill=red!10, draw=darkred] (rules2) at (4.5, -1.8) {Rules\\{\footnotesize (learned model)}};
+
+% Arrows
+\draw[arrow] (data2.south) -- ++(0,-0.4) -| (computer2.north west);
+\draw[arrow] (answers2.south) -- ++(0,-0.4) -| (computer2.north east);
+\draw[arrow] (computer2.south) -- (rules2.north);
+
+% Labels
+\node[label, anchor=east] at (2.2, 1.8) {input};
+\node[label, anchor=west] at (6.8, 1.8) {input};
+\node[label, anchor=west] at (6.2, -1.8) {output};
+
+\end{tikzpicture}
+
+\vspace{1em}
+
+\begin{tcolorbox}[
+    colback=blue!3!white,
+    colframe=blue!40!black,
+    arc=2pt,
+    boxrule=0.5pt,
+    width=0.95\textwidth,
+    halign=center,
+    top=3pt, bottom=3pt
+]
+\textbf{Key insight:} In traditional programming, \emph{you} write the rules. In machine learning, the algorithm \emph{discovers} the rules by studying examples.
+\end{tcolorbox}
+
+\caption{Traditional programming versus machine learning. On the left, the programmer supplies both data and hand-coded rules; the computer produces answers. On the right, the programmer supplies data and example answers; the computer produces the rules (a trained model).}
+\label{fig:traditional_vs_ml}
+\end{figure}
