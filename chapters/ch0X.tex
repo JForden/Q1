@@ -72,6 +72,10 @@ You no longer need to buy a supercomputer to run advanced financial models.
 
 This democratization of cheap, powerful computation has opened the door for financial machine learning, allowing even small teams to build and test sophisticated trading algorithms that once required the resources of Wall Street giants.
 
+
+\input{figures/chapter0x/ML_vs_programming.tex}
+
+
 \section{Supervised Learning}
 
 Historically, epigraphy (the study of ancient inscriptions) was a painstakingly manual process, requiring years of linguistic expertise and comparison with known texts like the Rosetta Stone.
@@ -80,10 +84,62 @@ Researchers would document each symbol, cross-reference it with known languages,
 In 2017, Ubisoft, a video game company, launched a research project called \textit{The Hieroglyphics Initiative} to coincide with the release of their game Assassin's Creed Origins (which is set in ancient Egypt).
 Their goal was to see if machine learning could streamline the cataloging of the pharaohs' language.
 They did this by training a machine learning model on a large set of examples, like a stack of flashcards with both the hieroglyph and its translation.
-The algorithm's job was to study these examples and learn the underlying patterns that connect input (the symbol) to output (the meaning). 
-Once trained, the algorithm can look at a new, never-before-seen symbol and make an educated guess about its meaning, just as a seasoned epigrapher might.
- 
+While it took centuries for scholars to build the catalog of known Egyptian symbols, a supervised model can process thousands of images in seconds, flagging uncertain symbols for human review and drastically reducing the manual labor of epigraphy.
+The model performed remarkably well, accurately identifying the majority of hieroglyphs and demonstrating that AI could significantly accelerate the study and translation of ancient texts while still relying on human expertise for ambiguous cases.
+
+This application of machine learning is known as \textbf{supervised learning}, where the model is trained on a labeled dataset, learning to map inputs (like images of hieroglyphs) to outputs (their translations). 
+This pattern, learning from examples with known answers, underpins everything from image recognition to predicting tomorrow's stock price.
+
+Supervised learning is a type of machine learning where the model is trained on a \textbf{labeled dataset}, meaning that each input data point is paired with the correct output. 
+The model learns to map inputs to outputs by finding patterns in the data. Once trained, the model can make predictions on new, unseen data. 
+This labeled dataset is broken into two key pairs: \textbf{features} and \textbf{labels}. 
+Features are the measurable properties or characteristics of the data, while labels are the outcomes or targets that we want to predict.
+
+In our financial context, features might include recent price changes, trading volume, or technical indicators such as the relative strength index or exponential moving average. Labels are the outcomes we want to predict—like whether a trade will be profitable or not.
+
+For many years, researchers tried to predict the exact next price of an asset. 
+But as we've discussed in previous chapters, so many unpredictable factors influence price that this is a daunting task. Instead, we often simplify the problem: rather than guessing the next price, we ask the model to classify the next movement as ``profitable'' or ``unprofitable'' for a given trading strategy.
+
+This leads to two main types of supervised learning problems:
+\begin{itemize}
+	\item \textbf{Classification:} The model assigns each input to a category, such as ``profitable'' or ``unprofitable.'' For example, using a moving average crossover strategy, the model learns from historical data to predict whether the next trade will succeed or not.
+	\item \textbf{Regression:} The model predicts a continuous value, like the exact next price of an asset.
+\end{itemize}
+
+In this book, we'll focus mainly on classification, since it's often more practical and robust in financial applications.
+In traditional programming, we know a developer is responsible for the rules, but we noted that ML flips this model on its head. 
+So, how does a model actually learn from the data?
+If anyone remembers a game called ```20 Questions''' you can relate to how a model learns. 
+In this game, one player thinks of an object, and the other player asks yes/no questions to narrow down the possibilities.
+In a similar way, a machine learning model learns by asking questions about the features in the data. 
+Similar to the different strategies a player might use in 20 Questions, there are different algorithms that can be used to learn from a dataset, each with its own strengths and weaknesses.
+
+\begin{itemize}
+    \item \textbf{transformers/CNN} transformers and convolutional neural networks (CNNs) are powerful for processing sequential or spatial data, such as time series or images.
+    \item \textbf{decision trees} decision trees are a simple yet effective algorithm that splits the data into branches based on feature values, making decisions at each node.
+    \item \textbf{random forests} random forests are an ensemble method that combines multiple decision trees to improve accuracy and reduce overfitting.
+    \item \textbf{gradient boosting} gradient boosting is another ensemble technique that builds trees sequentially, where each new tree corrects the errors of the previous ones.
+\end{itemize}
+
+In the next section, we'll explore how decision trees work, and why they are a popular choice for financial machine learning applications. 
+We'll also discuss how to evaluate the performance of these models and ensure they generalize well to new data, rather than just memorizing historical patterns.
+
+\section{Random Forest}
 
 
-\input{figures/chapter0x/ML_vs_programming.tex}
+Have you ever played 20 Questions with a friend? If so, you've already used a decision tree!
 
+In our previous section, we introduced multiple supervised learning algorithms, including decision trees and ensemble methods like random forests. A decision tree is just a hierarchical structure (top-down) that splits the data into branches based on feature values, making decisions at each node. A model reaches a decision by traversing a decision tree from the \textbf{root node} to a \textbf{leaf node}, where the final prediction is made.
+
+The root node is the topmost node in a decision tree, representing the entire dataset. A leaf node, on the other hand, is a terminal node that provides the final output or prediction for a given input. It's a node without any child nodes (branches), and it represents the end of a decision path in the tree.
+
+Along the way, the model passes through internal nodes. Think of these as the decision points where you ask, ``Does it live in water?'' or ``Is it man-made?''
+
+In the example visualized in Figure~\ref{20q}, a 5-level decision tree is used to play the game of 20 Questions. The root node in this case is \textit{Is it a living thing?}. There are several internal nodes such as \textit{Does it live in water?}, \textit{Is it an animal?}, and \textit{Is it man-made?}. The leaf nodes represent the final answers, such as \textit{whale}, \textit{tree}, or \textit{rock}.
+
+\begin{figure}[ht]
+  \centering
+  \label{20q}
+  \includegraphics[width=0.8\textwidth]{figures/chapter0x/DecisionTreeClassification.png}
+  \caption{A 5-level decision tree for 20 Questions.}
+\end{figure}
