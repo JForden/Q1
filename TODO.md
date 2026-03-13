@@ -87,6 +87,24 @@
     - **4.7 Overfitting as memorization:** Why perfect training accuracy can fail in live markets.
     - **4.8 Random forest intuition:** Many constrained trees + voting to reduce noise memorization.
 
+Raw Market Data
+      ↓
+Feature Engineering
+      ↓
+Training Dataset (X, y)
+      ↓
+Model Training
+      ↓
+Prediction
+
+
+
+
+
+
+
+
+
 - [ ] **Define the chapter data contract clearly:**
     - **4.9 Feature matrix (`X`) structure:** Rows = dollar bars; columns = engineered features.
     - **4.10 Target variable (`y`) definition:** `1` if next bar closes higher, `0` otherwise.

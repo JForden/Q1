@@ -1,7 +1,9 @@
 % Shared package setup for textbook chapters and side-note layout.
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+% XeLaTeX: fontenc, inputenc, lmodern not needed
+\usepackage{fontspec}
+\usepackage{microtype}
+% Egyptian Hieroglyphs font (requires Noto Sans Egyptian Hieroglyphs installed)
+\newfontfamily\egyptfont{Noto Sans Egyptian Hieroglyphs}
 \usepackage{microtype}
 \usepackage[
     a4paper,
@@ -15,12 +17,25 @@
 \usepackage{setspace}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
+\usepackage{array}
+\usepackage{hieroglf}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shadows.blur}
+% Pipeline diagram color definitions
+\definecolor{pipenavy}{RGB}{26,  47,  89}
+\definecolor{pipemid}{RGB}{25, 118, 130}
+\definecolor{pipeteal}{RGB}{17, 150, 150}
+\definecolor{pipegreen}{RGB}{31, 120,  85}
+\definecolor{callout}{RGB}{0, 188, 188}
 \usepackage{enumitem}
 \definecolor{darkred}{RGB}{110,28,28}
 \definecolor{darkgreen}{RGB}{30,90,50}
+% Decision tree/table color codes
+\definecolor{puregreen}{RGB}{0, 120, 80}
+\definecolor{impurered}{RGB}{180, 40, 40}
+\definecolor{midgold}{RGB}{160, 110, 0}
 \newcommand{\circled}[1]{%
   \tikz[baseline=(char.base)]{
     \node[shape=circle, draw, inner sep=1.5pt, line width=0.6pt] (char) {\small #1};

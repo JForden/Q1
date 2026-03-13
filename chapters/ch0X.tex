@@ -1,13 +1,9 @@
 
 \chapter{Machine Learning}
 
-From Netflix recommendations to self-driving cars, to the stock market, machine learning (ML) is quietly shaping the
-systems we use every day. But what is it, really?
+From Netflix recommendations to self-driving cars and the stock market, machine learning (ML) is quietly shaping the systems we use every day. But what is it, really?
 
-At its heart, machine learning is about teaching computers to learn from experience. In a standard setting, this is like teaching a
-child to recognize a cat by showing them lots of pictures and giving feedback. Instead of writing a long, rigid list of rules (like
-``if it has pointy ears and whiskers, it's a cat''), we let the computer discover the patterns in the data and improve its own
-performance over time.
+At its heart, machine learning is about teaching computers to learn from experience. This is similar to teaching a child to recognize a cat by showing them lots of pictures and giving feedback. Instead of writing long, rigid lists of rules (like ``if it has pointy ears and whiskers, it's a cat''), we let the computer discover the patterns in the data and improve its own performance over time.
 
 Today, ML powers everything from voice assistants to medical diagnosis. In finance, it helps spot fraud, optimize portfolios, and
 predict future market direction. But financial machine learning has a unique challenge: unlike a clear picture of a cat, market data
@@ -25,42 +21,39 @@ you'll be ready to judge whether your model is actually uncovering a true market
 
 Before we dive into the mechanics of machine learning, let us pause and consider how algorithms already shape our daily lives.
 Every time you unlock your phone with your face, get a movie suggestion from Netflix, or follow a recipe to bake cookies, you are relying on algorithms at work.
-These are not just abstract computer concepts, they are the invisible instructions guiding everything from your morning routine to the apps you use.
+These are not just abstract computer concepts; they are the invisible instructions guiding everything from your morning routine to the apps you use.
 In fact, we have all been using algorithms our entire lives, often without realizing it. Whether you are tying your shoes, solving a Rubik's cube, or deciding what to eat for breakfast, your daily routines are full of these stepwise procedures.
 So, what exactly is an \textbf{algorithm}? Think of it as a recipe: a clear, step-by-step set of instructions for turning raw ingredients (your input) into a finished dish (your output).
 In machine learning, algorithms are the backbone: they tell the computer exactly how to turn real-world data into useful predictions or decisions. 
 
 In traditional programming, a developer writes explicit rules that the computer must follow, a series of \texttt{if-then-else} statements and conditions that form the basis of a program.
 Want to detect spam email? A traditional programmer might write: ``\textit{if the subject line contains the word `FREE' and the sender is unknown, mark as spam.}''
-This works reasonably well,  until the spammers start writing ``FR\$\$'' instead of ``FREE,'' and the programmer has to update the rules again.
+This works reasonably well until spammers start writing ``FR\$\$'' instead of ``FREE,'' and the programmer has to update the rules again.
 The fundamental limitation is clear: \textit{the programmer must anticipate every case in advance}. 
 
 \textbf{Machine learning} (ML) flips this model on its head. Rather than a human writing the rules, we give the computer \textit{examples} of correct behavior and let the computer \textit{figure out the rules itself}.
 Feed it thousands of spam emails and thousands of legitimate ones, and the algorithm will discover, on its own, what patterns distinguish the two!  
 This shift, from rule-writing to example-showing, is the core idea that makes machine learning so powerful and so different from everything that came before it (see Figure~\ref{fig:traditional_vs_ml}). 
+Traditional programming requires exact instructions and requires human programmers to anticipate every possible scenario.
 In traditional programming, data and rules go \textit{in}, and answers come \textit{out}. 
-In machine learning, data and answers (examples) go \textit{in}, and \textit{rules} come out. 
-The output of a machine learning system is not a prediction by itself. In this context, a model is a compact, learned representation of the patterns in the data that can then be applied to new, unseen inputs.
+In machine learning, data and answers (examples) go \textit{in}, and \textit{rules} come out.  
+The output of the training process is not a prediction but a model—a compact mathematical representation of patterns in the data that can later be used to make predictions on new inputs.
 
 Given how central machine learning has become, it's natural to wonder: if the field has existed since the 1950s, why are we only now seeing it become so widespread?
-The practical answer lies in two major limitations that held the field back for decades: the availability of large, high-quality datasets, and the sheer amount of computing power required. Machine learning is, at its core, a way to overcome a lack of explicit knowledge by leveraging an abundance of data. For much of its history, this abundance simply did not exist. The advent of cloud computing and advances in computer technology have enabled researchers and companies not only to store and process vast amounts of data, but also to access it seamlessly from anywhere in the world over the internet. Seemingly, companies across the world had a collective awakening to the importance of data collection and information modeling. This shift was not just about better algorithms, but about the sudden availability of massive datasets and the computing power, especially GPUs, needed to process them \cite{ibm2012bigdata,idc2021datasphere}.
-To put this explosion in perspective: in 2010, the world generated about 2 zettabytes of data over the entire year. \cite{statista2024data,idc2021datasphere}. 
-Today, we generate roughly 402 million terabytes of data every single day \cite{statista2024data}. For scale, one zettabyte is equal to one billion terabytes \cite{nistZB}. 
+The practical answer lies in two major limitations that held the field back for decades: the availability of large, high-quality datasets, and the sheer amount of computing power required. At its core, machine learning compensates for a lack of explicit rules by leveraging large amounts of data. For much of its history, however, such data simply did not exist. The advent of cloud computing and advances in computer technology have enabled researchers and companies not only to store and process vast amounts of data, but also to access it seamlessly from anywhere in the world over the internet. Companies across the world had a collective awakening to the importance of data collection and information modeling. This shift was not just about better algorithms, but about the sudden availability of massive datasets and the computing power, especially GPUs, needed to process them \cite{ibm2012bigdata,idc2021datasphere}.
+To put this explosion in perspective: in 2010, the world generated about 2 zettabytes of data over the entire year \cite{statista2024data,idc2021datasphere}. Today, we generate roughly 402 million terabytes of data every single day \cite{statista2024data}. For scale, one zettabyte is equal to one billion terabytes \cite{nistZB}.
 Data collection has become so desirable that companies are even offering hardware products for free, simply to gather consumer usage data. This relentless pursuit of information underscores how valuable data has become in the modern economy, fueling advances in machine learning and finance alike.
 
 For decades, computing was all about the Central Processing Unit (CPU). 
 The CPU was the ``chef'' in the kitchen, following recipes (programs) step by step, one dish at a time.
 Programs were written, compiled or interpreted, and executed via the CPU, which excelled at handling a wide variety of tasks, but only a few at once.
 Incremental improvements in CPU performance have mostly come from smarter designs—such as adding more cores (moving from single-core to quad-core and beyond), refining how instructions are processed, and squeezing out more parallelism where possible. 
-But even with these advances, CPUs are still generalists: great at juggling many different tasks, but not built for the kind of massive, simultaneous number-crunching that modern machine learning demands.
-Researchers 
+But even with these advances, CPUs remain general-purpose processors. They are excellent at juggling many different tasks, but they are not designed for the massive parallel number-crunching that modern machine learning demands.
 
 For the last twenty years, it was widely claimed by the media, politicians, and parents, that the video game industry wouldn't amount to much.
 Ironic, isn't it? The same industry, once dismissed as a frivolous pastime, became the unlikely hero in the story of machine learning's rise. 
 Why? Because the relentless quest for ever more realistic graphics, such as lifelike shadows, explosions, and shimmering water, drove the development of the Graphical Processing Unit (GPU).
-Rendering a single video game scene means calculating the color and brightness of millions of pixels, all at once. 
-Each calculation is simple, but there are so many of them that only a processor designed for massive parallelism can keep up.
-This native design, centered around parallel processing, is perfectly suited for machine learning. 
+Rendering a single video game frame requires calculating the color and brightness of millions of pixels simultaneously. Each calculation is simple, but there are so many of them that only a processor designed for massive parallelism can keep up. This native design, centered around parallel processing, is perfectly suited for machine learning.
 Training a modern ML model rarely requires solving one giant, complicated equation. 
 Instead, it involves doing millions of simple math operations, like matrix multiplications, at the same time.
 If a CPU is like one brilliant professor, a GPU is a stadium filled with 10,000 diligent students. Individually, each student can only do basic arithmetic, but working together, they can crunch through mountains of data.
@@ -72,6 +65,21 @@ You no longer need to buy a supercomputer to run advanced financial models.
 
 This democratization of cheap, powerful computation has opened the door for financial machine learning, allowing even small teams to build and test sophisticated trading algorithms that once required the resources of Wall Street giants.
 
+\subsection{What Makes a Machine Learn}
+
+
+One of the most puzzling aspects of machine learning is the word ``learning'' itself. When we say a machine ``learns,'' we don't mean it in the same way a human does—there's no sudden flash of insight, no ``aha!'' moment. Instead, the process is more like a chef perfecting a recipe by making small tweaks, tasting, and adjusting the ingredients to get closer to the perfect flavor.
+
+But how do we even begin to describe what a machine is doing when it ``learns''? This is where a bit of mathematical formalism becomes not just helpful, but essential. Imagine you want to teach a computer to predict tomorrow's stock price, or whether an email is spam. You could try to write down a giant list of rules, but the real world is far too messy for that—there are simply too many possibilities, too much noise, and too many exceptions. Instead, we turn to a more general, abstract way of thinking: we imagine there is some unknown function $g$ that takes an input $x$ (like today's market data, or the words in an email) and produces an output $f$ (tomorrow's price, or a spam/not-spam label). Mathematically, we write this as:
+\[
+f = g(x)
+\]
+
+This little equation is deceptively powerful. It says: whatever the task, there is some mapping from inputs to outputs, and our job is to discover (or approximate) the function $g$ that best captures the patterns in the data. But here's the catch: we almost never know what $g$ actually is! If we did, we wouldn't need machine learning at all—we'd just write down the formula and be done. The art and science of machine learning is all about searching for a good $g$—one that does well on the data we've seen, and hopefully generalizes to new data we haven't seen yet. This is why machine learning is fundamentally an optimization problem: we are searching for the function $g$ (from a vast space of possible functions) that best fits our data.
+
+But how does the machine ``learn'' this function? The process starts with a collection of background data—think of it as a set of practice problems. The model uses algorithms (its ``study strategies'') to search for patterns in this data. Each time it makes a prediction, it checks how close it was to the correct answer, much like a student checking their answers in the back of the textbook. Here's where the ``learning'' comes in: after each attempt, the model measures its error (how far off it was from the correct answer) and then adjusts its internal parameters to do better next time. This is a feedback loop—predict, check, adjust, repeat. Over many cycles, the model gradually improves.
+
+This feedback-driven process is the heart of machine learning. The machine isn't developing intuition or understanding in the human sense; it's methodically tuning itself to minimize errors, one step at a time. In the end, what we call ``learning'' is really a process of continuous, data-driven improvement.
 
 \input{figures/chapter0x/ML_vs_programming.tex}
 
@@ -82,60 +90,64 @@ Historically, epigraphy (the study of ancient inscriptions) was a painstakingly 
 The process involved meticulous analysis of symbols, their contexts, and their relationships to one another.
 Researchers would document each symbol, cross-reference it with known languages, and gradually piece together the meanings.
 In 2017, Ubisoft, a video game company, launched a research project called \textit{The Hieroglyphics Initiative} to coincide with the release of their game Assassin's Creed Origins (which is set in ancient Egypt).
+
 Their goal was to see if machine learning could streamline the cataloging of the pharaohs' language.
 They did this by training a machine learning model on a large set of examples, like a stack of flashcards with both the hieroglyph and its translation.
-While it took centuries for scholars to build the catalog of known Egyptian symbols, a supervised model can process thousands of images in seconds, flagging uncertain symbols for human review and drastically reducing the manual labor of epigraphy.
+What took scholars centuries, the model accomplished in minutes—processing thousands of images, flagging uncertain symbols for human review, and transforming the pace of epigraphy.
+This is the promise of machine learning: not just speed, but the ability to scale human expertise beyond what was ever possible.
 The model performed remarkably well, accurately identifying the majority of hieroglyphs and demonstrating that AI could significantly accelerate the study and translation of ancient texts while still relying on human expertise for ambiguous cases.
 
-This application of machine learning is known as \textbf{supervised learning}, where the model is trained on a labeled dataset, learning to map inputs (like images of hieroglyphs) to outputs (their translations). 
+This application of machine learning is known as \textbf{supervised learning}, where the model is trained on a labeled dataset(x), learning to map inputs (like images of hieroglyphs) to outputs (their translations) (y). 
 This pattern, learning from examples with known answers, underpins everything from image recognition to predicting tomorrow's stock price.
 
-Supervised learning is a type of machine learning where the model is trained on a \textbf{labeled dataset}, meaning that each input data point is paired with the correct output. 
+Supervised learning is a type of machine learning where the model is trained on a \textbf{labeled dataset}, meaning that each input data point is paired with the correct output(see figure \ref{fig:hieroglyph-labeled}). 
+
+\input{figures/chapter0x/HieroglyphTable.tex}
+
 The model learns to map inputs to outputs by finding patterns in the data. Once trained, the model can make predictions on new, unseen data. 
-This labeled dataset is broken into two key pairs: \textbf{features} and \textbf{labels}. 
-Features are the measurable properties or characteristics of the data, while labels are the outcomes or targets that we want to predict.
+This labeled dataset is broken into two key pairs: \textbf{features} and \textbf{labels}. You can see an example of this in Table~\ref{tab:hieroglyph-features}.
 
-In our financial context, features might include recent price changes, trading volume, or technical indicators such as the relative strength index or exponential moving average. Labels are the outcomes we want to predict—like whether a trade will be profitable or not.
+Features are the measurable properties or characteristics of the data, while labels are the outcomes or targets that we want to predict. In the hieroglyph example, the features might include the number of curved strokes, straight strokes, whether the glyph has eyes, whether it represents an animal, and whether it is vertical. The label is the correct translation of the glyph.
 
-For many years, researchers tried to predict the exact next price of an asset. 
-But as we've discussed in previous chapters, so many unpredictable factors influence price that this is a daunting task. Instead, we often simplify the problem: rather than guessing the next price, we ask the model to classify the next movement as ``profitable'' or ``unprofitable'' for a given trading strategy.
+This is a classic \textbf{classification} problem: the model learns to assign each glyph to a discrete category (``Owl,'' ``Water,'' ``Viper,'' etc.) based on its features. In other words, given the measurable properties of a glyph, the model predicts which class (translation) it belongs to. This mirrors the most common use of supervised learning in finance, where the goal is to classify market conditions or trading opportunities into categories like ``profitable'' or ``unprofitable.''
 
-This leads to two main types of supervised learning problems:
-\begin{itemize}
-	\item \textbf{Classification:} The model assigns each input to a category, such as ``profitable'' or ``unprofitable.'' For example, using a moving average crossover strategy, the model learns from historical data to predict whether the next trade will succeed or not.
-	\item \textbf{Regression:} The model predicts a continuous value, like the exact next price of an asset.
-\end{itemize}
+\input{figures/chapter0x/HieroglyphLabels.tex}
 
-In this book, we'll focus mainly on classification, since it's often more practical and robust in financial applications.
-In traditional programming, we know a developer is responsible for the rules, but we noted that ML flips this model on its head. 
-So, how does a model actually learn from the data?
-If anyone remembers a game called ```20 Questions''' you can relate to how a model learns. 
-In this game, one player thinks of an object, and the other player asks yes/no questions to narrow down the possibilities.
-In a similar way, a machine learning model learns by asking questions about the features in the data. 
-Similar to the different strategies a player might use in 20 Questions, there are different algorithms that can be used to learn from a dataset, each with its own strengths and weaknesses.
+
+Classification is the primary tool we'll use in this course, because it allows us to make robust, actionable predictions about market or asset behavior without getting bogged down in the noise of trying to predict exact prices. Car manufacturers, for example, classify their vehicles into categories like ``sedan,'' ``SUV,'' or ``truck'' based on features like size, shape, and engine type. When we see a new car, we are usually able to generalize and classify it correctly, even if we haven't seen that exact make and model before.
+
+
+For completeness, it's worth noting that \textbf{regression} is the other main branch of supervised learning. In regression, the model predicts a continuous value (such as the next price of an asset or tomorrow's temperature) based on input features. Regression is used when we need to answer questions like ``how much'' or ``to what extent.'' While regression is powerful and widely used in many fields, in finance it is often less practical due to the unpredictable nature of markets. That's why, in this book, we focus mainly on classification.
+
+We know what we want the model to predict. The question now is how it learns to do it.
+
+If you remember a game called ``20 Questions,'' you can relate to how a model learns. In this game, one player thinks of an object, and the other player asks yes/no questions to narrow down the possibilities. In a similar way, a machine learning model learns by asking questions about the features in the data. The strategies a player might use in 20 Questions are like the different algorithms we can use to learn from a dataset, each with its own strengths and weaknesses:
 
 \begin{itemize}
-    \item \textbf{transformers/CNN} transformers and convolutional neural networks (CNNs) are powerful for processing sequential or spatial data, such as time series or images.
-    \item \textbf{decision trees} decision trees are a simple yet effective algorithm that splits the data into branches based on feature values, making decisions at each node.
-    \item \textbf{random forests} random forests are an ensemble method that combines multiple decision trees to improve accuracy and reduce overfitting.
-    \item \textbf{gradient boosting} gradient boosting is another ensemble technique that builds trees sequentially, where each new tree corrects the errors of the previous ones.
+  \item \textbf{Decision Trees:} Simple yet effective algorithms that split the data into branches based on feature values, making decisions at each node.
+  \item \textbf{Random Forests:} An ensemble method that combines multiple decision trees to improve accuracy and reduce overfitting.
+  \item \textbf{Gradient Boosting:} Another ensemble technique that builds trees sequentially, where each new tree corrects the errors of the previous ones.
+  \item \textbf{Neural Networks (CNNs / Transformers):} Used for complex structured data such as images, language, or sequences.
 \end{itemize}
 
-In the next section, we'll explore how decision trees work, and why they are a popular choice for financial machine learning applications. 
-We'll also discuss how to evaluate the performance of these models and ensure they generalize well to new data, rather than just memorizing historical patterns.
+In the next section, we'll dive into the differences of these learning techniques and how they are implemented in practice. We'll also discuss how to evaluate the performance of these models and ensure they generalize well to new data, rather than just memorizing historical patterns.
 
-\section{Random Forest}
-
+\section{Decision Trees}
 
 Have you ever played 20 Questions with a friend? If so, you've already used a decision tree!
 
-In our previous section, we introduced multiple supervised learning algorithms, including decision trees and ensemble methods like random forests. A decision tree is just a hierarchical structure (top-down) that splits the data into branches based on feature values, making decisions at each node. A model reaches a decision by traversing a decision tree from the \textbf{root node} to a \textbf{leaf node}, where the final prediction is made.
+A decision tree is just a hierarchical structure (top-down) that splits the data into branches based on feature values, making decisions at each node. 
+A model reaches a decision by traversing a decision tree from the \textbf{root node} to a \textbf{leaf node}, where the final prediction is made.
 
-The root node is the topmost node in a decision tree, representing the entire dataset. A leaf node, on the other hand, is a terminal node that provides the final output or prediction for a given input. It's a node without any child nodes (branches), and it represents the end of a decision path in the tree.
-
-Along the way, the model passes through internal nodes. Think of these as the decision points where you ask, ``Does it live in water?'' or ``Is it man-made?''
-
-In the example visualized in Figure~\ref{20q}, a 5-level decision tree is used to play the game of 20 Questions. The root node in this case is \textit{Is it a living thing?}. There are several internal nodes such as \textit{Does it live in water?}, \textit{Is it an animal?}, and \textit{Is it man-made?}. The leaf nodes represent the final answers, such as \textit{whale}, \textit{tree}, or \textit{rock}.
+The root node is the topmost node in a decision tree, representing the entire dataset. 
+A leaf node, on the other hand, is a terminal node that provides the final output or prediction for a given input. 
+It's a node without any child nodes (branches), and it represents the end of a decision path in the tree.
+Along the way, the model passes through internal nodes. Think of these as the decision points where you ask, ``Does it live in water?'' or ``Is it man-made?''. 
+Internal nodes have one or more child nodes and represent the features used to split the data.
+In the example visualized in Figure~\ref{20q}, a 5-level decision tree is used to play the game of 20 Questions. 
+The root node in this case is \textit{Is it a living thing?}.
+There are several internal nodes such as \textit{Does it live in water?}, \textit{Is it an animal?}, and \textit{Is it man-made?}. 
+The leaf nodes represent the final answers, such as \textit{whale}, \textit{tree}, or \textit{rock}.
 
 \begin{figure}[ht]
   \centering
@@ -143,3 +155,179 @@ In the example visualized in Figure~\ref{20q}, a 5-level decision tree is used t
   \includegraphics[width=0.8\textwidth]{figures/chapter0x/DecisionTreeClassification.png}
   \caption{A 5-level decision tree for 20 Questions.}
 \end{figure}
+
+Decision trees are popular in financial machine learning because they allow for easy interpretation of the model's decision-making process.
+It also allows for sequential decision-making based on the features of the data, which is particularly useful in trading strategies where decisions are often made based on a series of conditions. 
+This idea is central to one of the main benefits of decision trees: They are great at capturing complex, non-linear relationships between features, labels, and outcomes. 
+
+Let's consider an example of a bank that wants to predict whether a customer should be approved for a loan. 
+The bank has historical data on previous loan applicants, including features like credit score, employment history, debt-to-income ratio, income, and the purpose of the loan. 
+At the root node, the tree might start by asking: ``Is the applicant's credit score above 700?'' If the answer is yes, the tree follows one branch; if no, it follows another. 
+At the next node, it might ask: ``Is the applicant's annual income greater than \$50,000?''
+Again, the answer determines the next branch. 
+This process continues, with each internal node representing a question about a feature (like debt-to-income ratio or employment status), until the tree reaches a leaf node that gives the final decision: ``Approve loan'' or ``Deny loan.''
+
+\begin{center}
+\begin{tikzpicture}[level distance=2cm,
+level 1/.style={sibling distance=4cm},
+level 2/.style={sibling distance=2cm}]
+\node {Credit Score 
+>
+> 700?}
+child {node {Income 
+>
+> \$50k?}
+child {node {Approve}}
+child {node {Deny}}
+}
+child {node {Deny}};
+\end{tikzpicture}
+\end{center}
+
+Of course, real-world decision trees can be much deeper and more complex, but the core idea remains the same: at each step, the tree asks a question about the data, and the answer determines the next step, until a final decision is reached.
+The jump from approving bank loans to algorithmic trading is smaller than it might seem. 
+Just as a loan officer evaluates a borrower's credit score and income to assess risk, a quantitative model evaluates market indicators to assess the probability of a profitable trade.
+Consider a simple trading strategy built on just two features:
+\begin{itemize}
+  \item Relative Strength Index (RSI): A momentum indicator that measures whether an asset is "overbought" (priced too high) or "oversold" (priced too low). 
+  \item Average True Range (ATR): A volatility indicator that measures how much an asset's price is fluctuating
+\end{itemize}
+
+Instead of writing a rigid rule like "always buy when the RSI is low," we can let a decision tree discover the nuanced relationship between momentum and volatility. 
+The above example only accounts for two features, but in practice, a decision tree can handle dozens or even hundreds of features. 
+This flexibility allows it to capture complex patterns in the data that might be missed by simpler, rule-based approaches. 
+
+\subsection{Overfitting}
+
+Decision-tree learners are prone to a problem known as \textbf{overfitting}.
+In plain terms, overfitting happens when a model memorizes the training data, including all its random quirks and noise.
+Instead of learning the true underlying patterns, the model simply recalls the specifics of the training set.
+This is especially problematic in finance, where data is notoriously noisy and there are often thousands of potential features to consider.
+It's also arguable that many of these features aren't even relevant to the trading strategy at hand.
+Let's generalize our example above. Suppose instead of just two features, we have a list of 10,000, and we want to predict whether a trade will be profitable.
+Now, our model is like a detective working on a cold case, sifting through mountains of evidence, searching for any clue that might crack the case.
+Sometimes, the detective finds a pattern that seems to explain everything, but it's really just a coincidence.
+By focusing too much on the training data and building an overly complex decision tree, the model loses sight of the bigger picture.
+It does this by creating branches for every little detail in the training data, even those that are irrelevant or random.
+The result is a hierarchical tree that becomes so many levels deep that it perfectly classifies the training data, but fails to generalize to new, unseen data.
+In finance, this can mean the difference between a model that looks like a genius in backtests and one that loses money in the real world.
+Overfitting was a major problem in the early days of financial machine learning, with quantitative researchers often reporting incredible trading accuracy in testing, only to be disappointed by a model being unable to translate the lessons learned to live trading.
+
+\subsection{Pruning}
+
+The general rule of thumb is a decision tree should be as simple as possible. In machine learning, one can abstract Sir Tony Hoare's famous quote: there are two ways of constructing a machine learning model: one way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies.
+Overfitting is a classic example of the second approach. To combat this, we use a technique called \textbf{pruning}, which is like trimming a tree to remove unnecessary branches.
+Pruning is a process that removes branches that have little importance. Removing these branches helps strip away the noise. 
+This is typically done using two techniques: \textbf{pre-pruning} and \textbf{post-pruning}.
+Pre-pruning is about halting the growth of the tree before it becomes too complex.
+Pre-pruning techniques include the following:
+\begin{itemize}
+  \item \textbf{Maximum Depth:} Limit the depth of the tree to prevent it from growing too complex.
+  \item \textbf{Minimum Samples per Leaf:} Require a minimum number of data points in a leaf node before allowing a split.
+  \item \textbf{Minimum Samples per Split:} Require a minimum number of data points in a node before allowing a split.
+  \item \textbf{Maximum Features:} Limit the number of features considered for splitting at each node.
+\end{itemize}
+Post-pruning, on the other hand, allows the tree to grow fully and then trims it back afterward.
+Post-pruning techniques include the following:
+\begin{itemize}
+  \item \textbf{Cost Complexity Pruning:} Uses a pruning parameter ($\alpha$) to balance accuracy and size.
+  \item \textbf{Reduced Error Pruning:} Removes branches that do not improve the overall accuracy of the model.
+  \item \textbf{Minimum Impurity Decrease:} Only keeps branches that actually help the tree make better decisions; tiny improvements are ignored to keep things simple.
+  \item \textbf{Minimum Leaf Size:} Makes sure each final decision in the tree is based on enough examples, so the model doesn't make rules from just a few odd cases.
+\end{itemize}
+In practice, pre-pruning is faster and post-pruning tends to produce slightly better trees—but both share the same goal: a model that generalizes rather than memorizes.
+
+\subsection{Choosing the Best Attribute}
+
+Now that we've seen how to keep our trees from growing wild, let's turn to the next big question: when the model reaches a decision point, how does it choose which feature to split on? 
+Humans might be able to make this choise based on visual indicators, intution, or experience, but a machine needs a more systematic approach.
+The ability to choose the best attribute is ultimatly the heart of what makes a decision tree smart, and it's where the math gets interesting.
+
+
+The way a decision tree chooses the best attribute is by measuring how well each feature separates the data into distinct classes. To do this, it needs a way to judge how "pure" each group is after a split.
+
+A node is considered pure based on how mixed or unmixed the data is in a group after a split:
+\begin{itemize}
+  \item A node is "pure" if all the samples in it belong to the same class (for example, all are "cats" or all are "dogs").
+  \item A node is "impure" if it contains a mix of different classes (some "cats" and some "dogs" together).
+\end{itemize}
+
+A decision tree tries to split the data so that each group (node) is as pure as possible—meaning each group contains mostly just one kind of thing. The purer the node, the easier it is for the tree to make a confident decision.
+
+To measure this, decision trees use two main metrics: \textbf{Gini Impurity} and \textbf{Information Gain}. Both metrics quantify the "purity" of the nodes after a split, but they do so in slightly different ways.
+
+\subsubsection{Information Gain}
+
+Information gain relies on the concept of entropy, which measure the amount of uncertainty or disorder in a dataset. 
+Think of entropy as a way to measure how "mixed up" or uncertain a group of data is. 
+A high entropy means the data is very mixed (lots of different classes), while low entropy means the data is more ordered (mostly one class).
+It is scored on a simple scale from 0 to 1. 
+
+\begin{itemize}
+  \item \textbf{Perfect Purity} (Entropy = 0): The data is perfectly sorted. For example, a basket containing only apples has zero entropy because there is no uncertainty about what you will pull out.
+  \item \textbf{Maximum Disorder} (Entropy = 1): The data is completely mixed. A basket containing exactly half apples and half oranges has an entropy of 1 because it is entirely unpredictable.
+\end{itemize}
+
+A decision tree's job is to take a messy, mixed-up dataset and organize it into clean, pure groups. To figure out the best way to divide the data, the tree relies on information gain.
+
+Here is how the process works:
+
+\begin{itemize}
+  \item \textbf{Measure Before:} The tree calculates the entropy (mixed-up-ness) of the data before making a split.
+  \item \textbf{Measure After:} It then calculates the entropy after splitting the data into new groups.
+\end{itemize}
+
+The process of \textit{information gain} is the difference in entropy before and after a split based on a given feature. 
+The attiribute that results in the largest reduction in entropy(closer to 0 being better in this case) is chosen as the best attribute to split on. 
+Figure \ref{tab:infogain-splits} illustrates this process with our trusted hieroglyph example. 
+The model evaluates each feature, calculates the information gain for each possible split, and selects the one that maximizes the gain.
+We can see that the feature ``is an animal'' provides the highest information gain, making it the best choice for the first split in our decision tree.
+From there, the process continues for each subtree, recursively applying the same logic until the tree is fully grown or pruned.
+
+\input{figures/chapter0x/HieroglyphInformationgain.tex}
+
+\subsubsection{Gini Impurity}
+
+Imagine reaching into a bag of hieroglyph flashcards and trying to guess which glyph you will pull out.
+If the bag contains only Owl cards, your guess is easy.
+If it contains every glyph in equal proportion, your guess is essentially random, the bag is maximally impure.
+\textbf{Gini Impurity} formalizes exactly this intuition: it measures the probability that a randomly chosen sample
+from a node would be incorrectly classified if it were labeled at random according to the class distribution in that node.
+
+Similar to entropy, Gini Impurity ranges from 0 to 1, where 0 indicates perfect purity and 1 indicates maximum impurity.
+It's calculated, 
+
+\subsubsection{Entropy vs Information Gain}
+
+Both entropy and Gini impurity serve the same purpose: they measure how mixed or pure a node is after a split. 
+They both share the ultimate goal of guiding the model toward splits that create cleaner, more distinct groups.
+
+So, which one should you use? 
+In practice, both metrics often lead to similar results, with the choice between them coming down to the specific dataset and the preferences of the practitioner.
+
+\input{figures/chapter0x/GiniVsEntropy.tex}
+
+\section{Evaluating Decision Trees}
+
+% one bridging paragraph: we now have a model trained on our 
+% feature matrix — but how do we know if it's actually learned 
+% anything real?
+
+\subsection{The Feature Matrix}
+
+\input{figures/chapter0x/Pipeline.tex}
+
+% connect pipeline diagram → what the model actually sees
+
+\subsection{Train/Test Split}
+% why we hold data back
+
+\subsection{The Confusion Matrix}
+% TP/FP/TN/FN in financial terms
+
+\subsection{Precision, Recall, and the Cost of Being Wrong}
+% false signals cost money — this is where finance makes
+% evaluation feel concrete
+
+
+

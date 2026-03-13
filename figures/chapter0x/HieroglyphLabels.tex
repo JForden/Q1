@@ -1,0 +1,68 @@
+% ============================================================
+% Features and Labels Table — Hieroglyph Analogy
+% Supervised Learning — CSC491 Textbook, Chapter: Machine Learning
+%
+% Follows directly after tab:hieroglyph-labeled.
+% Shows how raw inputs are decomposed into measurable features,
+% and paired with a label the model is trained to predict.
+%
+% Preamble requirements:
+%     \usepackage{fontspec}
+%     \newfontfamily\egyptfont{Noto Sans Egyptian Hieroglyphs}
+%     \usepackage{booktabs, array, xcolor}
+% ============================================================
+
+\begin{table}[ht]
+\centering
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.8}
+\caption{%
+  Features and labels extracted from a labeled hieroglyph dataset.
+  Rather than feeding the raw image directly to the model, we first
+  describe each glyph in terms of measurable \textbf{features} --- the
+  properties the model can reason about. The \textbf{label} is the
+  correct answer we want the model to learn to predict.%
+}
+\label{tab:hieroglyph-features}
+\begin{tabular}{
+  >{\centering\arraybackslash}p{1.6cm}   % glyph
+  >{\centering\arraybackslash}p{1.6cm}   % curved strokes
+  >{\centering\arraybackslash}p{1.6cm}   % straight strokes
+  >{\centering\arraybackslash}p{1.8cm}   % has eyes?
+  >{\centering\arraybackslash}p{1.8cm}   % animal?
+  >{\centering\arraybackslash}p{1.8cm}   % vertical?
+  !{\color{black!25}\vrule width 0.8pt}  % divider
+  >{\centering\arraybackslash}p{2.0cm}   % label
+}
+\toprule
+\multicolumn{6}{c}{\textbf{Features} $\mathbf{x}$}
+  & \multicolumn{1}{c}{\textbf{Label} $\mathbf{y}$} \\
+\cmidrule(r){1-6} \cmidrule(l){7-7}
+\textbf{Glyph}
+  & \textbf{Curved strokes}
+  & \textbf{Straight strokes}
+  & \textbf{Has eye}
+  & \textbf{Animal}
+  & \textbf{Vertical}
+  & \textbf{Translation} \\
+\midrule
+{\egyptfont 𓂀} & 5 & 2 & Yes & No  & No  & Eye of Horus \\
+{\egyptfont 𓅓} & 3 & 4 & Yes & Yes & No  & Owl ($m$)    \\
+{\egyptfont 𓈖} & 6 & 0 & No  & No  & No  & Water ($n$)  \\
+{\egyptfont 𓆑} & 4 & 3 & No  & Yes & No  & Viper ($f$)  \\
+{\egyptfont 𓏏} & 1 & 3 & No  & No  & No  & Bread ($t$)  \\
+{\egyptfont 𓃭} & 2 & 5 & Yes & Yes & No  & Lion ($r$)   \\
+{\egyptfont 𓇋} & 0 & 2 & No  & No  & Yes & Reed ($i$)   \\
+{\egyptfont 𓎛} & 2 & 6 & No  & No  & No  & Rope ($h$)   \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\footnotesize
+\textit{Note:} These features are simplified for illustration.
+In practice, a computer vision model would extract hundreds of such
+measurements automatically, but the principle is identical.
+Each row is one training example; the model's job is to learn which
+combinations of feature values reliably predict each label.
+
+\end{table}

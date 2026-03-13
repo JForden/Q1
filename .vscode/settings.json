@@ -1,8 +1,8 @@
 {
   "latex-workshop.latex.tools": [
     {
-      "name": "pdflatex",
-      "command": "C:/Users/jrfas/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe",
+      "name": "xelatex",
+      "command": "xelatex",
       "args": [
         "-synctex=1",
         "-interaction=nonstopmode",
@@ -14,10 +14,10 @@
   ],
   "latex-workshop.latex.recipes": [
     {
-      "name": "pdflatex x2 (MiKTeX)",
+      "name": "xelatex x2",
       "tools": [
-        "pdflatex",
-        "pdflatex"
+        "xelatex",
+        "xelatex"
       ]
     }
   ],

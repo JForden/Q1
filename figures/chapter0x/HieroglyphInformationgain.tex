@@ -1,0 +1,103 @@
+% ============================================================
+% Feature Split Evaluation Table — Information Gain
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Purpose: Illustrates how a decision tree evaluates each feature
+% as a candidate split, connecting to the hieroglyph dataset in
+% tab:hieroglyph-features. Shows resulting group purity to motivate
+% Information Gain as a formal measure of the best split.
+%
+% Preamble requirements:
+%     \usepackage{booktabs, array, xcolor, multirow, fontspec}
+%     \newfontfamily\egyptfont{Noto Sans Egyptian Hieroglyphs}
+%     \definecolor{puregreen}{RGB}{0, 120, 80}
+%     \definecolor{impurered}{RGB}{180, 40, 40}
+%     \definecolor{midgold}{RGB}{160, 110, 0}
+% ============================================================
+
+\begin{table}[ht]
+\centering
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.9}
+\caption{%
+  Evaluating candidate splits on the hieroglyph dataset
+  (see Table~\ref{tab:hieroglyph-features}).
+  For each feature, the glyphs are divided into two groups based on
+  the split condition. A good split produces groups where each
+  contains mostly one class --- the tree prefers the feature that
+  results in the purest groups, quantified by \textbf{Information Gain}.%
+}
+\label{tab:infogain-splits}
+\begin{tabular}{
+  >{\raggedright\arraybackslash}p{2.4cm}   % feature
+  >{\centering\arraybackslash}p{1.8cm}     % split condition
+  >{\centering\arraybackslash}p{3.0cm}     % group: yes
+  >{\centering\arraybackslash}p{3.0cm}     % group: no
+  >{\centering\arraybackslash}p{2.2cm}     % purity verdict
+}
+\toprule
+\textbf{Feature}
+  & \textbf{Split}
+  & \textbf{Group A} (\textit{Yes})
+  & \textbf{Group B} (\textit{No})
+  & \textbf{Purity} \\
+\midrule
+
+% --- Animal? ---
+\textbf{Animal?}
+  & Animal = Yes
+  & {\egyptfont 𓅓} Owl \quad {\egyptfont 𓆑} Viper \quad {\egyptfont 𓃭} Lion
+  & {\egyptfont 𓂀} Eye \quad {\egyptfont 𓈖} Water \quad {\egyptfont 𓏏} Bread
+    \quad {\egyptfont 𓇋} Reed \quad {\egyptfont 𓎛} Rope
+  & \textcolor{puregreen}{\textbf{High}} \\
+
+\addlinespace[2pt]
+\midrule
+\addlinespace[2pt]
+
+% --- Has Eye? ---
+\textbf{Has Eye?}
+  & Has Eye = Yes
+  & {\egyptfont 𓂀} Eye \quad {\egyptfont 𓅓} Owl \quad {\egyptfont 𓃭} Lion
+  & {\egyptfont 𓈖} Water \quad {\egyptfont 𓆑} Viper \quad {\egyptfont 𓏏} Bread
+    \quad {\egyptfont 𓇋} Reed \quad {\egyptfont 𓎛} Rope
+  & \textcolor{midgold}{\textbf{Medium}} \\
+
+\addlinespace[2pt]
+\midrule
+\addlinespace[2pt]
+
+% --- Vertical? ---
+\textbf{Vertical?}
+  & Vertical = Yes
+  & {\egyptfont 𓇋} Reed
+  & {\egyptfont 𓂀} Eye \quad {\egyptfont 𓅓} Owl \quad {\egyptfont 𓈖} Water
+    \quad {\egyptfont 𓆑} Viper \quad {\egyptfont 𓏏} Bread
+    \quad {\egyptfont 𓃭} Lion \quad {\egyptfont 𓎛} Rope
+  & \textcolor{midgold}{\textbf{Medium}} \\
+
+\addlinespace[2pt]
+\midrule
+\addlinespace[2pt]
+
+% --- Curved Strokes (continuous, split at median) ---
+\textbf{Curved} $\geq 3$
+  & Strokes $\geq 3$
+  & {\egyptfont 𓂀} Eye \quad {\egyptfont 𓅓} Owl \quad {\egyptfont 𓈖} Water
+    \quad {\egyptfont 𓆑} Viper \quad {\egyptfont 𓃭} Lion
+  & {\egyptfont 𓏏} Bread \quad {\egyptfont 𓇋} Reed \quad {\egyptfont 𓎛} Rope
+  & \textcolor{impurered}{\textbf{Low}} \\
+
+\bottomrule
+\end{tabular}
+
+\smallskip
+\footnotesize
+\textit{Note:} ``Purity'' here is qualitative --- in the next section we will replace this
+judgment with a precise number using \textbf{Gini Impurity} and \textbf{Information Gain}.
+The \textit{Animal?} feature produces the cleanest separation: Group~A contains exactly
+the three animal glyphs, and Group~B contains everything else.
+A decision tree formalizes this intuition by selecting the feature with the highest
+information gain --- the split that reduces entropy the most.
+
+\end{table}

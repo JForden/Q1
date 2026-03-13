@@ -1,0 +1,40 @@
+% ============================================================
+% Hieroglyph Labeled Dataset Table — Simplified
+% Supervised Learning — CSC491 Textbook, Chapter: Machine Learning
+%
+% Compilation: XeLaTeX or LuaLaTeX required for Unicode hieroglyphs.
+%   Preamble requirements:
+%     \usepackage{fontspec}
+%     \newfontfamily\egyptfont{Noto Sans Egyptian Hieroglyphs}
+%     \usepackage{booktabs, array}
+% ============================================================
+
+\begin{table}[ht]
+\centering
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2.2}
+\caption{
+  A labeled dataset: each input $x$ (hieroglyph image) is paired with its
+  correct output $y$ (translation). This is the raw material the supervised
+  learning model trains on.
+}
+\label{fig:hieroglyph-labeled}
+\begin{tabular}{
+  >{\centering\arraybackslash}p{2.2cm}
+  >{\centering\arraybackslash}p{2.2cm}
+}
+\toprule
+\textbf{Input} $x$       & \textbf{Label} $y$      \\
+\textbf{(Hieroglyph)}    & \textbf{(Translation)}  \\
+\midrule
+{\egyptfont 𓂀} & Eye of Horus \\
+{\egyptfont 𓅓} & Owl ($m$)    \\
+{\egyptfont 𓈖} & Water ($n$)  \\
+{\egyptfont 𓆑} & Viper ($f$)  \\
+{\egyptfont 𓏏} & Bread ($t$)  \\
+{\egyptfont 𓃭} & Lion ($r$)   \\
+{\egyptfont 𓇋} & Reed ($i$)   \\
+{\egyptfont 𓎛} & Rope ($h$)   \\
+\bottomrule
+\end{tabular}
+\end{table}

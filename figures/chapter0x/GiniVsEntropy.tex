@@ -1,0 +1,48 @@
+% ============================================================
+% Gini Impurity vs. Entropy Comparison Table
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Preamble requirements:
+%     \usepackage{booktabs, array, xcolor}
+% ============================================================
+
+\begin{table}[ht]
+\centering
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.7}
+\caption{%
+  scenarios where one metric may be more practical
+}
+\label{tab:gini-vs-entropy}
+\begin{tabular}{
+  >{\raggedright\arraybackslash}p{3.0cm}
+  >{\raggedright\arraybackslash}p{5.0cm}
+  >{\raggedright\arraybackslash}p{5.0cm}
+}
+\toprule
+\textbf{Scenario}
+  & \textbf{Gini Impurity}
+  & \textbf{Entropy (Information Gain)} \\
+\midrule
+Split Behavior
+  & Favors dominant classes; tends to isolate the largest group first
+  & Produces more balanced partitions across classes \\
+
+Dataset Size
+  & Efficient for large, high-dimensional datasets
+  & Better suited to structured datasets with balanced classes \\
+
+Sensitivity
+  & Less sensitive to small probability differences
+  & sensitive to subtle shifts in class distribution \\
+
+\bottomrule
+\end{tabular}
+
+\smallskip
+\footnotesize
+\textit{Rule of thumb:} When in doubt, start with Gini, it is faster and the default
+in most production libraries. Switch to entropy if your classes are well-balanced and
+you want the tree to weight minority classes more carefully.
+
+\end{table}

@@ -1,0 +1,109 @@
+% ============================================================
+% Data Pipeline Diagram — "You Are Here"
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Recreates the course pipeline: Tick Data → Dollar Bars →
+% Frac. Diff. → Feature Matrix, with a "You Are Here" callout
+% on the current chapter's stage.
+%
+% Preamble requirements:
+%     \usepackage{tikz}
+%     \usetikzlibrary{arrows.meta, positioning, shadows.blur}
+%     \usepackage{xcolor}
+%
+%     \definecolor{pipenavy}{RGB}{26,  47,  89}
+%     \definecolor{pipemid}{RGB}{ 25, 118, 130}
+%     \definecolor{pipeteal}{RGB}{ 17, 150, 150}
+%     \definecolor{pipegreen}{RGB}{ 31, 120,  85}
+%     \definecolor{callout}{RGB}{  0, 188, 188}
+% ============================================================
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance = 0.55cm,
+  box/.style = {
+    rectangle,
+    minimum width  = 3.0cm,
+    minimum height = 2.2cm,
+    align          = center,
+    text           = white,
+    font           = \sffamily,
+    rounded corners = 2pt,
+  },
+  arrow/.style = {
+    ->,
+    -{Stealth[length=7pt, width=5pt]},
+    line width = 2pt,
+    color      = gray!55,
+  },
+  sublabel/.style = {
+    font  = \sffamily\small,
+    color = white!80!black,
+  },
+  calloutbox/.style = {
+    rectangle,
+    fill           = callout,
+    rounded corners = 3pt,
+    inner sep      = 4pt,
+    font           = \sffamily\bfseries\footnotesize,
+    text           = white,
+  },
+]
+
+%% --- Pipeline nodes ---
+\node[box, fill=pipenavy] (tick) {%
+  \textbf{Tick Data}\\[6pt]
+  \begin{minipage}{2.5cm}\centering
+    \scriptsize\color{white!75!black} Raw 40M events/day
+  \end{minipage}
+};
+
+\node[box, fill=pipemid,   right=of tick]   (dollar) {%
+  \textbf{Dollar Bars}\\[6pt]
+  \begin{minipage}{2.5cm}\centering
+    \scriptsize\color{white!75!black} Uniform economic time
+  \end{minipage}
+};
+
+\node[box, fill=pipeteal,  right=of dollar] (fracdiff) {%
+  \textbf{Frac.\ Diff.}\\[6pt]
+  \begin{minipage}{2.5cm}\centering
+    \scriptsize\color{white!75!black} Stationary + memory
+  \end{minipage}
+};
+
+\node[box, fill=pipegreen, right=of fracdiff] (feature) {%
+  \textbf{Feature Matrix}\\[6pt]
+  \begin{minipage}{2.5cm}\centering
+    \scriptsize\color{white!75!black} Inputs for Decision Tree\\training and prediction
+  \end{minipage}
+};
+
+%% --- Arrows ---
+\draw[arrow] (tick)     -- (dollar);
+\draw[arrow] (dollar)   -- (fracdiff);
+\draw[arrow] (fracdiff) -- (feature);
+
+%% --- "You Are Here" callout above Feature Matrix ---
+\node[calloutbox, above=0.45cm of feature] (callout) {YOU ARE HERE};
+\draw[
+  ->,
+  -{Stealth[length=5pt, width=4pt]},
+  line width=1.2pt,
+  color=callout,
+] (callout.south) -- (feature.north);
+
+\end{tikzpicture}
+
+\caption{%
+  The course data pipeline. Each stage transforms the raw market data
+  into a form the machine learning model can use.
+  \textit{Tick Data} captures every trade event; \textit{Dollar Bars}
+  resample that stream into uniform economic time; \textit{Fractional
+  Differentiation} enforces stationarity while preserving trend memory;
+  and the \textit{Feature Matrix} encodes our trading hypotheses as
+  measurable inputs. This chapter picks up at the final stage.%
+}
+\label{fig:data-pipeline}
+\end{figure}
