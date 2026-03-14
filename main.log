@@ -1,6 +1,6 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.12)  12 MAR 2026 22:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.12)  14 MAR 2026 13:55
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
@@ -632,13 +632,144 @@ File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 z/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.sty
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.rev
+ision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.cod
+e.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscore
+.code.tex
+\t@pgfplots@toka=\toks45
+\t@pgfplots@tokb=\toks46
+\t@pgfplots@tokc=\toks47
+\pgfplots@tmpa=\dimen294
+\c@pgfplots@coordindex=\count338
+\c@pgfplots@scanlineindex=\count339
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfplots
+sysgeneric.code.tex))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgfplot
+slibrary.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
+ib\pgfplotsoldpgfsupp_loader.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks48
+\t@pgf@tokb=\toks49
+\t@pgf@tokc=\toks50
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
+ib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+sutil.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsliststructure.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsliststructureext.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count340
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsmatrix.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgf
+plotstableshared.code.tex
+\c@pgfplotstable@counta=\count341
+\t@pgfplotstable@a=\toks51
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsdeque.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+sbinary.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+sbinary.data.code.tex))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+sutil.verb.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibr
+arypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count342
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibra
+rypgfplots.surfshading.pgfsys-xetex.def
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibra
+rypgfplots.surfshading.pgfsys-dvipdfmx.def
+\c@pgfplotslibrarysurf@streamlen=\count343
+))))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+scolormap.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+scolor.code.tex))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsstac
+kedplots.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsplot
+handlers.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmesh
+plothandler.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmesh
+plotimage.code.tex)))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.sca
+ling.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscoor
+dprocessing.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.err
+orbars.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.mar
+kers.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotstick
+s.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.pat
+hs.code.tex)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+decorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen295
+\pgfdecoratedremainingdistance=\dimen296
+\pgfdecoratedinputsegmentcompleteddistance=\dimen297
+\pgfdecoratedinputsegmentremainingdistance=\dimen298
+\pgf@decorate@distancetomove=\dimen299
+\pgf@decorate@repeatstate=\count344
+\pgfdecorationsegmentamplitude=\dimen300
+\pgfdecorationsegmentlength=\dimen301
+)
+\tikz@lib@dec@box=\box70
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.pathmorphing.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorat
+ions\pgflibrarydecorations.pathmorphing.code.tex))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.pathreplacing.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorat
+ions\pgflibrarydecorations.pathreplacing.code.tex))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlib
+rarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count345
+\pgfplots@xmin@reg=\dimen302
+\pgfplots@xmax@reg=\dimen303
+\pgfplots@ymin@reg=\dimen304
+\pgfplots@ymax@reg=\dimen305
+\pgfplots@zmin@reg=\dimen306
+\pgfplots@zmax@reg=\dimen307
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowinset=\dimen294
-\pgfarrowlength=\dimen295
-\pgfarrowwidth=\dimen296
-\pgfarrowlinewidth=\dimen297
+\pgfarrowinset=\dimen308
+\pgfarrowlength=\dimen309
+\pgfarrowwidth=\dimen310
+\pgfarrowlinewidth=\dimen311
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarypositioning.code.tex
@@ -662,39 +793,69 @@ File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 z/libraries\tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-\pgfbs@fading@count=\count338
+\pgfbs@fading@count=\count346
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+arypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/pgfcontrib\t
+ikzlibraryfillbetween.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryintersections.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryintersections.code.tex
+\pgf@intersect@solutions=\count347
+))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/pgfcontrib\t
+ikzlibrarydecorations.softclip.code.tex
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/pgfcontrib\p
+gflibraryfillbetween.code.tex)))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@layerbox@background=\box71
+\pgf@layerboxsaved@background=\box72
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip61
-\enit@outerparindent=\dimen298
-\enit@toks=\toks45
-\enit@inbox=\box70
-\enit@count@id=\count339
-\enitdp@description=\count340
+\enit@outerparindent=\dimen312
+\enit@toks=\toks52
+\enit@inbox=\box73
+\enit@count@id=\count348
+\enitdp@description=\count349
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count341
-\lst@gtempboxa=\box71
-\lst@token=\toks46
-\lst@length=\count342
-\lst@currlwidth=\dimen299
-\lst@column=\count343
-\lst@pos=\count344
-\lst@lostspace=\dimen300
-\lst@width=\dimen301
-\lst@newlines=\count345
-\lst@lineno=\count346
-\lst@maxwidth=\dimen302
+\lst@mode=\count350
+\lst@gtempboxa=\box74
+\lst@token=\toks53
+\lst@length=\count351
+\lst@currlwidth=\dimen313
+\lst@column=\count352
+\lst@pos=\count353
+\lst@lostspace=\dimen314
+\lst@width=\dimen315
+\lst@newlines=\count354
+\lst@lineno=\count355
+\lst@maxwidth=\dimen316
 
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count347
-\lst@skipnumbers=\count348
-\lst@framebox=\box72
+\c@lstnumber=\count356
+\lst@skipnumbers=\count357
+\lst@framebox=\box75
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
@@ -711,31 +872,31 @@ Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen303
-\captionmargin=\dimen304
-\caption@leftmargin=\dimen305
-\caption@rightmargin=\dimen306
-\caption@width=\dimen307
-\caption@indent=\dimen308
-\caption@parindent=\dimen309
-\caption@hangindent=\dimen310
+\caption@tempdima=\dimen317
+\captionmargin=\dimen318
+\caption@leftmargin=\dimen319
+\caption@rightmargin=\dimen320
+\caption@width=\dimen321
+\caption@indent=\dimen322
+\caption@parindent=\dimen323
+\caption@hangindent=\dimen324
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count349
-\c@continuedfloat=\count350
+\c@caption@flags=\count358
+\c@continuedfloat=\count359
 Package caption Info: listings package is loaded.
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count351
+\c@subfigure=\count360
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count352
+\c@subtable=\count361
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/marginnote\marginnote.s
 ty
 Package: marginnote 2026/01/02 1.4d non floating margin notes for LaTeX 
-\c@mn@abspage=\count353
+\c@mn@abspage=\count362
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
@@ -783,22 +944,22 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count354
+\c@section@level=\count363
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
 ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen311
-\Hy@linkcounter=\count355
-\Hy@pagecounter=\count356
+\@linkdim=\dimen325
+\Hy@linkcounter=\count364
+\Hy@pagecounter=\count365
  (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 ) (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count357
+\Hy@SavedSpaceFactor=\count366
  (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 )
@@ -809,14 +970,14 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count358
+\c@Hy@tempcnt=\count367
 
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen312
+\XeTeXLinkMargin=\dimen326
 
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -826,9 +987,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count359
-\Field@Width=\dimen313
-\Fld@charsize=\dimen314
+\Fld@menulength=\count368
+\Field@Width=\dimen327
+\Fld@charsize=\dimen328
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -836,19 +997,19 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count360
-\c@Item=\count361
-\c@Hfootnote=\count362
+\Hy@abspage=\count369
+\c@Item=\count370
+\c@Hfootnote=\count371
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxetex.def
 File: hxetex.def 2025-07-12 v7.01o Hyperref driver for XeTeX
-\pdfm@box=\box73
-\c@Hy@AnnotLevel=\count363
-\HyField@AnnotCount=\count364
-\Fld@listcount=\count365
-\c@bookmark@seq@number=\count366
+\pdfm@box=\box76
+\c@Hy@AnnotLevel=\count372
+\HyField@AnnotCount=\count373
+\Fld@listcount=\count374
+\c@bookmark@seq@number=\count375
 
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -867,8 +1028,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks47
-\verbatim@line=\toks48
+\every@verbatim=\toks54
+\verbatim@line=\toks55
 \verbatim@in@stream=\read3
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
@@ -878,19 +1039,19 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 ty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box74
-\tcb@upperbox=\box75
-\tcb@lowerbox=\box76
-\tcb@phantombox=\box77
-\c@tcbbreakpart=\count367
-\c@tcblayer=\count368
-\c@tcolorbox@number=\count369
-\l__tcobox_tmpa_box=\box78
-\l__tcobox_tmpa_dim=\dimen315
-\tcb@temp=\box79
-\tcb@temp=\box80
-\tcb@temp=\box81
+\tcb@titlebox=\box77
+\tcb@upperbox=\box78
+\tcb@lowerbox=\box79
+\tcb@phantombox=\box80
+\c@tcbbreakpart=\count376
+\c@tcblayer=\count377
+\c@tcolorbox@number=\count378
+\l__tcobox_tmpa_box=\box81
+\l__tcobox_tmpa_dim=\dimen329
 \tcb@temp=\box82
+\tcb@temp=\box83
+\tcb@temp=\box84
+\tcb@temp=\box85
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbbreakable.
 code.tex
@@ -900,9 +1061,9 @@ Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 Package pdfcol Info: Interface disabled because of missing PDF mode of pdfTeX.
 )
 Package pdfcol Info: pdfTeX's color stacks are not available.
-\tcb@testbox=\box83
-\tcb@totalupperbox=\box84
-\tcb@totallowerbox=\box85
+\tcb@testbox=\box86
+\tcb@totalupperbox=\box87
+\tcb@totallowerbox=\box88
 )
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code
 .tex
@@ -919,12 +1080,112 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryfil
 l.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box86
+\l__tikzfill_img_box=\box89
 ))
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsa
 w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
-))) (macros/metaphors.tex) (macros/finance_commands.tex) (main.aux
+)) (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.sty
+Package: minted 2025/05/14 v3.7.0 Yet another Pygments shim for LaTeX
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catchfile.s
+ty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.sty
+Package: fvextra 2025/05/29 v1.13.2 fvextra - extensions and patches for fancyv
+rb
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2025/07/28 4.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count379
+\FV@InFile=\read4
+\FV@TabBox=\box90
+\c@FancyVerbLine=\count380
+\FV@StepNumber=\count381
+\FV@OutFile=\write4
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+))
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
+Package: lineno 2026/02/16 line numbers on paragraphs v5.7
+\linenopenalty=\count382
+\output=\toks56
+\linenoprevgraf=\count383
+\linenumbersep=\dimen330
+\linenumberwidth=\dimen331
+\c@linenumber=\count384
+\c@pagewiselinenumber=\count385
+\c@LN@truepage=\count386
+\c@internallinenumber=\count387
+\c@internallinenumbers=\count388
+\quotelinenumbersep=\dimen332
+\bframerule=\dimen333
+\bframesep=\dimen334
+\bframebox=\box91
+\@LN@amsmath@ams@eqpen=\count389
+)
+\c@FancyVerbWriteLine=\count390
+\c@FancyVerbBufferLine=\count391
+\c@FV@TrueTabGroupLevel=\count392
+\c@FV@TrueTabCounter=\count393
+\FV@TabBox@Group=\box92
+\FV@bgcolorstructbox=\box93
+\FV@TmpLength=\skip63
+\c@FV@HighlightLinesStart=\count394
+\c@FV@HighlightLinesStop=\count395
+\FV@LoopCount=\count396
+\FV@NCharsBox=\box94
+\FV@BreakIndent=\dimen335
+\FV@BreakIndentNChars=\count397
+\FV@BreakSymbolSepLeft=\dimen336
+\FV@BreakSymbolSepLeftNChars=\count398
+\FV@BreakSymbolSepRight=\dimen337
+\FV@BreakSymbolSepRightNChars=\count399
+\FV@BreakSymbolIndentLeft=\dimen338
+\FV@BreakSymbolIndentLeftNChars=\count400
+\FV@BreakSymbolIndentRight=\dimen339
+\FV@BreakSymbolIndentRightNChars=\count401
+\c@FancyVerbLineBreakLast=\count402
+\FV@LineBox=\box95
+\FV@LineIndentBox=\box96
+\c@FV@BreakBufferDepth=\count403
+\FV@LineWidth=\dimen340
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/latex2pydata\latex2pyda
+ta.sty
+Package: latex2pydata 2025/03/26 v0.6.0 latex2pydata - write data to file in Py
+thon literal format
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/pgfopts\pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks57
+\pgfopts@list@add@b@toks=\toks58
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+)
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count404
+\float@exts=\toks59
+\float@box=\box97
+\@float@everytoks=\toks60
+\@floatcapt=\box98
+)
+\c@minted@FancyVerbLineTemp=\count405
+\@float@every@listing=\toks61
+\c@listing=\count406
+))
+(macros/metaphors.tex) (macros/finance_commands.tex) (main.aux
 (chapters/ch01.aux) (chapters/ch02.aux) (chapters/ch0X.aux))
 \openout1 = `main.aux'.
 
@@ -1057,14 +1318,18 @@ ern Roman (RS)
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count370
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+\c@lstlisting=\count407
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 11.
 (main.out) (main.out)
-\@outlinefile=\write4
-\openout4 = `main.out'.
+\@outlinefile=\write5
+\openout5 = `main.out'.
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
 
@@ -1095,8 +1360,8 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 ] (main.toc [2
 
 ])
-\tf@toc=\write5
-\openout5 = `main.toc'.
+\tf@toc=\write6
+\openout6 = `main.toc'.
 
  [3] [4
 
@@ -1162,12 +1427,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-[12] (figures/chapter0x/ML_vs_programming.tex
+Underfull \vbox (badness 5417) has occurred while \output is active []
+
+ [12]
+(figures/chapter0x/ML_vs_programming.tex
 Overfull \hbox (174.33374pt too wide) in paragraph at lines 61--62
  [][] 
  []
 
-) [13] (figures/chapter0x/HieroglyphTable.tex
+) [13]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14]
+(figures/chapter0x/HieroglyphTable.tex
 Overfull \hbox (8.22862pt too wide) in paragraph at lines 28--28
  []|\TU/lmr/bx/n/10.95 (Hieroglyph)| 
  []
@@ -1181,11 +1453,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `NotoSansEgyptianHieroglyphs' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-)
-Underfull \vbox (badness 6316) has occurred while \output is active []
-
- [14]
-(figures/chapter0x/HieroglyphLabels.tex
+) (figures/chapter0x/HieroglyphLabels.tex
 Overfull \hbox (5.37808pt too wide) in paragraph at lines 47--48
  []|\TU/lmr/bx/n/10.95 Translation| 
  []
@@ -1195,17 +1463,143 @@ Overfull \hbox (118.03854pt too wide) in paragraph at lines 27--59
  [][] 
  []
 
-) [15]
-Underfull \vbox (badness 5288) has occurred while \output is active []
+[15])
+Underfull \vbox (badness 1132) has occurred while \output is active []
 
  [16]
-
-Package caption Warning: \label without proper reference on input line 154.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `20q' on page 17 undefined on input line 147.
-
 [17]
 File: figures/chapter0x/DecisionTreeClassification.png Graphic file (type bmp)
-<figures/chapter0x/DecisionTreeClassification.pn
+<figures/chapter0x/DecisionTreeClassification.png>
+
+Underfull \vbox (badness 6252) has occurred while \output is active []
+
+ [18]
+[19] [20] [21] [22] (figures/chapter0x/HieroglyphInformationgain.tex
+Overfull \hbox (62.92813pt too wide) in paragraph at lines 31--93
+ [][] 
+ []
+
+) [23] (figures/chapter0x/GiniVsEntropy.tex
+Overfull \hbox (59.99998pt too wide) in paragraph at lines 17--41
+ [][] 
+ []
+
+) [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+[26] [27] (figures/chapter0x/Pipeline.tex
+Overfull \hbox (19.69441pt too wide) in paragraph at lines 97--98
+ [][] 
+ []
+
+)
+
+LaTeX Warning: Reference `ch:datapipeline' on page 28 undefined on input line 3
+92.
+
+(figures/chapter0x/FeatureMatrix.tex
+Overfull \hbox (5.08243pt too wide) in paragraph at lines 32--33
+ []|\TU/lmr/bx/n/10.95 Timestamp| 
+ []
+
+
+Overfull \hbox (0.64415pt too wide) in paragraph at lines 34--35
+ []|\TU/lmr/bx/n/10.95 EMA_14| 
+ []
+
+) [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+(figures/chapter0x/TrippleBarrier.tex
+Overfull \hbox (9.36172pt too wide) in paragraph at lines 119--120
+ [][] 
+ []
+
+) [30] [31] (figures/chapter0x/TwoModelMatrix.tex
+Overfull \hbox (239.91096pt too wide) in paragraph at lines 92--93
+ [][] 
+ []
+
+) (figures/chapter0x/CompleteFeatureMatrix.tex
+Overfull \hbox (7.92787pt too wide) in paragraph at lines 38--39
+ []|\TU/lmr/bx/n/10.95 Timestamp| 
+ []
+
+
+Overfull \hbox (6.33461pt too wide) in paragraph at lines 40--41
+ []|\TU/lmr/bx/n/10.95 EMA_14| 
+ []
+
+
+Overfull \hbox (3.25766pt too wide) in paragraph at lines 42--43
+ []|\TU/lmr/bx/n/10.95 ATR_14| 
+ []
+
+
+Overfull \hbox (9.09755pt too wide) in paragraph at lines 43--44
+ []|\TU/lmr/bx/n/10.95 Profitable?| 
+ []
+
+
+Overfull \hbox (26.2876pt too wide) in paragraph at lines 25--58
+ [][] 
+ []
+
+) [32] (figures/chapter0x/Python_FeatureMatrixLoop.tex
+\pydata@fh@0=\write7
+\openout7 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
+
+runsystem(latexminted config  --timestamp 20260314135523 FAD58DE7366495DB4650CF
+EFAC2FCD61)...executed.
+
+
+(_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20260314135523 FAD58DE7366495DB4
+650CFEFAC2FCD61)...executed.
+
+ (_minted/default.style.minted) (_minted/EE08815C9354989345B47C4FD943940B.highl
+ight.minted
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3.
+))
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33]
+[34] (figures/chapter0x/TrainingDataSplit.tex)
+Underfull \vbox (badness 2237) has occurred while \output is active []
+
+ [35]
+
+LaTeX Warning: Reference `fig:confusion-matrix' on page 36 undefined on input l
+ine 581.
+
+[36] [37]) [38] (main.bbl) [39
+\def\@LN@column{1}
+
+
+
+
+] (main.aux (chapters/ch01.aux) (chapters/ch02.aux) (chapters/ch0X.aux))
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 762681C4F9A202F27C8BDC411372BEFD;5991.
+ ) 
+Here is how much of TeX's memory you used:
+ 48277 strings out of 402987
+ 1169074 string characters out of 5448524
+ 1891727 words of memory out of 5000000
+ 76205 multiletter control sequences out of 15000+600000
+ 636824 words of font info for 119 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 89i,11n,97p,1003b,2071s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on c:/Repos\Q1\main.pdf (43 pages).

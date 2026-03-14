@@ -1,0 +1,84 @@
+% ============================================================
+% Confusion Matrix — Hieroglyph Classification Example
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% A 2x2 grid showing TP, FP, FN, TN using the running
+% hieroglyph example (classifying a glyph as ``Owl'').
+%
+% Preamble requirements:
+%     \usepackage{tikz}
+%     \usetikzlibrary{positioning}
+%     \usepackage{xcolor}
+%     \usepackage{fontspec}
+%     \newfontfamily\egyptfont{Noto Sans Egyptian Hieroglyphs}
+%
+%     \definecolor{pipegreen}{RGB}{31, 120,  85}
+%     \definecolor{barrierred}{RGB}{180, 40,  40}
+%     \definecolor{pipenavy}{RGB}{26,  47,  89}
+%     \definecolor{pipegold}{RGB}{160,110,   0}
+% ============================================================
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\small,
+  cell/.style={
+    rectangle, rounded corners=3pt,
+    minimum width=5.2cm, minimum height=3.0cm,
+    align=center, text=white,
+  },
+]
+
+% ── Axis labels ─────────────────────────────────────────────
+\node[font=\sffamily\small\bfseries, text=pipenavy, rotate=90]
+  at (-3.2, 0) {Actual Glyph};
+
+\node[font=\sffamily\small\bfseries, text=pipenavy]
+  at (2.8, 3.8) {Model's Prediction};
+
+% Row labels (actual)
+\node[font=\sffamily\small\bfseries, text=pipegreen, rotate=90, anchor=south]
+  at (-2.6, 1.7) {Is an Owl};
+\node[font=\sffamily\small\bfseries, text=barrierred, rotate=90, anchor=south]
+  at (-2.6, -1.7) {Not an Owl};
+
+% Column labels (predicted)
+\node[font=\sffamily\small\bfseries, text=pipegreen]
+  at (0.2, 3.35) {Predicted Owl};
+\node[font=\sffamily\small\bfseries, text=barrierred]
+  at (5.4, 3.35) {Predicted Not Owl};
+
+% ── Quadrant cells ──────────────────────────────────────────
+
+% True Positive (top-left) — correct identification
+\node[cell, fill=pipegreen] (tp) at (0.2, 1.7)
+  {\textbf{True Positive (TP)}\\[4pt]
+   \footnotesize Model predicted {\egyptfont 𓅓} Owl\\
+   \footnotesize \textit{Glyph was actually {\egyptfont 𓅓} Owl}\\[4pt]
+   \scriptsize\color{white!75} Correct classification};
+
+% False Negative (top-right) — missed owl
+\node[cell, fill=pipegold!85!black] (fn) at (5.4, 1.7)
+  {\textbf{False Negative (FN)}\\[4pt]
+   \footnotesize Model predicted ``Not {\egyptfont 𓅓} Owl''\\
+   \footnotesize \textit{Glyph was actually {\egyptfont 𓅓} Owl}\\[4pt]
+   \scriptsize\color{white!75} Missed --- the {\egyptfont 𓅓} Owl was overlooked};
+
+% False Positive (bottom-left) — misidentified as owl
+\node[cell, fill=barrierred] (fp) at (0.2, -1.7)
+  {\textbf{False Positive (FP)}\\[4pt]
+   \footnotesize Model predicted {\egyptfont 𓅓} Owl\\
+   \footnotesize \textit{Glyph was actually {\egyptfont 𓆑} Viper}\\[4pt]
+   \scriptsize\color{white!75} Wrong --- {\egyptfont 𓆑} Viper mistaken for {\egyptfont 𓅓} Owl};
+
+% True Negative (bottom-right) — correctly rejected
+\node[cell, fill=pipegreen!70!black] (tn) at (5.4, -1.7)
+  {\textbf{True Negative (TN)}\\[4pt]
+   \footnotesize Model predicted ``Not {\egyptfont 𓅓} Owl''\\
+   \footnotesize \textit{Glyph was indeed {\egyptfont 𓆑} Viper}\\[4pt]
+   \scriptsize\color{white!75} Correct rejection};
+
+\end{tikzpicture}
+\caption{A confusion matrix for our hieroglyph classifier. Each quadrant shows what happens when the model's prediction is compared against the true label.}
+\label{fig:confusion-matrix}
+\end{figure}

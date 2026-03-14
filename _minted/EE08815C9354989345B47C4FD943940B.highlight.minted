@@ -1,0 +1,23 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{feature\PYGZus{}matrix} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{lookback}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{bars}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{horizon}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{} Features x: market conditions at bar i \PYGZhy{}\PYGZhy{}}
+    \PYG{n}{row} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+        \PYG{l+s+s1}{\PYGZsq{}timestamp\PYGZsq{}} \PYG{p}{:} \PYG{n}{bars}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{.}\PYG{n}{timestamp}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}close\PYGZsq{}}     \PYG{p}{:} \PYG{n}{bars}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{.}\PYG{n}{close}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}ema\PYGZus{}14\PYGZsq{}}    \PYG{p}{:} \PYG{n}{compute\PYGZus{}ema}\PYG{p}{(}\PYG{n}{bars}\PYG{p}{,} \PYG{n}{i}\PYG{p}{,} \PYG{n}{period}\PYG{o}{=}\PYG{l+m+mi}{14}\PYG{p}{),}
+        \PYG{l+s+s1}{\PYGZsq{}rsi\PYGZus{}14\PYGZsq{}}    \PYG{p}{:} \PYG{n}{compute\PYGZus{}rsi}\PYG{p}{(}\PYG{n}{bars}\PYG{p}{,} \PYG{n}{i}\PYG{p}{,} \PYG{n}{period}\PYG{o}{=}\PYG{l+m+mi}{14}\PYG{p}{),}
+        \PYG{l+s+s1}{\PYGZsq{}atr\PYGZus{}14\PYGZsq{}}    \PYG{p}{:} \PYG{n}{compute\PYGZus{}atr}\PYG{p}{(}\PYG{n}{bars}\PYG{p}{,} \PYG{n}{i}\PYG{p}{,} \PYG{n}{period}\PYG{o}{=}\PYG{l+m+mi}{14}\PYG{p}{),}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{} Label y: apply Triple\PYGZhy{}Barrier Method \PYGZhy{}\PYGZhy{}}
+    \PYG{n}{label} \PYG{o}{=} \PYG{n}{triple\PYGZus{}barrier}\PYG{p}{(}
+        \PYG{n}{bars}     \PYG{o}{=} \PYG{n}{bars}\PYG{p}{,}
+        \PYG{n}{start}    \PYG{o}{=} \PYG{n}{i}\PYG{p}{,}
+        \PYG{n}{upper}    \PYG{o}{=} \PYG{n}{bars}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{.}\PYG{n}{close} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{profit\PYGZus{}target}\PYG{p}{),}
+        \PYG{n}{lower}    \PYG{o}{=} \PYG{n}{bars}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{.}\PYG{n}{close} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{stop\PYGZus{}loss}\PYG{p}{),}
+        \PYG{n}{max\PYGZus{}bars} \PYG{o}{=} \PYG{n}{horizon}\PYG{p}{,}
+    \PYG{p}{)}
+    \PYG{n}{row}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}label\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{label}  \PYG{c+c1}{\PYGZsh{} 1 = profit barrier hit first}
+                          \PYG{c+c1}{\PYGZsh{} 0 = stop\PYGZhy{}loss or time barrier hit first}
+    \PYG{n}{feature\PYGZus{}matrix}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{row}\PYG{p}{)}
+\end{MintedVerbatim}

@@ -1,0 +1,145 @@
+% ============================================================
+% Train/Test Split Visualization
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Shows the correct temporal split (top) vs the dangerous
+% random split (bottom) — the contrast is the pedagogical point.
+%
+% Preamble requirements:
+%     \usepackage{tikz}
+%     \usetikzlibrary{patterns, positioning}
+%     \usepackage{xcolor}
+%
+%     \definecolor{trainblue}{RGB}{26,  47,  89}
+%     \definecolor{testgreen}{RGB}{31, 120,  85}
+%     \definecolor{leakred}{RGB}{180,  40,  40}
+% ============================================================
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\small,
+  bar/.style={rectangle, minimum height=1.1cm, inner sep=0},
+]
+
+% ── TOTAL WIDTH of the timeline bar ──
+\def\totalw{11.0}   % cm
+\def\trainw{8.8}    % 80 % of total
+\def\testw{2.2}     % 20 % of total
+
+% ════════════════════════════════════════════════════════
+% TOP PANEL — correct temporal split
+% ════════════════════════════════════════════════════════
+
+\node[anchor=west, font=\sffamily\small\bfseries, text=black]
+  at (0, 1.6) {Temporal Split \quad (correct)};
+
+% Training block
+\fill[trainblue]      (0, 0.2) rectangle (\trainw, 1.2);
+% Test block
+\fill[testgreen]      (\trainw, 0.2) rectangle (\totalw, 1.2);
+
+% Labels inside bars
+\node[text=white, font=\sffamily\small\bfseries]
+  at (\trainw/2, 0.7) {Training set \quad 80\%};
+\node[text=white, font=\sffamily\footnotesize\bfseries]
+  at (\trainw + \testw/2, 0.7) {Test\par20\%};
+
+% Cutoff line
+\draw[white, line width=1.2pt] (\trainw, 0.2) -- (\trainw, 1.2);
+
+% Time axis arrow
+\draw[->, line width=1.0pt, black!50]
+  (-0.1, 0.0) -- (\totalw + 0.3, 0.0);
+\node[anchor=west, font=\sffamily\scriptsize, text=black!50]
+  at (\totalw + 0.3, 0.0) {time};
+
+% Date anchors
+\node[anchor=north, font=\sffamily\scriptsize, text=black!60]
+  at (0,      0.0) {Jan 2018};
+\node[anchor=north, font=\sffamily\scriptsize, text=black!60]
+  at (\trainw, 0.0) {Jan 2022};
+\node[anchor=north, font=\sffamily\scriptsize, text=black!60]
+  at (\totalw, 0.0) {Dec 2022};
+
+% Tick marks
+\foreach \x in {0, \trainw, \totalw} {
+  \draw[black!40, line width=0.6pt] (\x, 0.0) -- (\x, -0.15);
+}
+
+% Verdict
+\node[anchor=west, text=testgreen, font=\sffamily\scriptsize\bfseries]
+  at (0, -0.7) {%
+  \checkmark\; Model trains only on the past. Test set is genuinely unseen future data.};
+
+% ════════════════════════════════════════════════════════
+% BOTTOM PANEL — random shuffle (wrong)
+% ════════════════════════════════════════════════════════
+
+\def\yoff{-2.6}   % vertical offset for second panel
+
+\node[anchor=west, font=\sffamily\small\bfseries, text=leakred]
+  at (0, \yoff + 1.6) {Random Split \quad (data leakage)};
+
+% Draw alternating train/test blocks to show interleaving
+\foreach \i in {0,...,10} {
+  \pgfmathsetmacro\xstart{\i * \totalw / 11}
+  \pgfmathsetmacro\xend{(\i+1) * \totalw / 11}
+  \pgfmathparse{mod(\i,3)==0 ? 1 : 0}
+  \ifnum\pgfmathresult=1
+    \fill[testgreen!80] (\xstart, \yoff+0.2) rectangle (\xend, \yoff+1.2);
+  \else
+    \fill[trainblue!80] (\xstart, \yoff+0.2) rectangle (\xend, \yoff+1.2);
+  \fi
+}
+
+% Overlay border
+\draw[black!20, line width=0.4pt]
+  (0, \yoff+0.2) rectangle (\totalw, \yoff+1.2);
+
+% Legend for bottom panel
+\fill[trainblue!80] (0.15, \yoff+0.38) rectangle (0.55, \yoff+0.68);
+\node[anchor=west, font=\sffamily\scriptsize]
+  at (0.6, \yoff+0.53) {Train};
+\fill[testgreen!80] (1.6, \yoff+0.38) rectangle (2.0, \yoff+0.68);
+\node[anchor=west, font=\sffamily\scriptsize]
+  at (2.05, \yoff+0.53) {Test};
+
+% Label above interleaved bar
+\node[text=white, font=\sffamily\small\bfseries, opacity=0.0]
+  at (\totalw/2, \yoff+0.7) {};
+
+% Time axis
+\draw[->, line width=1.0pt, black!50]
+  (-0.1, \yoff+0.0) -- (\totalw + 0.3, \yoff+0.0);
+\node[anchor=west, font=\sffamily\scriptsize, text=black!50]
+  at (\totalw + 0.3, \yoff+0.0) {time};
+
+\node[anchor=north, font=\sffamily\scriptsize, text=black!60]
+  at (0, \yoff+0.0) {Jan 2018};
+\node[anchor=north, font=\sffamily\scriptsize, text=black!60]
+  at (\totalw, \yoff+0.0) {Dec 2022};
+
+\draw[black!40, line width=0.6pt] (0,      \yoff+0.0) -- (0,      \yoff-0.15);
+\draw[black!40, line width=0.6pt] (\totalw, \yoff+0.0) -- (\totalw, \yoff-0.15);
+
+% Verdict
+\node[anchor=west, text=leakred, font=\sffamily\scriptsize\bfseries]
+  at (0, \yoff - 0.7) {%
+  $\times$\; Future data leaks into training. Backtest looks perfect; live trading fails.};
+
+\end{tikzpicture}
+
+\caption{%
+  Two approaches to splitting the feature matrix into training and test sets.
+  \textbf{Top (correct):} A temporal split preserves chronological order --- the
+  model trains on 2018--2021 data and is evaluated on 2022 data it has never seen.
+  \textbf{Bottom (wrong):} A random shuffle interleaves future and past rows,
+  allowing the model to learn from data that postdates the observations it is
+  supposedly predicting. This is \textbf{data leakage}: the backtest appears
+  excellent, but the model has seen the future and will fail immediately in
+  live trading.%
+}
+\label{fig:training-data-split}
+\label{fig:train-test-split}
+\end{figure}

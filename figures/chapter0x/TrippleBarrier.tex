@@ -1,0 +1,132 @@
+% ============================================================
+% Triple-Barrier Method Figure
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Preamble requirements:
+%     \usepackage{tikz}
+%     \usepackage{pgfplots}
+%     \pgfplotsset{compat=1.18}
+%     \usetikzlibrary{patterns, fillbetween}
+%     \usepackage{xcolor}
+%     \definecolor{kuroseblue}{RGB}{30,  90, 160}
+%     \definecolor{barrierred}{RGB}{180, 40,  40}
+%     \definecolor{barriergray}{RGB}{100,100,100}
+% ============================================================
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.82\textwidth,
+  height=7cm,
+  axis lines=left,
+  xlabel={Time (bars)},
+  ylabel={Price},
+  xmin=0, xmax=10.5,
+  ymin=93,  ymax=118,
+  xtick=\empty,
+  ytick={97, 100, 113},
+  yticklabels={Stop-loss, Entry, Profit target},
+  tick label style={font=\small},
+  label style={font=\small},
+  clip=false,
+]
+
+  %% --- Shaded corridor between barriers ---
+  \fill[black!5] (axis cs:0,97) rectangle (axis cs:8,113);
+
+  %% --- Upper barrier (profit) ---
+  \addplot[
+    dashed,
+    color=barrierred,
+    line width=1.2pt,
+    domain=0:8,
+  ] {113};
+  \node[anchor=west, font=\small, text=barrierred]
+    at (axis cs:8.1, 113) {Profit barrier (+1)};
+
+  %% --- Lower barrier (stop-loss) ---
+  \addplot[
+    dashed,
+    color=barriergray,
+    line width=1.2pt,
+    domain=0:8,
+  ] {97};
+  \node[anchor=west, font=\small, text=barriergray]
+    at (axis cs:8.1, 97) {Stop-loss barrier (0)};
+
+  %% --- Time barrier (vertical) ---
+  \addplot[
+    dashed,
+    color=black!45,
+    line width=1.0pt,
+  ] coordinates {(8,93) (8,118)};
+  \node[anchor=south, font=\small, text=black!55, rotate=90]
+    at (axis cs:8, 107) {Time expiration};
+
+  %% --- Price path: dips toward stop-loss, recovers, hits profit barrier ---
+  %% Realistic wiggly path to show the path MATTERS for labeling
+  \addplot[
+    smooth,
+    color=kuroseblue,
+    line width=1.6pt,
+  ] coordinates {
+    (0,100)
+    (0.5,101.5)
+    (1.0,100.8)
+    (1.5,99.5)
+    (2.0,98.2)    %% dips close to stop-loss — dangerous moment
+    (2.5,98.8)
+    (3.0,100.5)
+    (3.5,102.0)
+    (4.0,101.2)
+    (4.5,103.5)
+    (5.0,105.8)
+    (5.5,107.0)
+    (6.0,108.5)
+    (6.5,110.2)
+    (7.0,111.5)
+    (7.4,113)     %% hits profit barrier
+  };
+
+  %% --- Entry point ---
+  \addplot[
+    only marks,
+    mark=*,
+    mark size=3pt,
+    color=kuroseblue,
+  ] coordinates {(0,100)};
+  \node[anchor=north east, font=\small, text=kuroseblue]
+    at (axis cs:0,100) {Entry};
+
+  %% --- Near-miss annotation (dip toward stop-loss) ---
+  \draw[->, black!50, line width=0.8pt]
+    (axis cs:2.8,96.5) -- (axis cs:2.1,98.0);
+  \node[anchor=north, font=\scriptsize, text=black!55, align=center]
+    at (axis cs:2.8,96.5) {Near stop-loss\\(fixed-horizon misses this)};
+
+  %% --- Hit point on profit barrier ---
+  \addplot[
+    only marks,
+    mark=*,
+    mark size=3pt,
+    color=barrierred,
+  ] coordinates {(7.4,113)};
+  \node[anchor=south west, font=\small, text=barrierred]
+    at (axis cs:7.4,113) {\textbf{Label = 1 (profitable)}};
+
+\end{axis}
+\end{tikzpicture}
+
+\caption{%
+  The Triple-Barrier Method. A trade opens at the entry point (blue dot) and the
+  price path is tracked bar-by-bar within a corridor bounded by a profit barrier
+  (red, dashed), a stop-loss barrier (gray, dashed), and a time expiration
+  (vertical, dashed). The label $y$ is assigned based on whichever barrier the
+  price hits first. Here, the price dips dangerously close to the stop-loss before
+  recovering and eventually hitting the profit barrier---earning label $y = 1$.
+  A fixed-horizon method would assign the same label without ever ``seeing'' the
+  near-miss, illustrating why the path matters for realistic trade labeling.%
+}
+\label{fig:triple-barrier}
+\end{figure}

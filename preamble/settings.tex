@@ -4,7 +4,6 @@
 \usepackage{microtype}
 % Egyptian Hieroglyphs font (requires Noto Sans Egyptian Hieroglyphs installed)
 \newfontfamily\egyptfont{Noto Sans Egyptian Hieroglyphs}
-\usepackage{microtype}
 \usepackage[
     a4paper,
     inner=30mm,
@@ -22,13 +21,21 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning, shadows.blur}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, positioning, shadows.blur, patterns, fillbetween, fit, backgrounds}
 % Pipeline diagram color definitions
 \definecolor{pipenavy}{RGB}{26,  47,  89}
 \definecolor{pipemid}{RGB}{25, 118, 130}
 \definecolor{pipeteal}{RGB}{17, 150, 150}
 \definecolor{pipegreen}{RGB}{31, 120,  85}
+\definecolor{pipegold}{RGB}{160,110,   0}
+\definecolor{pipegray}{RGB}{100,100, 100}
 \definecolor{callout}{RGB}{0, 188, 188}
+% Triple-Barrier Method figure colors
+\definecolor{kuroseblue}{RGB}{30,  90, 160}
+\definecolor{barrierred}{RGB}{180, 40,  40}
+\definecolor{barriergray}{RGB}{100,100,100}
 \usepackage{enumitem}
 \definecolor{darkred}{RGB}{110,28,28}
 \definecolor{darkgreen}{RGB}{30,90,50}
@@ -65,6 +72,33 @@
   after title={\par\medskip\textbf{#1}\par\smallskip},
 }
 
+% Train/test split figure colors
+\definecolor{trainblue}{RGB}{26,  47,  89}
+\definecolor{testgreen}{RGB}{31, 120,  85}
+\definecolor{leakred}{RGB}{180,  40,  40}
+% =========================================
+
 \setlength{\parskip}{0.5em}
 \setlength{\parindent}{0pt}
 \onehalfspacing
+% ========== ADDED FOR Python_FeatureMatrixLoop.tex ==========
+% Required for minted code listings
+\usepackage{minted}
+% minted requires -shell-escape flag and Pygments installed
+% Example compile: xelatex -shell-escape main.tex
+% =========================================
+
+% Set global minted style
+\usemintedstyle{friendly} % or: tango, vs, xcode, default
+
+% ========== TROUBLESHOOTING MINTED ERRORS ==========
+% If you see errors like:
+%   'Missing definition for highlighting style "friendly" (minted executable is unavailable or disabled)'
+%   or 'minted executable is unavailable',
+% then:
+%   1. Ensure you are compiling with --shell-escape (required for minted to call Pygments)
+%   2. Ensure Python and the Pygments package are installed and available in your PATH
+%      (run 'pygmentize -V' in your terminal to check)
+%   3. If using Overleaf, minted may not be supported unless you enable shell-escape in project settings
+%   4. If using latexmk, add '-shell-escape' to your command or .latexmkrc
+% =========================================

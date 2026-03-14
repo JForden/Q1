@@ -1,0 +1,103 @@
+% ============================================================
+% Meta-Labeling Two-Stage Architecture Flowchart
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Preamble requirements:
+%     \usepackage{tikz}
+%     \usetikzlibrary{arrows.meta, positioning, fit, backgrounds}
+%     \usepackage{xcolor}
+%
+%     \definecolor{pipenavy}{RGB}{26,  47,  89}
+%     \definecolor{pipeteal}{RGB}{17, 150, 150}
+%     \definecolor{pipegreen}{RGB}{31, 120,  85}
+%     \definecolor{pipegold}{RGB}{160,110,   0}
+%     \definecolor{pipegray}{RGB}{100,100, 100}
+% ============================================================
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance   = 0.7cm and 1.1cm,
+  %% --- Box styles ---
+  databox/.style = {
+    rectangle, rounded corners=3pt,
+    minimum width=2.6cm, minimum height=1.1cm,
+    align=center, text=white, font=\sffamily\small,
+  },
+  labelbox/.style = {
+    rectangle, rounded corners=3pt,
+    minimum width=2.0cm, minimum height=0.85cm,
+    align=center, font=\sffamily\scriptsize,
+    draw, line width=0.6pt,
+  },
+  stagebox/.style = {
+    rectangle, rounded corners=4pt,
+    draw=black!25, line width=0.5pt,
+    inner sep=8pt, dashed,
+  },
+  %% --- Arrow style ---
+  arr/.style={
+    ->, -{Stealth[length=6pt, width=4pt]},
+    line width=1.4pt, color=black!40,
+  },
+]
+
+%% ── Row 1: main pipeline nodes ──────────────────────────────
+
+\node[databox, fill=pipenavy] (feat)
+  {\textbf{Feature}\\\textbf{Matrix}\\[-2pt]\scriptsize\color{white!70!black}RSI, ATR, EMA \ldots};
+
+\node[databox, fill=pipeteal, right=of feat] (primary)
+  {\textbf{Primary}\\\textbf{Model}\\[-2pt]\scriptsize\color{white!70!black}RSI crossover rule};
+
+\node[databox, fill=pipegold!80!black, right=of primary] (side)
+  {\textbf{Trade Side}\\[-2pt]\scriptsize\color{white!85!black}Long ($+1$)\\[-1pt]\scriptsize\color{white!85!black}Short ($-1$)};
+
+\node[databox, fill=pipegreen, right=of side] (secondary)
+  {\textbf{Secondary}\\\textbf{Model}\\[-2pt]\scriptsize\color{white!70!black}Decision tree};
+
+\node[databox, fill=pipenavy!80, right=of secondary] (metalabel)
+  {\textbf{Meta-Label}\\[-2pt]\scriptsize\color{white!85!black}Take ($1$)\\[-1pt]\scriptsize\color{white!85!black}Pass ($0$)};
+
+\node[databox, fill=pipegreen!70!black, right=of metalabel] (size)
+  {\textbf{Position}\\\textbf{Sizing}\\[-2pt]\scriptsize\color{white!70!black}Full / reduced / skip};
+
+%% ── Arrows between main nodes ───────────────────────────────
+
+\draw[arr] (feat)      -- (primary);
+\draw[arr] (primary)   -- (side);
+\draw[arr] (side)      -- (secondary);
+\draw[arr] (secondary) -- (metalabel);
+\draw[arr] (metalabel) -- (size);
+
+%% ── Stage labels below each node ────────────────────────────
+
+\node[font=\sffamily\scriptsize, text=pipeteal,   below=0.30cm of primary]  {Stage 1: Direction};
+\node[font=\sffamily\scriptsize, text=pipegreen,  below=0.30cm of secondary]{Stage 2: Conviction};
+\node[font=\sffamily\scriptsize, text=pipegold!80!black, below=0.30cm of side]{Signal};
+\node[font=\sffamily\scriptsize, text=pipenavy!80,below=0.30cm of metalabel]{Filter};
+\node[font=\sffamily\scriptsize, text=pipegreen!70!black, below=0.30cm of size]{Output};
+
+%% ── Feature matrix also feeds secondary model (dashed arc) ──
+%% Shows that the same features inform both models
+
+\draw[
+  ->, -{Stealth[length=5pt, width=3.5pt]},
+  dashed, line width=1.0pt, color=pipenavy!50,
+  bend right=38,
+] (feat.south) to node[below, font=\sffamily\scriptsize, text=pipenavy!60,
+    yshift=-2pt] {same features inform both models}
+  (secondary.south);
+
+\end{tikzpicture}
+
+\caption{%
+  The Meta-Labeling architecture. The \textbf{Primary Model} (Stage~1) uses a
+  rule-based signal to determine the \textit{direction} of the trade (long or short).
+  The \textbf{Secondary Model} (Stage~2) then acts as a filter, predicting whether the primary signal
+  is likely to be correct.
+  The dashed arc highlights that both models draw from the same feature matrix,
+  but answer fundamentally different questions.%
+}
+\label{fig:meta-labeling-flow}
+\end{figure}

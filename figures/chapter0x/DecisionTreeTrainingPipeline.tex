@@ -1,0 +1,66 @@
+% ============================================================
+% Decision Tree Training Pipeline — Code Listing
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Compile with: xelatex --shell-escape main.tex
+%
+% Preamble requirements:
+%     \usepackage{minted}
+%     \usemintedstyle{friendly}   % or tango, vs, xcode
+% ============================================================
+
+\begin{listing}[ht]
+\begin{minted}[
+  linenos,
+  frame=lines,
+  framesep=3mm,
+  fontsize=\small,
+  baselinestretch=1.1,
+]{python}
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.preprocessing import StandardScaler
+
+
+DT_PARAMS = dict(
+    max_depth=6,          # limits tree depth to reduce overfitting
+    min_samples_leaf=50,  # each leaf must cover at least 50 bars
+    class_weight="balanced",  # corrects for imbalanced profit/loss labels
+    random_state=42,
+)
+
+def train_pipeline(X_train, y_train, X_test, label):
+    """Scale features, fit a Decision Tree, and return predictions.
+
+    Returns: (model, scaler, y_prob_test, y_pred_test)
+    """
+    # Standardise: zero mean, unit variance — required before tree fitting
+    scaler   = StandardScaler()
+    Xs_train = scaler.fit_transform(X_train)
+    Xs_test  = scaler.transform(X_test)       # fit on train only
+
+    dt = DecisionTreeClassifier(**DT_PARAMS)
+    dt.fit(Xs_train, y_train)
+
+    y_prob = dt.predict_proba(Xs_test)[:, 1]  # probability of profitable trade
+    y_pred = dt.predict(Xs_test)              # binary label: 1 or 0
+
+    print(f"Pipeline {label} trained — depth {dt.get_depth()}")
+    return dt, scaler, y_prob, y_pred
+
+# ── Train one model per fractional-differentiation level ─────────────────────
+dt_a, sc_a, prob_a, pred_a = train_pipeline(X_train_a, y_train_a, X_test_a, "A (d=0)")
+\end{minted}
+\caption{%
+  Training a decision tree on the financial feature matrix.
+  A \texttt{StandardScaler} normalises each feature column before fitting
+  (note that \texttt{transform} is called on the test set using parameters
+  learned from the training set only, avoiding data leakage).
+  Three separate models are trained across the three fractional-differentiation
+  levels from the FeatureShootout dataset: $d=0$ (raw prices), $d=1$ (standard
+  returns), and $d=x$ (optimal fractional value).
+  The \texttt{class\_weight="balanced"} parameter compensates for imbalanced
+  profit/loss labels --- a direct application of the pitfall described in
+  Section~\ref{sec:pitfalls}.%
+}
+\label{lst:train-pipeline}
+\end{listing}

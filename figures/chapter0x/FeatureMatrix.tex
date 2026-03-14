@@ -1,0 +1,50 @@
+% ============================================================
+% Feature Matrix Table — From Raw Data to Features
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Each row = one dollar bar (a moment in market time)
+% Columns = engineered features (x) + label (y)
+%
+% Preamble requirements:
+%     \usepackage{booktabs, array, xcolor}
+% ============================================================
+
+\begin{table}[ht]
+\centering
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.6}
+\caption{%
+  A financial feature matrix: each row represents one dollar volume bar,
+  and each column represents a measurable signal at that moment in time.
+  The columns are \textbf{features} $x$
+}
+\label{tab:feature-matrix}
+\begin{tabular}{
+  >{\centering\arraybackslash}p{2.0cm}   % timestamp
+  >{\centering\arraybackslash}p{1.8cm}   % close
+  >{\centering\arraybackslash}p{1.8cm}   % EMA
+  >{\centering\arraybackslash}p{1.8cm}   % RSI
+  >{\centering\arraybackslash}p{1.8cm}   % ATR
+}
+\toprule
+\multicolumn{5}{c}{\textbf{Features} $x$} \\
+\cmidrule(r){1-5}
+\textbf{Timestamp}
+  & \textbf{Close}
+  & \textbf{EMA\_14}
+  & \textbf{RSI\_14}
+  & \textbf{ATR\_14} \\
+\midrule
+09:32:01 & 148.20 & 147.80 & 54.2 & 1.32 \\
+09:34:47 & 149.50 & 148.10 & 61.7 & 1.41 \\
+09:38:03 & 148.90 & 148.30 & 58.4 & 1.38 \\
+\multicolumn{5}{c}{$\vdots$} \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\footnotesize
+\textit{Note:} In practice the feature matrix will contain hundreds of rows (one per
+dollar bar) and potentially dozens of columns.
+
+\end{table}

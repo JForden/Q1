@@ -1,4 +1,4 @@
-
+﻿
 \chapter{Machine Learning}
 
 From Netflix recommendations to self-driving cars and the stock market, machine learning (ML) is quietly shaping the systems we use every day. But what is it, really?
@@ -17,7 +17,7 @@ introduce unsupervised and reinforcement learning, so you see the big picture. Y
 algorithms use "decision trees" to mimic human logic, and how they fit into the system you've already started building. By the end,
 you'll be ready to judge whether your model is actually uncovering a true market signal, or just memorizing historical flukes.
 
-\section{Principles of Machine Learning}
+\section{Principles of Machine Learning}\label{sec:principles}
 
 Before we dive into the mechanics of machine learning, let us pause and consider how algorithms already shape our daily lives.
 Every time you unlock your phone with your face, get a movie suggestion from Netflix, or follow a recipe to bake cookies, you are relying on algorithms at work.
@@ -37,7 +37,7 @@ This shift, from rule-writing to example-showing, is the core idea that makes ma
 Traditional programming requires exact instructions and requires human programmers to anticipate every possible scenario.
 In traditional programming, data and rules go \textit{in}, and answers come \textit{out}. 
 In machine learning, data and answers (examples) go \textit{in}, and \textit{rules} come out.  
-The output of the training process is not a prediction but a model—a compact mathematical representation of patterns in the data that can later be used to make predictions on new inputs.
+The output of the training process is not a prediction but a model---a compact mathematical representation of patterns in the data that can later be used to make predictions on new inputs.
 
 Given how central machine learning has become, it's natural to wonder: if the field has existed since the 1950s, why are we only now seeing it become so widespread?
 The practical answer lies in two major limitations that held the field back for decades: the availability of large, high-quality datasets, and the sheer amount of computing power required. At its core, machine learning compensates for a lack of explicit rules by leveraging large amounts of data. For much of its history, however, such data simply did not exist. The advent of cloud computing and advances in computer technology have enabled researchers and companies not only to store and process vast amounts of data, but also to access it seamlessly from anywhere in the world over the internet. Companies across the world had a collective awakening to the importance of data collection and information modeling. This shift was not just about better algorithms, but about the sudden availability of massive datasets and the computing power, especially GPUs, needed to process them \cite{ibm2012bigdata,idc2021datasphere}.
@@ -47,7 +47,7 @@ Data collection has become so desirable that companies are even offering hardwar
 For decades, computing was all about the Central Processing Unit (CPU). 
 The CPU was the ``chef'' in the kitchen, following recipes (programs) step by step, one dish at a time.
 Programs were written, compiled or interpreted, and executed via the CPU, which excelled at handling a wide variety of tasks, but only a few at once.
-Incremental improvements in CPU performance have mostly come from smarter designs—such as adding more cores (moving from single-core to quad-core and beyond), refining how instructions are processed, and squeezing out more parallelism where possible. 
+Incremental improvements in CPU performance have mostly come from smarter designs---such as adding more cores (moving from single-core to quad-core and beyond), refining how instructions are processed, and squeezing out more parallelism where possible. 
 But even with these advances, CPUs remain general-purpose processors. They are excellent at juggling many different tasks, but they are not designed for the massive parallel number-crunching that modern machine learning demands.
 
 For the last twenty years, it was widely claimed by the media, politicians, and parents, that the video game industry wouldn't amount to much.
@@ -68,23 +68,23 @@ This democratization of cheap, powerful computation has opened the door for fina
 \subsection{What Makes a Machine Learn}
 
 
-One of the most puzzling aspects of machine learning is the word ``learning'' itself. When we say a machine ``learns,'' we don't mean it in the same way a human does—there's no sudden flash of insight, no ``aha!'' moment. Instead, the process is more like a chef perfecting a recipe by making small tweaks, tasting, and adjusting the ingredients to get closer to the perfect flavor.
+One of the most puzzling aspects of machine learning is the word ``learning'' itself. When we say a machine ``learns,'' we don't mean it in the same way a human does---there's no sudden flash of insight, no ``aha!'' moment. Instead, the process is more like tuning an old analog radio: you rotate the dial slowly, listening for the signal to grow clearer, making tiny adjustments until the static fades and the station locks in. Each small turn is guided by what you just heard---more static means turn back; cleaner signal means keep going.
 
-But how do we even begin to describe what a machine is doing when it ``learns''? This is where a bit of mathematical formalism becomes not just helpful, but essential. Imagine you want to teach a computer to predict tomorrow's stock price, or whether an email is spam. You could try to write down a giant list of rules, but the real world is far too messy for that—there are simply too many possibilities, too much noise, and too many exceptions. Instead, we turn to a more general, abstract way of thinking: we imagine there is some unknown function $g$ that takes an input $x$ (like today's market data, or the words in an email) and produces an output $f$ (tomorrow's price, or a spam/not-spam label). Mathematically, we write this as:
+But how do we even begin to describe what a machine is doing when it ``learns''? This is where a bit of mathematical formalism becomes not just helpful, but essential. Imagine you want to teach a computer to predict tomorrow's stock price, or whether an email is spam. You could try to write down a giant list of rules, but the real world is far too messy for that---there are simply too many possibilities, too much noise, and too many exceptions. Instead, we turn to a more general, abstract way of thinking: we imagine there is some unknown function $f$ that takes an input $x$ (like today's market data, or the words in an email) and produces an output $y$ (tomorrow's price, or a spam/not-spam label). Mathematically, we write this as:
 \[
-f = g(x)
+y = f(x)
 \]
 
-This little equation is deceptively powerful. It says: whatever the task, there is some mapping from inputs to outputs, and our job is to discover (or approximate) the function $g$ that best captures the patterns in the data. But here's the catch: we almost never know what $g$ actually is! If we did, we wouldn't need machine learning at all—we'd just write down the formula and be done. The art and science of machine learning is all about searching for a good $g$—one that does well on the data we've seen, and hopefully generalizes to new data we haven't seen yet. This is why machine learning is fundamentally an optimization problem: we are searching for the function $g$ (from a vast space of possible functions) that best fits our data.
+This little equation is deceptively powerful. It says: whatever the task, there is some mapping from inputs to outputs, and our job is to discover (or approximate) the function $f$ that best captures the patterns in the data. But here's the catch: we almost never know what $f$ actually is! If we did, we wouldn't need machine learning at all---we'd just write down the formula and be done. The art and science of machine learning is all about searching for a good $f$---one that does well on the data we've seen, and hopefully generalizes to new data we haven't seen yet. This is why machine learning is fundamentally an optimization problem: we are searching for the function $f$ (from a vast space of possible functions) that best fits our data.
 
-But how does the machine ``learn'' this function? The process starts with a collection of background data—think of it as a set of practice problems. The model uses algorithms (its ``study strategies'') to search for patterns in this data. Each time it makes a prediction, it checks how close it was to the correct answer, much like a student checking their answers in the back of the textbook. Here's where the ``learning'' comes in: after each attempt, the model measures its error (how far off it was from the correct answer) and then adjusts its internal parameters to do better next time. This is a feedback loop—predict, check, adjust, repeat. Over many cycles, the model gradually improves.
+But how does the machine ``learn'' this function? The process starts with a collection of background data---think of it as a set of practice problems. The model uses algorithms (its ``study strategies'') to search for patterns in this data. Each time it makes a prediction, it checks how close it was to the correct answer, much like a student checking their answers in the back of the textbook. Here's where the ``learning'' comes in: after each attempt, the model measures its error (how far off it was from the correct answer) and then adjusts its internal parameters to do better next time. This is a feedback loop---predict, check, adjust, repeat. Over many cycles, the model gradually improves.
 
 This feedback-driven process is the heart of machine learning. The machine isn't developing intuition or understanding in the human sense; it's methodically tuning itself to minimize errors, one step at a time. In the end, what we call ``learning'' is really a process of continuous, data-driven improvement.
 
 \input{figures/chapter0x/ML_vs_programming.tex}
 
 
-\section{Supervised Learning}
+\section{Supervised Learning}\label{sec:supervised}
 
 Historically, epigraphy (the study of ancient inscriptions) was a painstakingly manual process, requiring years of linguistic expertise and comparison with known texts like the Rosetta Stone.
 The process involved meticulous analysis of symbols, their contexts, and their relationships to one another.
@@ -93,14 +93,14 @@ In 2017, Ubisoft, a video game company, launched a research project called \text
 
 Their goal was to see if machine learning could streamline the cataloging of the pharaohs' language.
 They did this by training a machine learning model on a large set of examples, like a stack of flashcards with both the hieroglyph and its translation.
-What took scholars centuries, the model accomplished in minutes—processing thousands of images, flagging uncertain symbols for human review, and transforming the pace of epigraphy.
+What took scholars centuries, the model accomplished in minutes---processing thousands of images, flagging uncertain symbols for human review, and transforming the pace of epigraphy.
 This is the promise of machine learning: not just speed, but the ability to scale human expertise beyond what was ever possible.
 The model performed remarkably well, accurately identifying the majority of hieroglyphs and demonstrating that AI could significantly accelerate the study and translation of ancient texts while still relying on human expertise for ambiguous cases.
 
-This application of machine learning is known as \textbf{supervised learning}, where the model is trained on a labeled dataset(x), learning to map inputs (like images of hieroglyphs) to outputs (their translations) (y). 
+This application of machine learning is known as \textbf{supervised learning}, where the model is trained on a labeled dataset $(x)$, learning to map inputs (like images of hieroglyphs) to outputs (their translations) $(y)$. 
 This pattern, learning from examples with known answers, underpins everything from image recognition to predicting tomorrow's stock price.
 
-Supervised learning is a type of machine learning where the model is trained on a \textbf{labeled dataset}, meaning that each input data point is paired with the correct output(see figure \ref{fig:hieroglyph-labeled}). 
+Supervised learning is a type of machine learning where the model is trained on a \textbf{labeled dataset}, meaning that each input data point is paired with the correct output (see Figure~\ref{fig:hieroglyph-labeled}). 
 
 \input{figures/chapter0x/HieroglyphTable.tex}
 
@@ -117,7 +117,7 @@ This is a classic \textbf{classification} problem: the model learns to assign ea
 Classification is the primary tool we'll use in this course, because it allows us to make robust, actionable predictions about market or asset behavior without getting bogged down in the noise of trying to predict exact prices. Car manufacturers, for example, classify their vehicles into categories like ``sedan,'' ``SUV,'' or ``truck'' based on features like size, shape, and engine type. When we see a new car, we are usually able to generalize and classify it correctly, even if we haven't seen that exact make and model before.
 
 
-For completeness, it's worth noting that \textbf{regression} is the other main branch of supervised learning. In regression, the model predicts a continuous value (such as the next price of an asset or tomorrow's temperature) based on input features. Regression is used when we need to answer questions like ``how much'' or ``to what extent.'' While regression is powerful and widely used in many fields, in finance it is often less practical due to the unpredictable nature of markets. That's why, in this book, we focus mainly on classification.
+\textbf{Regression} is the other main branch of supervised learning. In regression, the model predicts a continuous value (such as the next price of an asset or tomorrow's temperature) based on input features. Regression is used when we need to answer questions like ``how much'' or ``to what extent.'' While regression is powerful and widely used in many fields, in finance it is often less practical due to the unpredictable nature of markets. That's why, in this book, we focus mainly on classification.
 
 We know what we want the model to predict. The question now is how it learns to do it.
 
@@ -132,7 +132,7 @@ If you remember a game called ``20 Questions,'' you can relate to how a model le
 
 In the next section, we'll dive into the differences of these learning techniques and how they are implemented in practice. We'll also discuss how to evaluate the performance of these models and ensure they generalize well to new data, rather than just memorizing historical patterns.
 
-\section{Decision Trees}
+\section{Decision Trees}\label{sec:decision-trees}
 
 Have you ever played 20 Questions with a friend? If so, you've already used a decision tree!
 
@@ -151,13 +151,13 @@ The leaf nodes represent the final answers, such as \textit{whale}, \textit{tree
 
 \begin{figure}[ht]
   \centering
-  \label{20q}
   \includegraphics[width=0.8\textwidth]{figures/chapter0x/DecisionTreeClassification.png}
   \caption{A 5-level decision tree for 20 Questions.}
+  \label{20q}
 \end{figure}
 
 Decision trees are popular in financial machine learning because they allow for easy interpretation of the model's decision-making process.
-It also allows for sequential decision-making based on the features of the data, which is particularly useful in trading strategies where decisions are often made based on a series of conditions. 
+They also allow for sequential decision-making based on the features of the data, which is particularly useful in trading strategies where decisions are often made based on a series of conditions. 
 This idea is central to one of the main benefits of decision trees: They are great at capturing complex, non-linear relationships between features, labels, and outcomes. 
 
 Let's consider an example of a bank that wants to predict whether a customer should be approved for a loan. 
@@ -169,29 +169,18 @@ This process continues, with each internal node representing a question about a 
 
 \begin{center}
 \begin{tikzpicture}[level distance=2cm,
-level 1/.style={sibling distance=4cm},
-level 2/.style={sibling distance=2cm}]
-\node {Credit Score 
->
-> 700?}
-child {node {Income 
->
-> \$50k?}
-child {node {Approve}}
-child {node {Deny}}
-}
-child {node {Deny}};
+  level 1/.style={sibling distance=4cm},
+  level 2/.style={sibling distance=2cm}]
+  \node {Credit Score $>$ 700?}
+    child {node {Income $>$ \$50k?}
+      child {node {Approve}}
+      child {node {Deny}}
+    }
+    child {node {Deny}};
 \end{tikzpicture}
 \end{center}
 
 Of course, real-world decision trees can be much deeper and more complex, but the core idea remains the same: at each step, the tree asks a question about the data, and the answer determines the next step, until a final decision is reached.
-The jump from approving bank loans to algorithmic trading is smaller than it might seem. 
-Just as a loan officer evaluates a borrower's credit score and income to assess risk, a quantitative model evaluates market indicators to assess the probability of a profitable trade.
-Consider a simple trading strategy built on just two features:
-\begin{itemize}
-  \item Relative Strength Index (RSI): A momentum indicator that measures whether an asset is "overbought" (priced too high) or "oversold" (priced too low). 
-  \item Average True Range (ATR): A volatility indicator that measures how much an asset's price is fluctuating
-\end{itemize}
 
 Instead of writing a rigid rule like "always buy when the RSI is low," we can let a decision tree discover the nuanced relationship between momentum and volatility. 
 The above example only accounts for two features, but in practice, a decision tree can handle dozens or even hundreds of features. 
@@ -206,7 +195,8 @@ This is especially problematic in finance, where data is notoriously noisy and t
 It's also arguable that many of these features aren't even relevant to the trading strategy at hand.
 Let's generalize our example above. Suppose instead of just two features, we have a list of 10,000, and we want to predict whether a trade will be profitable.
 Now, our model is like a detective working on a cold case, sifting through mountains of evidence, searching for any clue that might crack the case.
-Sometimes, the detective finds a pattern that seems to explain everything, but it's really just a coincidence.
+Sometimes, the detective finds a pattern that seems to explain everything, but it's really just a coincidence. And sometimes, the detective charges the wrong suspect.
+Worse, imagine that same detective becomes so convinced by the cold-case file that when a new witness walks in with fresh information, the detective dismisses it---the old file already has every answer. That is overfitting to a tee: the model has ``solved'' the training data so thoroughly that it can no longer learn from new evidence.
 By focusing too much on the training data and building an overly complex decision tree, the model loses sight of the bigger picture.
 It does this by creating branches for every little detail in the training data, even those that are irrelevant or random.
 The result is a hierarchical tree that becomes so many levels deep that it perfectly classifies the training data, but fails to generalize to new, unseen data.
@@ -215,7 +205,7 @@ Overfitting was a major problem in the early days of financial machine learning,
 
 \subsection{Pruning}
 
-The general rule of thumb is a decision tree should be as simple as possible. In machine learning, one can abstract Sir Tony Hoare's famous quote: there are two ways of constructing a machine learning model: one way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies.
+The general rule of thumb is a decision tree should be as simple as possible. In machine learning, one can abstract Sir Tony Hoare's famous quote\footnote{Adapted from C.\ A.\ R.\ Hoare's 1980 Turing Award lecture on software complexity.}: there are two ways of constructing a machine learning model: one way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies.
 Overfitting is a classic example of the second approach. To combat this, we use a technique called \textbf{pruning}, which is like trimming a tree to remove unnecessary branches.
 Pruning is a process that removes branches that have little importance. Removing these branches helps strip away the noise. 
 This is typically done using two techniques: \textbf{pre-pruning} and \textbf{post-pruning}.
@@ -235,30 +225,32 @@ Post-pruning techniques include the following:
   \item \textbf{Minimum Impurity Decrease:} Only keeps branches that actually help the tree make better decisions; tiny improvements are ignored to keep things simple.
   \item \textbf{Minimum Leaf Size:} Makes sure each final decision in the tree is based on enough examples, so the model doesn't make rules from just a few odd cases.
 \end{itemize}
-In practice, pre-pruning is faster and post-pruning tends to produce slightly better trees—but both share the same goal: a model that generalizes rather than memorizes.
+In practice, pre-pruning is faster and post-pruning tends to produce slightly better trees---but both share the same goal: a model that generalizes rather than memorizes.
 
 \subsection{Choosing the Best Attribute}
 
+A single decision tree, carefully built and pruned, is a powerful tool --- but as we've seen, it remains fragile. The next section puts that tree to work on real financial data, and in doing so, reveals exactly where its limits lie.
+
 Now that we've seen how to keep our trees from growing wild, let's turn to the next big question: when the model reaches a decision point, how does it choose which feature to split on? 
-Humans might be able to make this choise based on visual indicators, intution, or experience, but a machine needs a more systematic approach.
-The ability to choose the best attribute is ultimatly the heart of what makes a decision tree smart, and it's where the math gets interesting.
+Humans might be able to make this choice based on visual indicators, intuition, or experience, but a machine needs a more systematic approach.
+The ability to choose the best attribute is ultimately the heart of what makes a decision tree smart, and it's where the math gets interesting.
 
 
 The way a decision tree chooses the best attribute is by measuring how well each feature separates the data into distinct classes. To do this, it needs a way to judge how "pure" each group is after a split.
 
 A node is considered pure based on how mixed or unmixed the data is in a group after a split:
 \begin{itemize}
-  \item A node is "pure" if all the samples in it belong to the same class (for example, all are "cats" or all are "dogs").
-  \item A node is "impure" if it contains a mix of different classes (some "cats" and some "dogs" together).
+  \item A node is ``pure'' if all the samples in it belong to the same class (for example, all are ``cats'' or all are ``dogs'').
+  \item A node is ``impure'' if it contains a mix of different classes (some ``cats'' and some ``dogs'' together).
 \end{itemize}
 
-A decision tree tries to split the data so that each group (node) is as pure as possible—meaning each group contains mostly just one kind of thing. The purer the node, the easier it is for the tree to make a confident decision.
+A decision tree tries to split the data so that each group (node) is as pure as possible---meaning each group contains mostly just one kind of thing. The purer the node, the easier it is for the tree to make a confident decision.
 
 To measure this, decision trees use two main metrics: \textbf{Gini Impurity} and \textbf{Information Gain}. Both metrics quantify the "purity" of the nodes after a split, but they do so in slightly different ways.
 
 \subsubsection{Information Gain}
 
-Information gain relies on the concept of entropy, which measure the amount of uncertainty or disorder in a dataset. 
+Information gain relies on the concept of entropy, which measures the amount of uncertainty or disorder in a dataset. 
 Think of entropy as a way to measure how "mixed up" or uncertain a group of data is. 
 A high entropy means the data is very mixed (lots of different classes), while low entropy means the data is more ordered (mostly one class).
 It is scored on a simple scale from 0 to 1. 
@@ -278,8 +270,8 @@ Here is how the process works:
 \end{itemize}
 
 The process of \textit{information gain} is the difference in entropy before and after a split based on a given feature. 
-The attiribute that results in the largest reduction in entropy(closer to 0 being better in this case) is chosen as the best attribute to split on. 
-Figure \ref{tab:infogain-splits} illustrates this process with our trusted hieroglyph example. 
+The attribute that results in the largest reduction in entropy(closer to 0 being better in this case) is chosen as the best attribute to split on. 
+Table~\ref{tab:infogain-splits} illustrates this process with our trusted hieroglyph example. 
 The model evaluates each feature, calculates the information gain for each possible split, and selects the one that maximizes the gain.
 We can see that the feature ``is an animal'' provides the highest information gain, making it the best choice for the first split in our decision tree.
 From there, the process continues for each subtree, recursively applying the same logic until the tree is fully grown or pruned.
@@ -295,7 +287,10 @@ If it contains every glyph in equal proportion, your guess is essentially random
 from a node would be incorrectly classified if it were labeled at random according to the class distribution in that node.
 
 Similar to entropy, Gini Impurity ranges from 0 to 1, where 0 indicates perfect purity and 1 indicates maximum impurity.
-It's calculated, 
+In plain English, Gini impurity is just a way for the model to ask: ``How likely am I to be wrong if I guess the label of something in this group at random?''
+If every card in the bag is the same, you can't be wrong---impurity is zero. If the bag is a total jumble, your chances of guessing wrong go up, and so does the impurity.
+The lower the Gini impurity, the more confident the model can be in its decisions.
+In practice, the model uses this number to help decide which questions (splits) will do the best job of sorting things into neat, predictable groups.
 
 \subsubsection{Entropy vs Information Gain}
 
@@ -307,27 +302,334 @@ In practice, both metrics often lead to similar results, with the choice between
 
 \input{figures/chapter0x/GiniVsEntropy.tex}
 
-\section{Evaluating Decision Trees}
+\section{Building the Financial ML Pipeline}\label{sec:pipeline}
 
-% one bridging paragraph: we now have a model trained on our 
-% feature matrix — but how do we know if it's actually learned 
-% anything real?
+Up to this point, we've built a model that can ask questions about features, but we haven't yet said what those features are or where they come from. 
+That's the real challenge this section resolves: connecting the abstract mechanics of decision trees to the concrete, engineered features that actually drive financial predictions.
 
-\subsection{The Feature Matrix}
+In prior chapters, we focused on transforming raw market data into dollar volume bars, then applied fractional differentiation to enforce stationarity while preserving memory.
+Our next step is to convert this processed data into a \textbf{feature matrix}, which serves as the input for our decision tree model. 
+A feature matrix is a structured representation of our data. You have actually already seen a feature matrix in Table~\ref{tab:hieroglyph-features}, where each row corresponds to a different glyph and each column corresponds to a different feature.
+In the context of financial machine learning, each row would represent a different time point or market event, and each column would represent a different market indicator or feature derived from our processed data.
+This is the process of translating our market hypotheses into the structured inputs our decision tree will use to learn.
+The jump from hieroglyph translation to algorithmic trading is smaller than it might seem.
+Just as an epigraphist maps glyphs to their translations, a quantitative model evaluates market indicators to assess the probability of a profitable trade.
+To make this concrete, consider a simple trading strategy built on just two features: the Relative Strength Index (RSI), which measures momentum, and the Average True Range (ATR), which measures volatility.
+Instead of writing a rigid rule like ``always buy when the RSI is low,'' we can let a decision tree discover the nuanced relationship between momentum and volatility. Here is what such a tree might look like:
+
+\begin{center}
+\begin{tikzpicture}[level distance=2.2cm,
+  level 1/.style={sibling distance=4.5cm},
+  level 2/.style={sibling distance=2.2cm}]
+  \node {RSI $<$ 30?}
+    child {node {ATR $>$ 1.5?}
+      child {node {Buy}}
+      child {node {Hold}}
+    }
+    child {node {Hold}};
+\end{tikzpicture}
+\end{center}
+
+This tiny tree shows how a model can combine two simple indicators to make a trading decision. 
+In practice, a decision tree can handle dozens or even hundreds of features, capturing complex patterns in the data that might be missed by simpler, rule-based approaches.
+
+
+The most important practical question for any trading model is: what are we actually trying to predict? 
+While it might seem natural to use a \textbf{regression} model to forecast the exact future price of an asset, in practice this is rarely effective. 
+Financial markets are notoriously unpredictable, and the extreme difficulty of accurately predicting precise prices makes regression a poor fit for most trading strategies.
+
+Instead, we turn to \textbf{classification}. 
+But classification only works if we can define clear, actionable labels for our data.
+The key design decision is to label each example by whether a trade would have been profitable or not. 
+This reframes the problem: rather than asking ``how much will the price move?'' we ask ``was this trade a good idea?''
+The classification in this case is a binary label, either the trade was profitable (1) or it was not (0).
+This approach has several advantages:
+\begin{itemize}
+  \item Simplifies the prediction task: the model focuses on learning patterns that lead to successful trades, not on forecasting exact prices.
+  \item Aligns with the real goal of trading: making profitable decisions, not just predicting numbers.
+  \item Provides clear, interpretable outputs: traders can easily understand predictions in terms of real-world profit or loss.
+  \item Makes evaluation straightforward: profitability is determined simply by comparing entry and exit prices in historical data.
+\end{itemize}
+
+To simplify this binary classification problem, we can define a \textbf{target variable} that indicates whether a trade was profitable or not. 
+The question we ask the model is: ``Given the market conditions at this bar, will the next bar close higher (profitable) or lower (unprofitable)?'' 
+This target variable is the artifact that we append to our feature matrix, and for simplicity, we can define it as follows:
+
+\textbf{Target variable definition:}
+\begin{itemize}
+  \item \textbf{1} = profitable trade (next bar closes higher than the current bar)
+  \item \textbf{0} = unprofitable trade (next bar closes equal or lower than the current bar)
+\end{itemize}
+
+With our end goal of building a feature matrix for classification in mind, we can now outline the data pipeline that transforms raw market data into a structured format suitable for machine learning. 
+Before we build out our feature matrix, we need to dive into the calculations that we can use to generate the features themselves, known as \textbf{technical indicators}.
+
+
+\subsection{Technical Indicators}
+
+Technical indicators are mathematical calculations based on historical price, volume, or open interest data that traders use to predict future market behavior.
+ We have seen some of these indicators in action already, such as the Relative Strength Index (RSI), Simple Moving Average (SMA), and Exponential Moving Average (EMA). 
+ These indicators are designed to capture different aspects of market behavior, such as momentum, volatility, and trend direction. Generally, technical indicators can be categorized into five main types:
+
+\begin{itemize}
+  \item \textbf{Trend/momentum:} These indicators help identify both the direction and speed of the market.
+  \item \textbf{Mean Reversion:} These indicators help identify when the market is likely to revert to its mean or average price level.
+  \item \textbf{Volatility:} These indicators measure the rate of price change and the degree of variation in trading prices over time.
+  \item \textbf{Statistical Moments:} These indicators try to identify the shape and spread of the price distribution, such as skewness and kurtosis.
+  \item \textbf{Volume/Liquidity:} These indicators incorporate trading volume to measure the cumulative flow of money into and out of an asset, helping to confirm the strength of a price trend.
+\end{itemize}
+
+Financial data is extremely noisy; the market is often cited as being 90\% noise and 10\% signal.
+Indicators act as mathematical filters to suppress high-frequency noise and hopefully reveal low-frequency trends.
+A single indicator is rarely enough to capture the full complexity of the market. 
+The true power of technical indicators in modern algorithmic trading comes from the ability to combine multiple indicators into a single feature matrix, allowing the model to learn from a richer set of signals.
+
+
+\subsection{From Raw Data to Features}
 
 \input{figures/chapter0x/Pipeline.tex}
 
-% connect pipeline diagram → what the model actually sees
+If we recall the data pipeline from Chapter~\ref{ch:datapipeline}, we can see how each stage transforms the raw market data into a form that is closer to what our machine learning model can use. 
+Building a feature matrix is the final step in this pipeline, where we take the processed data and encode our trading hypotheses as measurable inputs for the model. 
+Our feature matrix is essentially a spreadsheet where every row is one dollar volume bar and every column is one measurement about that moment in time. 
+Our algorithm will read across each row and ask ``given all these signals at this moment, did the market go up or down next?''
+
+Our feature matrix might look something like this (see Table~\ref{tab:feature-matrix}):
+
+\input{figures/chapter0x/FeatureMatrix.tex}
+
+In this case, we add the timestamp and the close price of the bar to provide the wider context. 
+In the next step, when we move to training, we use the close price as a comparison point to determine whether the trade was profitable or not, which will be encoded in the label column. 
+The datetime column is useful for tracking the temporal sequence of the data, which can be important for time series analysis and ensuring that our model respects the chronological order of events.
+
+With our current feature matrix, we have one half of the supervised learning equation: the features $x$.
+\[
+y = f(x)
+\]
+
+The other half is the labels $y$, which we will define based on whether the trade following each bar was profitable or not.
+
+
+\subsection{Finding Labels: Fixed-Horizon Method}
+
+To calculate labels, the most intuitive approach is the fixed-horizon method.
+ Here, we simply compare the close price of the current bar with the close price a fixed number of bars into the future. 
+For example, for a 5-bar horizon, we compare the close price now with the close price 5 bars later. 
+If the future close price is higher, we label that row as a profitable trade (1); otherwise, it is unprofitable (0).
+
+This method assumes we are looking for trades that will be profitable in a short-term window, which is a common approach in algorithmic trading. 
+In standard machine learning literature, it is common to create the $y$ label by looking exactly $h$ bars into the future (e.g., 5 bars) and evaluating if the price went up or down.
+The fixed-horizon method is simple and easy to implement, making it a popular baseline.
+
+\subsection{Finding Labels: The Triple-Barrier Method}
+
+Modern financial machine learning often uses a more sophisticated approach, known as the \textit{Triple-Barrier Method} (L\'opez de Prado). 
+The Triple-Barrier Method sets three thresholds (or barriers) for the price movement:
+
+\begin{itemize}
+  \item \textbf{Upper Barrier:} A profit-taking limit (1).
+  \item \textbf{Lower Barrier:} A stop-loss limit (0).
+  \item \textbf{Time Barrier:}  A maximum holding period (which acts as a timeout).
+\end{itemize}
+
+Unlike the simple fixed-horizon method, the Triple-Barrier Method allows for more nuanced labeling of trades.
+A fixed-time horizon ignores the fluctuations and the path the asset took to reach the future price. 
+If a stock crashes and recovers within the 5-bar window, a fixed-horizon method might label it as profitable, even though the trade would have been risky and potentially unprofitable in practice. 
+Imagine a scenario where a trader enters a position, and the price immediately drops by a staggering 50\%. 
+In our idealistic fixed-horizon, this temporary drop is effectively ignored; in practice, it's likely a broker might liquidate the trader's position far before the 5-bar window is up, resulting in a loss.
+
+In comparison, the Triple-Barrier Method takes into account the path the price takes, and labels the trade based on which barrier is hit first. 
+The algorithm reads forward bar-by-bar and assigns the $y$ label based on which of these three barriers is touched first. 
+This method is particularly useful in financial markets, as $y$ is not necessarily determined by looking at a single future timestamp. 
+Instead, $y$ is determined by tracking the asset's price path forward from the current bar until it hits a defined profit target, a stop-loss limit, or a maximum time expiration. 
+The maximum expiration time is customizable, with most practitioners using a specific number of days (e.g., 1 day), or a larger number of observations (e.g., 100 bars), to ensure that the model is not overly sensitive to short-term fluctuations.
+
+\input{figures/chapter0x/TrippleBarrier.tex}
+
+\subsection{Meta Labeling}
+
+In our current architecture, a single decision tree asked to predict whether a trade will be profitable is carrying two jobs at once: deciding the \textit{direction} of the trade (long or short), and deciding whether the trade is worth taking at all. 
+These are not the same question, and forcing one model to answer both tends to produce a model that is mediocre at each.
+ 
+Think of how a trading desk is actually organized. 
+A senior trader reads the chart, studies the indicators, and calls the direction: ``I think this stock is going up.'' 
+That is a judgment about the market. 
+Before a single dollar is committed, a risk manager reviews the same setup and asks a different question entirely: ``Given our current exposure and the quality of this signal, should we actually take this trade?''
+The trader does not decide position size; the risk manager does not call market direction. The two roles are deliberately separated because the skills required are different.
+ 
+\textbf{Meta-labeling} formalizes exactly this division of labor. Rather than asking one model to be right about everything, we build a two-stage architecture:
+ 
+\begin{itemize}
+  \item \textbf{Primary Model (the trader):} A rule-based signal --- a moving average crossover, an RSI threshold, or any technical indicator --- that determines the \textit{side} of the trade: Long ($+1$) or Short ($-1$). This model is simple and fast. It does not need to be perfect; it just needs to identify a direction worth investigating.
+  \item \textbf{Secondary Model, the Meta-Label (the risk manager):} A decision tree trained not to predict market direction, but purely to predict whether the primary model's signal will be correct. Its output is binary: take the bet ($1$) or pass ($0$). This is the model that decides whether to act on the primary signal at all.
+\end{itemize}
+
+The power in this setup is that we train the secondary model on the \textit{performance} of the primary model, rather than on the market itself.
+This abstraction allows us to essentially ask: ``Given what the primary model just said, how much should I trust it?''
+
+To make this concrete, suppose our primary model is a simple RSI crossover rule: buy when RSI crosses above 30 (oversold recovery), short when RSI crosses below 70 (overbought reversal).
+We run this rule over our historical dollar bars and record every trade signal. 
+For each signal, we then check, using the Triple-Barrier labels from the previous section, whether the primary model was actually right. 
+Those outcomes become our meta-labels:
+ 
+\begin{itemize}
+  \item \textbf{Meta-label = 1:} The primary model called the correct direction \textit{and} the Triple-Barrier outcome was a win.
+  \item \textbf{Meta-label = 0:} The primary model was wrong, or the Triple-Barrier outcome was a loss or timeout.
+\end{itemize}
+
+We then train our decision tree on these meta-labels, using the same feature matrix of technical indicators as inputs. 
+This two-stage architecture allows us to strip away more of the noise in the market. We train our model to predict the \textit{quality} of the primary signal, rather than the market itself.
+This allows our decision tree to recognize the conditions under which the RSI signal is likely to succeed, and more importantly, when it is likely to fail.
+Figure~\ref{fig:meta-labeling-flow} shows how these two stages connect.
+
+\input{figures/chapter0x/TwoModelMatrix.tex}
+
+\subsection{Finalizing the Feature Matrix}
+
+\input{figures/chapter0x/CompleteFeatureMatrix.tex}
+
+The structure of our feature matrix is now complete: each row represents a dollar bar, each column represents a technical indicator, and the final column contains the label indicating whether the trade was profitable or not.
+
+We can see an example of this structure in Table~\ref{tab:feature-matrix-full}.
+
+Yet, we are missing the important step of actually calculating our feature matrix and labels across the entire dataset.
+We know the \textit{blueprint} of our model, but we need to build our training and testing datasets that will allow us to both train and evaluate our model's performance. 
+Our goal is to loop over our dataframe, calculate the technical indicators for each bar, and then apply the triple-barrier method to assign the labels. 
+
+A Python implementation of this process can be seen in Listing~\ref{lst:feature-matrix-loop}. 
+The feature matrix is built in a single pass through the dataframe, with each feature being calculated and appended to the row dictionary. 
+The calculations for these are abstracted away via appropriate functions.
+\footnote{Popular Python libraries for technical indicators include \texttt{ta-lib}, \texttt{pandas-ta}, and \texttt{finta}.}
+The final step in the loop is to apply the triple-barrier method to assign the label for that bar, which is then appended to the row dictionary.
+
+It's important to understand that two boundaries shape the loop.
+The lower bound \texttt{lookback} ensures every bar has enough price history behind it for the indicators to be valid.
+This helps add weight to the model's predictions, and makes the features we are using, such as the 14-period EMA (which relies on this past history), more meaningful.
+The upper bound \texttt{len(bars) - horizon} ensures the triple-barrier method always has enough bars ahead to resolve.
+Without this upper bound, the Triple-Barrier window would run off the end of the dataset---the price path would have no future bars to evaluate, and the label could never be assigned.
+
+Every iteration of the loop produces a single row of the feature matrix, which we use to build the whole dataset. 
+Once the loop completes, we have finally assembled our complete feature matrix. 
+The next question is how to divide this dataset so the model is tested honestly---and here, financial data requires a different approach than most textbooks describe.
+
+
+\input{figures/chapter0x/Python_FeatureMatrixLoop.tex}
+
+
+\section{Evaluating the Model}\label{sec:evaluation}
+
+A single decision tree, carefully built and pruned, is a powerful tool --- but as we've seen, it remains fragile. The next section puts that tree to work on real financial data, and in doing so, reveals exactly where its limits lie.
+
+We now understand the core steps required to transition our raw market data into a structured feature matrix. 
+Finally, after several data engineering steps, we are ready to train our decision tree model. 
+Althouth laborious, the importance of this preperation process cannot be overstated. 
+Without properly engineered features, even the most sophisticated machine learning model will struggle to make accurate predictions. 
+Companies have spent millions of dollars on data engineering teams to ensure that their models are fed with high-quality, relevant features.
+Our next step is to start the actual training process. 
+This section dives into the practical aspects of training a decision tree model, including how to split our dataset into training and testing sets, how to evaluate the model's performance, and how to interpret the results in a financial context.
 
 \subsection{Train/Test Split}
-% why we hold data back
+
+% KuroseBot: Fixed garbled opening sentence.
+Before we train our model, we need to understand why splitting a dataset into training and testing sets
+is essential. In machine learning, our goal is to assess how well the rules a model learned from
+training data generalize to new, unseen data. We cannot travel forward in time to test on tomorrow's
+market, so we do the next best thing: simulate the future by holding back a portion of today's data.
+
+We split our dataset into two parts. The \textbf{training set} is used to build the model; the
+\textbf{testing set} is withheld entirely during training and used only to evaluate performance
+afterward. The testing set acts as a proxy for future data, giving us an honest estimate of how the
+model will perform in live trading.
+
+
+
+\input{figures/chapter0x/TrainingDataSplit.tex}
+
 
 \subsection{The Confusion Matrix}
-% TP/FP/TN/FN in financial terms
+With our model trained, we can now evaluate its performance on the testing set. The standard tool for
+this is a \textbf{confusion matrix}: a table that compares the model's predicted labels against the
+true labels, revealing where it succeeds and---more importantly---where it fails.
+
+We break the model's predictions into four categories:
+\begin{itemize}
+  \item \textbf{True Positives (TP):} The model predicted a profitable trade, and it was indeed
+        profitable---a gain of capital.
+  \item \textbf{False Positives (FP):} The model predicted a profitable trade, but it was actually
+        unprofitable---a loss of capital.
+  \item \textbf{True Negatives (TN):} The model predicted an unprofitable trade, and it was indeed
+        unprofitable---capital preserved.
+  \item \textbf{False Negatives (FN):} The model predicted an unprofitable trade, but it was actually
+        profitable---a missed opportunity.
+\end{itemize}
+
+This four-way breakdown is crucial in finance, where the cost of being wrong is not symmetric. Strip
+away stocks, bonds, and assets, and investing is essentially a form of sophisticated wagering: you
+stake capital on the future performance of some asset. A loss doesn't just erase a gain---it erodes
+your base.
+
+% KuroseBot: Replaced "betting fallacy" with concrete asymmetric-risk framing.
+Consider a trade with 1.4-to-1 odds. If you risk \$100 and win, you collect \$140---not bad. But if
+you lose, the entire \$100 is gone. The reward for being right is \$40 of profit; the penalty for being
+wrong is \$100 of loss. This \textbf{asymmetric risk} is why the categories that matter most in our
+confusion matrix are the False Positives and False Negatives: these are the trades that cost real money.
+
+Identifying True Positives and True Negatives matters, but they are not as financially consequential.
+Let us return to our hieroglyph example. Suppose the training set was not in fact curated by hundreds
+of experts, but by a single student using MSPaint. With a compromised dataset, it is entirely plausible
+that the model would misclassify a large number of glyphs. An example confusion matrix for this
+scenario is shown in Figure~\ref{fig:confusion-matrix}.
 
 \subsection{Precision, Recall, and the Cost of Being Wrong}
-% false signals cost money — this is where finance makes
-% evaluation feel concrete
 
+% KuroseBot: New content. The prior draft was an empty stub.
+The confusion matrix gives us the raw counts, but counts alone don't tell us whether the model is
+\textit{useful}. A model that never predicts a profitable trade has zero False Positives but also zero
+True Positives---it would never lose money, but it would never make any either. To move from counts to
+actionable insight, we need three derived metrics: \textbf{precision}, \textbf{recall}, and the
+\textbf{F1-score}.
 
+\textbf{Precision} answers the question: \textit{of all the trades the model said were profitable, how
+many actually were?}
+\[
+\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}
+\]
+A model with high precision rarely cries wolf---when it signals ``buy,'' you can trust it. Low
+precision means the model generates many false alarms, each of which costs real capital.
+
+\textbf{Recall} answers the complementary question: \textit{of all the trades that were actually
+profitable, how many did the model catch?}
+\[
+\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}
+\]
+A model with high recall misses few opportunities---it casts a wide net. Low recall means the model is
+overly cautious, leaving money on the table by passing on trades that would have been winners.
+
+In finance, precision and recall pull in opposite directions. A trader who bets on every signal will
+have high recall but low precision (many bets, many losses). A trader who only bets on the strongest
+signals will have high precision but low recall (few bets, few losses, but also few wins). The
+\textbf{F1-score} balances the two:
+\[
+F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\]
+The F1-score is the harmonic mean of precision and recall. It is high only when \textit{both} metrics
+are high, making it a single number that penalizes a model for being lopsided in either direction.
+
+Which metric matters most depends on your trading strategy. If capital preservation is paramount (e.g.,
+a risk-averse fund), optimize for precision: accept fewer trades but make sure they count. If capturing
+every opportunity matters more (e.g., a high-frequency strategy that can absorb small losses), optimize
+for recall. In most cases, the F1-score provides a reasonable starting point for comparing models, but
+the final choice should always reflect the financial objectives and risk tolerance of the strategy.
+
+\begin{tcolorbox}[enhanced, breakable,
+  colback=pipegold!8!white,
+  colframe=pipegold!80!black,
+  fonttitle=\bfseries\sffamily,
+  title={Principles and Pitfalls}]
+\begin{itemize}
+  \item \textbf{Why classification over regression?} Predicting exact prices is extraordinarily difficult in noisy markets. Classification simplifies the task to a yes/no decision,\textit{is this trade worth taking?},which aligns directly with how trading profits are realized.
+  \item \textbf{What if our indicators are correlated?} If two features carry nearly the same information (e.g., RSI and stochastic oscillator), the tree gains little from the second split. Highly correlated features can inflate the apparent importance of a signal without improving predictions. Feature selection and dimensionality reduction help.
+  \item \textbf{What if our labels are imbalanced?} If 90\% of bars are labeled unprofitable and only 10\% profitable, a model can achieve 90\% accuracy by always predicting ``unprofitable'', and never make a single trade. Metrics like precision, recall, and F1-score exist precisely to catch this trap.
+\end{itemize}
+\end{tcolorbox}
 

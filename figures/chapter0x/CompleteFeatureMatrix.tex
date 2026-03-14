@@ -1,0 +1,63 @@
+% ============================================================
+% Complete Feature Matrix Table — with Label Column
+% CSC491 Textbook, Chapter: Machine Learning
+% Used in: Train/Test Split subsection
+%
+% Shows the full supervised learning equation in table form:
+% features x (left of divider) + label y (right of divider)
+%
+% Preamble requirements:
+%     \usepackage{booktabs, array, xcolor}
+%     \definecolor{puregreen}{RGB}{0,120,80}
+%     \definecolor{impurered}{RGB}{180,40,40}
+% ============================================================
+
+\begin{table}[ht]
+\centering
+\setlength{\tabcolsep}{9pt}
+\renewcommand{\arraystretch}{1.65}
+\caption{%
+  The complete feature matrix: features $x$ on the left describe market
+  conditions at each dollar bar; the label $y$ on the right records
+  whether the trade that followed was profitable.
+}
+\label{tab:feature-matrix-full}
+\begin{tabular}{
+  >{\centering\arraybackslash}p{1.9cm}   % timestamp
+  >{\centering\arraybackslash}p{1.6cm}   % close
+  >{\centering\arraybackslash}p{1.6cm}   % EMA
+  >{\centering\arraybackslash}p{1.6cm}   % RSI
+  >{\centering\arraybackslash}p{1.6cm}   % ATR
+  !{\color{black!20}\vrule width 0.8pt}  % divider
+  >{\centering\arraybackslash}p{1.8cm}   % label y
+}
+\toprule
+\multicolumn{5}{c}{\textbf{Features} $x$}
+  & \multicolumn{1}{c}{\textbf{Label} $y$} \\
+\cmidrule(r){1-5} \cmidrule(l){6-6}
+\textbf{Timestamp}
+  & \textbf{Close}
+  & \textbf{EMA\_14}
+  & \textbf{RSI\_14}
+  & \textbf{ATR\_14}
+  & \textbf{Profitable?} \\
+\midrule
+09:32:01 & 148.20 & 147.80 & 54.2 & 1.32
+  & \textcolor{puregreen}{\textbf{1}} \\
+09:34:47 & 149.50 & 148.10 & 61.7 & 1.41
+  & \textcolor{impurered}{\textbf{0}} \\
+09:38:03 & 148.90 & 148.30 & 58.4 & 1.38
+  & \textcolor{puregreen}{\textbf{1}} \\
+09:41:22 & 147.60 & 148.20 & 48.3 & 1.45
+  & \textcolor{impurered}{\textbf{0}} \\
+09:45:10 & 150.10 & 148.50 & 65.1 & 1.29
+  & \textcolor{puregreen}{\textbf{1}} \\
+\multicolumn{6}{c}{$\vdots$} \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\footnotesize
+\textit{Label definition:} $y = 1$ if the close price of the next bar is
+higher than the current bar (profitable); $y = 0$ otherwise (unprofitable).
+\end{table}

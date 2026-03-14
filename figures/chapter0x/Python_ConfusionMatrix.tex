@@ -1,0 +1,43 @@
+% !TeX root = ../../main.tex
+% ============================================================
+% Feature Matrix Construction — prose + code
+% CSC491 Textbook, Chapter: Machine Learning
+%
+% Preamble requirements:
+%     \usepackage{minted}
+%     \usepackage{caption}
+%
+% Compile with:
+%     xelatex --shell-escape main.tex
+% ============================================================
+
+\begin{figure}[ht]
+\centering
+\begin{minted}[
+  style=default, 
+  linenos,
+  frame=lines,
+  framesep=3mm,
+  fontsize=\small,
+  baselinestretch=1.1,
+]{python}
+fig, axes = plt.subplots(1, 3, figsize=(15, 4))
+
+for ax, (label, yt, yp) in zip(axes, [
+    ("A (d=0)", y_test_a, pred_a),
+]):
+    cm = confusion_matrix(yt, yp)
+    sns.heatmap(cm, annot=True, fmt=",d", cmap="Blues", ax=ax,
+                xticklabels=["Down", "Up"], yticklabels=["Down", "Up"])
+    ax.set_title(f"Pipeline {label}")
+    ax.set_xlabel("Predicted")
+    ax.set_ylabel("Actual")
+
+plt.suptitle("Confusion Matrices", fontsize=14, weight="bold", y=1.02)
+plt.tight_layout()
+plt.show()
+\end{minted}
+\caption{Plotting confusion matrices for each pipeline. Each matrix shows the counts of true positives, false positives, true negatives, and false negatives for the model's predictions compared to the actual labels.
+requires \texttt{seaborn} and \texttt{matplotlib} for visualization.}
+\label{lst:Python-Confusion-Matrix}
+\end{figure}
