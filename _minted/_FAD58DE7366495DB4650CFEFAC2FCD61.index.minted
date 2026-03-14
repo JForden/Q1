@@ -1,10 +1,12 @@
 {
   "jobname": "main",
   "md5": "FAD58DE7366495DB4650CFEFAC2FCD61",
-  "timestamp": "20260314134414",
+  "timestamp": "20260314140441",
   "cachefiles": [
+    "DFAA6DBEB9BFE09C5C4CA0932BECC89E.highlight.minted",
     "EE08815C9354989345B47C4FD943940B.highlight.minted",
     "_FAD58DE7366495DB4650CFEFAC2FCD61.index.minted",
-    "default.style.minted"
+    "default.style.minted",
+    "friendly.style.minted"
   ]
 }

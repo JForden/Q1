@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{sklearn.tree}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{DecisionTreeClassifier}
+
+\PYG{n}{clf} \PYG{o}{=} \PYG{n}{DecisionTreeClassifier}\PYG{p}{(}\PYG{n}{max\PYGZus{}depth}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{n}{criterion}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}gini\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{clf}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+\end{MintedVerbatim}

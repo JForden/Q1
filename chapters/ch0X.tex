@@ -12,10 +12,7 @@ is incredibly noisy.
 That is why the secret to algorithmic trading isn't just building a complex model; it's getting the data right to begin with. As you saw in the last chapter, high-quality, stationary data that preserves market memory is the real fuel for
 any financial ML system.
 
-In this chapter, we'll focus on the most practical and widely used branch for our pipeline: supervised learning. We'll also briefly
-introduce unsupervised and reinforcement learning, so you see the big picture. You'll learn what makes each approach unique, how
-algorithms use "decision trees" to mimic human logic, and how they fit into the system you've already started building. By the end,
-you'll be ready to judge whether your model is actually uncovering a true market signal, or just memorizing historical flukes.
+In this chapter, we'll focus on the most practical and widely used branch for our pipeline: supervised learning. 
 
 \section{Principles of Machine Learning}\label{sec:principles}
 
@@ -68,18 +65,30 @@ This democratization of cheap, powerful computation has opened the door for fina
 \subsection{What Makes a Machine Learn}
 
 
-One of the most puzzling aspects of machine learning is the word ``learning'' itself. When we say a machine ``learns,'' we don't mean it in the same way a human does---there's no sudden flash of insight, no ``aha!'' moment. Instead, the process is more like tuning an old analog radio: you rotate the dial slowly, listening for the signal to grow clearer, making tiny adjustments until the static fades and the station locks in. Each small turn is guided by what you just heard---more static means turn back; cleaner signal means keep going.
+One of the most puzzling aspects of machine learning is the word ``learning'' itself. 
+When we say a machine ``learns,'' we don't mean it in the same way a human does. 
+Instead, the process is more like tuning an old analog radio: you rotate the dial slowly, listening for the signal to grow clearer, making tiny adjustments until the static fades and the station locks in. 
+Each small turn is guided by what you just heard, more static means turn back; cleaner signal means keep going.
 
 But how do we even begin to describe what a machine is doing when it ``learns''? This is where a bit of mathematical formalism becomes not just helpful, but essential. Imagine you want to teach a computer to predict tomorrow's stock price, or whether an email is spam. You could try to write down a giant list of rules, but the real world is far too messy for that---there are simply too many possibilities, too much noise, and too many exceptions. Instead, we turn to a more general, abstract way of thinking: we imagine there is some unknown function $f$ that takes an input $x$ (like today's market data, or the words in an email) and produces an output $y$ (tomorrow's price, or a spam/not-spam label). Mathematically, we write this as:
 \[
 y = f(x)
 \]
 
-This little equation is deceptively powerful. It says: whatever the task, there is some mapping from inputs to outputs, and our job is to discover (or approximate) the function $f$ that best captures the patterns in the data. But here's the catch: we almost never know what $f$ actually is! If we did, we wouldn't need machine learning at all---we'd just write down the formula and be done. The art and science of machine learning is all about searching for a good $f$---one that does well on the data we've seen, and hopefully generalizes to new data we haven't seen yet. This is why machine learning is fundamentally an optimization problem: we are searching for the function $f$ (from a vast space of possible functions) that best fits our data.
-
-But how does the machine ``learn'' this function? The process starts with a collection of background data---think of it as a set of practice problems. The model uses algorithms (its ``study strategies'') to search for patterns in this data. Each time it makes a prediction, it checks how close it was to the correct answer, much like a student checking their answers in the back of the textbook. Here's where the ``learning'' comes in: after each attempt, the model measures its error (how far off it was from the correct answer) and then adjusts its internal parameters to do better next time. This is a feedback loop---predict, check, adjust, repeat. Over many cycles, the model gradually improves.
-
-This feedback-driven process is the heart of machine learning. The machine isn't developing intuition or understanding in the human sense; it's methodically tuning itself to minimize errors, one step at a time. In the end, what we call ``learning'' is really a process of continuous, data-driven improvement.
+This little equation is deceptively powerful. 
+It says: whatever the task, there is some mapping from inputs to outputs, and our job is to discover (or approximate) the function $f$ that best captures the patterns in the data. 
+But here's the catch: we almost never know what $f$ actually is! 
+If we did, we wouldn't need machine learning at all, we'd just write down the formula and be done.
+The art and science of machine learning is all about searching for a good $f$, one that does well on the data we've seen, and hopefully generalizes to new data we haven't seen yet. 
+This is why machine learning is fundamentally an optimization problem: we are searching for the function $f$ (from a vast space of possible functions) that best fits our data.
+But how does the machine ``learn'' this function? 
+The process starts with a collection of background data. The model uses algorithms to search for patterns in this data.
+Each time it makes a prediction, it checks how close it was to the correct answer. 
+Here's where the ``learning'' comes in: after each attempt, the model measures its error (how far off it was from the correct answer) and then adjusts its internal parameters to do better next time.
+This is a feedback loop, predict, check, adjust, repeat. Over many cycles, the model gradually improves.
+This feedback-driven process is the heart of machine learning. 
+The machine isn't developing intuition or understanding in the human sense; it's methodically tuning itself to minimize errors, one step at a time.
+In the end, what we call ``learning'' is really a process of continuous, data-driven improvement.
 
 \input{figures/chapter0x/ML_vs_programming.tex}
 
@@ -107,7 +116,9 @@ Supervised learning is a type of machine learning where the model is trained on 
 The model learns to map inputs to outputs by finding patterns in the data. Once trained, the model can make predictions on new, unseen data. 
 This labeled dataset is broken into two key pairs: \textbf{features} and \textbf{labels}. You can see an example of this in Table~\ref{tab:hieroglyph-features}.
 
-Features are the measurable properties or characteristics of the data, while labels are the outcomes or targets that we want to predict. In the hieroglyph example, the features might include the number of curved strokes, straight strokes, whether the glyph has eyes, whether it represents an animal, and whether it is vertical. The label is the correct translation of the glyph.
+Features are the measurable properties or characteristics of the data, while labels are the outcomes or targets that we want to predict.
+In the hieroglyph example, the features might include the number of curved strokes, straight strokes, whether the glyph has eyes, whether it represents an animal, and whether it is vertical.
+The label is the correct translation of the glyph.
 
 This is a classic \textbf{classification} problem: the model learns to assign each glyph to a discrete category (``Owl,'' ``Water,'' ``Viper,'' etc.) based on its features. In other words, given the measurable properties of a glyph, the model predicts which class (translation) it belongs to. This mirrors the most common use of supervised learning in finance, where the goal is to classify market conditions or trading opportunities into categories like ``profitable'' or ``unprofitable.''
 
@@ -389,7 +400,7 @@ The true power of technical indicators in modern algorithmic trading comes from 
 
 \input{figures/chapter0x/Pipeline.tex}
 
-If we recall the data pipeline from Chapter~\ref{ch:datapipeline}, we can see how each stage transforms the raw market data into a form that is closer to what our machine learning model can use. 
+If we recall the data pipeline from Chapter~\ref{sec:datapipeline}, we can see how each stage transforms the raw market data into a form that is closer to what our machine learning model can use. 
 Building a feature matrix is the final step in this pipeline, where we take the processed data and encode our trading hypotheses as measurable inputs for the model. 
 Our feature matrix is essentially a spreadsheet where every row is one dollar volume bar and every column is one measurement about that moment in time. 
 Our algorithm will read across each row and ask ``given all these signals at this moment, did the market go up or down next?''
@@ -413,7 +424,7 @@ The other half is the labels $y$, which we will define based on whether the trad
 \subsection{Finding Labels: Fixed-Horizon Method}
 
 To calculate labels, the most intuitive approach is the fixed-horizon method.
- Here, we simply compare the close price of the current bar with the close price a fixed number of bars into the future. 
+Here, we simply compare the close price of the current bar with the close price a fixed number of bars into the future. 
 For example, for a 5-bar horizon, we compare the close price now with the close price 5 bars later. 
 If the future close price is higher, we label that row as a profitable trade (1); otherwise, it is unprofitable (0).
 
@@ -516,13 +527,12 @@ The next question is how to divide this dataset so the model is tested honestly-
 \input{figures/chapter0x/Python_FeatureMatrixLoop.tex}
 
 
-\section{Evaluating the Model}\label{sec:evaluation}
 
-A single decision tree, carefully built and pruned, is a powerful tool --- but as we've seen, it remains fragile. The next section puts that tree to work on real financial data, and in doing so, reveals exactly where its limits lie.
+\section{Evaluating the Model}\label{sec:evaluation}
 
 We now understand the core steps required to transition our raw market data into a structured feature matrix. 
 Finally, after several data engineering steps, we are ready to train our decision tree model. 
-Althouth laborious, the importance of this preperation process cannot be overstated. 
+Although laborious, the importance of this preparation process cannot be overstated. 
 Without properly engineered features, even the most sophisticated machine learning model will struggle to make accurate predictions. 
 Companies have spent millions of dollars on data engineering teams to ensure that their models are fed with high-quality, relevant features.
 Our next step is to start the actual training process. 
@@ -530,20 +540,79 @@ This section dives into the practical aspects of training a decision tree model,
 
 \subsection{Train/Test Split}
 
-% KuroseBot: Fixed garbled opening sentence.
-Before we train our model, we need to understand why splitting a dataset into training and testing sets
-is essential. In machine learning, our goal is to assess how well the rules a model learned from
-training data generalize to new, unseen data. We cannot travel forward in time to test on tomorrow's
-market, so we do the next best thing: simulate the future by holding back a portion of today's data.
+Before we train our model, it's important to outline the process of why we split a dataset
+into training and testing sets.
+In machine learning, our goal is to assess how well our model generalizes the rules it has learned
+from training data to new unseen data.
+Unlike Doctor Who, we cannot travel forward in time to predict the future. As a result, we do the
+next best thing and ``simulate the future.''
+This is done by splitting our dataset into two parts: a training set and a testing set.
+Our testing set is held back from the model during training; it's only used to evaluate the model's
+performance after training is complete.
+In this way, our testing set acts as a \textit{proxy} for future data, allowing us to estimate how
+well the model will perform in real-world trading scenarios.
 
-We split our dataset into two parts. The \textbf{training set} is used to build the model; the
-\textbf{testing set} is withheld entirely during training and used only to evaluate performance
-afterward. The testing set acts as a proxy for future data, giving us an honest estimate of how the
-model will perform in live trading.
+In standard machine learning, the dataset is often split randomly into training and testing sets.
+The most common split is 80\% for training and 20\% for testing.
+The training set is naturally larger, as we want to provide the model with as much data as reasonably
+possible to learn from.
+20\% is generally considered sufficient for testing, as it provides a representative sample of the
+data while still leaving enough for training.
 
+Consider for a moment what happens to the temporal order of the data if we split randomly.
+Although dollar bars have been engineered to be more stationary than raw price data, they are still
+fundamentally time series data.
+Financial machine learning is fundamentally different from domains like image recognition or natural
+language processing, where a random split is often appropriate because the data points are independent.
+Consider our hieroglyph dataset: each glyph is independent of the others, and the order in which they
+are presented does not affect the model's ability to learn their meanings.
+Financial data, by contrast, is inherently sequential and time-dependent.
+Many of the features we engineer are directly based on this sequential nature---moving averages,
+momentum indicators, and volatility measures all depend on the order of observations.
+If we scramble the data randomly, we risk destroying our ability to capture these temporal
+relationships, and we open the door to two distinct machine learning traps:
+\textbf{data leakage} and \textbf{look-ahead bias}.
+
+\subsubsection{Data Leakage and Look-Ahead Bias}
+
+Data leakage is the process of inadvertently giving our model access to information that it should
+not have during training.
+It is analogous to seeing the answers to a test before taking it.
+If we randomly scramble our dataset, a training observation at time $t$ might be paired with a
+testing observation at time $t+1$.
+This means the model could learn from the testing data during training, which would artificially
+inflate its performance---a classic example of \textit{look-ahead bias}.
+The model would appear highly accurate during evaluation, but when deployed in live trading it would
+fail to generalize, because it was allowed to map testing data directly back to training data.
+
+To avoid this, we must split our data in a way that respects the temporal order.
+The training set must remain strictly in the past relative to the test set.
+As an example, if we have data from January 1 to December 31, we might train on January through
+October and test on November through December.
+This ensures the model is trained on historical information and evaluated on data it has never seen,
+mirroring the real-world scenario of making predictions about the future.
+Figure~\ref{fig:train-test-split} illustrates this correct temporal split alongside the dangerous
+random alternative.
 
 
 \input{figures/chapter0x/TrainingDataSplit.tex}
+
+\subsection{Training the Model}
+
+The actual training of the decision tree model is a straightforward process, thanks to the
+structured feature matrix we have built. Once the data is properly prepared, the model
+training itself is often a simple call to a library function:
+
+\begin{listing}[ht]
+\begin{minted}[linenos, frame=lines, framesep=3mm, fontsize=\small]{python}
+from sklearn.tree import DecisionTreeClassifier
+
+clf = DecisionTreeClassifier(max_depth=5, criterion='gini')
+clf.fit(X_train, y_train)
+\end{minted}
+\caption{Fitting a decision tree using scikit-learn.}
+\label{lst:sklearn-fit}
+\end{listing}
 
 
 \subsection{The Confusion Matrix}
@@ -626,6 +695,7 @@ the final choice should always reflect the financial objectives and risk toleran
   colframe=pipegold!80!black,
   fonttitle=\bfseries\sffamily,
   title={Principles and Pitfalls}]
+\label{sec:pitfalls}
 \begin{itemize}
   \item \textbf{Why classification over regression?} Predicting exact prices is extraordinarily difficult in noisy markets. Classification simplifies the task to a yes/no decision,\textit{is this trade worth taking?},which aligns directly with how trading profits are realized.
   \item \textbf{What if our indicators are correlated?} If two features carry nearly the same information (e.g., RSI and stochastic oscillator), the tree gains little from the second split. Highly correlated features can inflate the apparent importance of a signal without improving predictions. Feature selection and dimensionality reduction help.
