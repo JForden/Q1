@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.12)  14 MAR 2026 14:10
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.12)  12 JUN 2026 14:57
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1186,7 +1186,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@listing=\count406
 ))
 (macros/metaphors.tex) (macros/finance_commands.tex) (main.aux
-(chapters/ch01.aux) (chapters/ch02.aux) (chapters/ch0X.aux))
+(chapters/IntroductionToData/ChapterOpen.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -1292,21 +1292,21 @@ ern Roman (RS)
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(85.35826pt, 369.88583pt, 142.26378pt)
-* v-part:(T,H,B)=(85.35826pt, 660.10394pt, 99.58464pt)
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 688.5567pt, 85.35826pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=369.88583pt
-* \textheight=660.10394pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=69.99379pt
-* \topmargin=-18.78552pt
+* \textwidth=455.24411pt
+* \textheight=688.5567pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-33.0119pt
 * \headheight=12.0pt
 * \headsep=19.8738pt
 * \topskip=11.0pt
 * \footskip=27.46295pt
-* \marginparwidth=108.12047pt
-* \marginparsep=17.07164pt
+* \marginparwidth=116.0pt
+* \marginparsep=7.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
@@ -1357,16 +1357,74 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 
 
 
-] (main.toc [2
-
-])
+] (main.toc)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [3] [4
+ [2
 
 ]
-\openout2 = `chapters/ch01.aux'.
+\openout2 = `chapters/IntroductionToData/ChapterOpen.aux'.
 
- (chapters/ch01.tex
-Ch
+ (chapters/IntroductionToData/ChapterOpen.tex
+Chapter 1.
+(chapters/IntroductionToData/IntroductionToDataAroundUs.tex
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [1
+
+
+
+]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `NotoSansEgyptianHieroglyphs' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [2]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+
+LaTeX Font Warning: Font shape `TU/lmss/bx/sc' undefined
+(Font)              using `TU/lmss/bx/n' instead on input line 89.
+
+)) [3] (main.bbl
+
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
+
+) [4
+\def\@LN@column{1}
+
+
+
+
+]
+runsystem(latexminted cleantemp  --timestamp 20260612145702 FAD58DE7366495DB465
+0CFEFAC2FCD61)...executed.
+
+ (main.aux (chapters/IntroductionToData/ChapterOpen.aux))
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 093294DA136261637F1C734759423AE6;274.
+ ) 
+Here is how much of TeX's memory you used:
+ 46745 strings out of 402987
+ 1132469 string characters out of 5448524
+ 1844061 words of memory out of 5000000
+ 74776 multiletter control sequences out of 15000+600000
+ 634442 words of font info for 86 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 89i,8n,97p,1003b,954s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on c:/Repos\Q1\main.pdf (6 pages).

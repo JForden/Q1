@@ -6,12 +6,10 @@
 \newfontfamily\egyptfont{Noto Sans Egyptian Hieroglyphs}
 \usepackage[
     a4paper,
-    inner=30mm,
-    outer=50mm,
-    top=30mm,
-    bottom=35mm,
-    marginparwidth=38mm,
-    marginparsep=6mm
+    inner=25mm,
+    outer=25mm,
+    top=25mm,
+    bottom=30mm
 ]{geometry}
 \usepackage{setspace}
 \usepackage{amsmath,amssymb,amsthm}
@@ -55,6 +53,23 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable, skins}
+
+% Definition box
+\newtcolorbox{definition}[1][]{%
+  enhanced,
+  breakable,
+  colback=teal!5!white,
+  colframe=teal!50!black,
+  fonttitle=\bfseries\sffamily,
+  title={\textsc{Definition}\ifx\\#1\\\else{} --- #1\fi},
+  coltitle=white,
+  colbacktitle=teal!50!black,
+  boxrule=0.6pt,
+  arc=3pt,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+  width=\linewidth,
+  enlarge left by=0mm, enlarge right by=0mm,
+}
 
 % Kurose-style Case History box
 \newtcolorbox{casehistory}[1][]{%
