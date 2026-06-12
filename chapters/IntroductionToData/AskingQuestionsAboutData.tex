@@ -1,0 +1,163 @@
+\section{Asking Questions About Data}
+
+In Section 1, we established that data becomes information only through structure, context, and interpretation. 
+But interpretation does not happen automatically---it begins with a question.
+
+Consider the symbols you just read: letters formed into words, words into sentences. 
+The data was constant; the meaning emerged when you asked something of it: 
+\textit{What does this say? What is the author trying to tell me?}
+
+Asking questions of data is no different. The data sits silent until we interrogate it. 
+Yet the quality of our answers depends entirely on the quality of our questions.
+
+Artificial intelligence has transformed the landscape of data analysis. 
+Models can now process datasets of unimaginable scale, identify patterns invisible to the human eye, 
+and generate insights in seconds that once took teams of analysts weeks to uncover. 
+Yet these capabilities are only possible due to a detailed understanding of our data and the purpose behind the questions we choose to ask.
+Recent studies (2025) note that models struggle with strategic planning quality. 
+They excel at single instructions, but as of today, they fail to independently chain together the logical steps required for complex inquiry. 
+
+This limitation reveals something deeper: asking good questions is hard precisely because meaningful questions are inherently ambiguous. 
+Consider a question like ``Why is churn increasing?''---a human analyst recognizes the ambiguity and responds by asking clarifying questions or drawing on domain context to narrow the scope. 
+A model, lacking this contextual understanding, cannot distinguish a meaningful question from a poorly formed one. 
+The result: it confidently pursues meaningless correlations because it does not ``understand'' the business context or the ambiguity embedded in the request.
+
+This is why the human ability to inquire---to recognize ambiguity, to ask clarifying questions, to draw on experience and context---remains irreplaceable. 
+AI excels at \textit{answering} questions. But it cannot tell you whether you asked the \textit{right} question.
+
+To get at the best questions, we must start with the highest order question: \textit{What is the unknown?}. 
+This can be phrased however you might like, the core idea is to stimulate curiosity and encourage deeper thinking about the data at hand.
+Asking questions and solving problems are practical skills that require practice and experience. 
+Much like any practical skill, writing, reading, sports, we aquire these abilities through consistent practice and real-world application.
+
+Before diving into the specifics of statistical analysis, let's first explore four fundamental steps in asking effective questions outlined in G. Polya's book "How to Solve It".
+
+\subsection{Understanding The Problem}
+
+It is tempting to believe that all problems can be solved with data. 
+This sentiment is understandable---even forgivable---given the breathless 
+enthusiasm surrounding big data's potential. Silicon Valley has, at times, 
+promoted data as a kind of universal solvent: apply enough of it to any 
+problem and answers will emerge.
+This line of thought is a dangerous one, without understanding the problem and the wider context, data can and will be misused or misinterpreted.
+This often arises from hubris directly as a result of data scientists and engineers who overestimate their own understanding of the problem and the data at hand.
+
+In 2008, Google launched \textit{Google Flu Trends}, a system designed to 
+predict influenza outbreaks by analyzing search query patterns. The premise 
+was elegant: if people are getting sick, they will search for flu symptoms, 
+and those searches would appear in the data before hospital admissions did. 
+For several years, the system appeared to work. Then, during the 2012--2013 
+flu season, it overestimated infections by nearly double. The root cause was 
+not bad data---it was a bad question. The team had asked 
+\textit{``Does search volume predict flu?''} when the more fundamental 
+question---\textit{``Does search volume measure illness, or awareness of 
+illness?''}---had never been posed. These are not the same thing, and no 
+model can tell the difference if the question is never asked.
+
+This failure had a name. Researchers writing in \textit{Science} called it 
+``big data hubris'': the assumption that data volume alone substitutes for 
+careful problem understanding. It remains one of the most instructive 
+cautionary tales in the field precisely because the data was abundant, 
+the engineering was sophisticated, and the question still came out wrong.
+
+Polya's first step is deceptively simple: \textit{understand the problem}. 
+In practice, this means resisting the impulse to reach for data 
+immediately. Before selecting a model, writing a query, or cleaning a 
+dataset, the practitioner must first ask: \textit{What is the unknown? 
+What are we actually trying to learn?} Only then can we ask a harder 
+follow-up question---one that turns out to matter enormously in practice: 
+\textit{Can this question even be answered with data?}
+
+
+\subsection{What Makes a Question Answerable?}
+
+Not every meaningful question is a data question. To see why, consider 
+one of the earliest systems for near-real-time market data: the ticker tape.
+
+Invented by Edward A. Calahan in 1867, the ticker tape machine used 
+telegraph infrastructure to print stock symbols, prices, and trade volume 
+onto a narrow paper strip---effectively a one-way market data feed from 
+the exchange floor to brokerages across the country. By 1929, ticker 
+machines were widespread and had materially improved market information 
+flow. But they carried a hard physical constraint: even improved models 
+could relay data at roughly 285 characters per minute. When trade volume 
+surged beyond that throughput, the tape fell behind.
+
+During the crash of October 1929, that lag grew from minutes to hours---
+roughly 100 minutes on October 21, and nearly four hours by October 24. 
+Traders were making decisions on prices that no longer existed. The system 
+never stopped producing data. It simply stopped producing 
+\textit{timely} data, and timeliness was the very context that made 
+the data meaningful.
+
+Now consider what a data analyst in 1929 could and could not have answered:
+
+\begin{itemize}
+    \item \textit{``Did ticker tape reporting delays exceed 60 minutes 
+    during October 1929?''} 
+    \item \textit{``Was the 1929 stock market crash caused by ticker tape 
+    delays?''}
+\end{itemize}
+
+The first question is answerable. The second is not---at least not by 
+data alone. Causation in complex systems involves economic conditions, 
+human psychology, regulatory failures, and cascading feedback loops that 
+no dataset fully captures. Asking that question of the data will not 
+produce a wrong answer so much as a dangerously incomplete one.
+
+A question is answerable by data when it satisfies three conditions:
+
+\begin{enumerate}
+    \item \textbf{Observability}: The phenomenon can be measured or 
+    recorded in some form.
+    \item \textbf{Specificity}: The question defines clear conditions 
+    for what counts as an answer.
+    \item \textbf{Falsifiability}: There exists some possible observation 
+    that could prove the answer wrong.
+\end{enumerate}
+
+Questions that fail these criteria are not ``bad'' questions---they are simply not data questions. ``Why did investors panic in 1929?'' is a profound historical question, but no amount of trading volume data can fully answer it. What data can do is show us \textit{when} panic began, \textit{how fast} it spread, and \textit{which} securities were affected first.
+
+The key insight: \textbf{Data answers ``what'' and ``when'' questions reliably. It answers ``why'' questions only through careful inference and modeling---and even then, with uncertainty.}
+
+\subsection{The Role of Context}
+
+Recall from Section 1 the identical hieroglyphs that meant different things depending on their structure. The same principle applies to data questions.
+
+Consider the question: ``Is 50 a high value?'' Without context, the question is unanswerable. Fifty what? High compared to what? High for whom, and for what purpose?
+
+\begin{itemize}
+    \item 50 shares traded on the NYSE in 1929: \textit{vanishingly small}
+    \item 50 shares traded by a retail investor today: \textit{typical}
+    \item 50 million shares traded in a single block: \textit{institutional scale}
+\end{itemize}
+
+The number is identical. The context transforms its meaning.
+
+Context determines:
+\begin{itemize}
+    \item \textbf{Relevance}: Does this data pertain to the question at hand?
+    \item \textbf{Scale}: What magnitude are we working with, and what is normal?
+    \item \textbf{Timing}: When was this data collected, and does it still apply?
+    \item \textbf{Purpose}: Who collected this data, and what decisions might it inform?
+\end{itemize}
+
+The 1929 crash illustrates the cost of missing context. Investors reading delayed ticker tape saw falling prices but lacked the context of \textit{why} prices were falling, \textit{how many} others were selling, and \textit{what} the actual state of the market was. They acted on incomplete information---not because the data was wrong, but because the context was missing.
+
+\textbf{Key principle}: A question without context is a map without a scale. You may know where you want to go, but you cannot know how far it is, or whether you have arrived.
+
+\subsection{The Question Hierarchy}
+
+Effective data inquiry follows a natural progression. Each level builds on the one below it:
+
+\begin{enumerate}
+    \item \textbf{Descriptive}: ``What happened?'' (e.g., ``What was the trading volume on Black Tuesday?'')
+    \item \textbf{Diagnostic}: ``Why did it happen?'' (e.g., ``Why did volume spike on October 29?'')
+    \item \textbf{Predictive}: ``What will happen?'' (e.g., ``Will high volume persist tomorrow?'')
+    \item \textbf{Prescriptive}: ``What should we do?'' (e.g., ``Should we sell, hold, or buy?'')
+    \item \textbf{Reflective}: ``Should we have done something differently?'' (e.g., ``Was our risk model adequate?'')
+\end{enumerate}
+
+Each level requires more context, more assumptions, and more judgment. Descriptive questions are the most answerable with data alone. Prescriptive and reflective questions require human reasoning layered on top of data-driven insights.
+
+AI excels at levels 1--3. Levels 4--5 remain firmly in the human domain---because they require not just answers, but \textit{wisdom} about what answers mean and what actions they justify.
