@@ -1,7 +1,6 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.12)  12 JUN 2026 16:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.12)  17 JUN 2026 13:32
 entering extended mode
  \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
@@ -12,15 +11,15 @@ Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/base\bk11.clo
 File: bk11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count271
-\c@chapter=\count272
-\c@section=\count273
-\c@subsection=\count274
-\c@subsubsection=\count275
-\c@paragraph=\count276
-\c@subparagraph=\count277
-\c@figure=\count278
-\c@table=\count279
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
@@ -32,32 +31,29 @@ e.sty
 (C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
 Package: expl3 2025-12-24 L3 programming layer (loader) 
 
-(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-xet
-ex.def
-File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
-\g__graphics_track_int=\count280
-\g__pdfannot_backend_int=\count281
-\g__pdfannot_backend_link_int=\count282
+(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count284
 ))
 Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
 
-(C:\Users\jrfas\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec-xetex
-.sty
-Package: fontspec-xetex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTe
-X
-\l__fontspec_script_int=\count283
-\l__fontspec_language_int=\count284
-\l__fontspec_strnum_int=\count285
-\l__fontspec_tmp_int=\count286
-\l__fontspec_tmpa_int=\count287
-\l__fontspec_tmpb_int=\count288
-\l__fontspec_tmpc_int=\count289
-\l__fontspec_em_int=\count290
-\l__fontspec_emdef_int=\count291
-\l__fontspec_strong_int=\count292
-\l__fontspec_strongdef_int=\count293
+
+! Fatal Package fontspec Error: The fontspec package requires either XeTeX or
+(fontspec)                      LuaTeX.
+(fontspec)                      
+(fontspec)                      You must change your typesetting engine to,
+(fontspec)                      e.g., "xelatex" or "lualatex" instead of
+(fontspec)                      "latex" or "pdflatex".
+
+Type <return> to continue.
+ ...                                              
+                                                  
+l.101 \msg_fatal:nn {fontspec} {cannot-use-pdftex}
+                                                  
+? l__fontspec_strongdef_int=\count293
 \l__fontspec_tmpa_dim=\dimen149
 \l__fontspec_tmpb_dim=\dimen150
 \l__fontspec_tmpc_dim=\dimen151
@@ -1366,15 +1362,8 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 ]
 \openout2 = `chapters/IntroductionToData/ChapterOpen.aux'.
 
- (chapters/IntroductionToData/ChapterOpen.tex
-Chapter 1.
-(chapters/IntroductionToData/IntroductionToDataAroundUs.tex
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: TU).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-Underfull \vbox (badness 3668) has occurred while \output is active []
+ (chapters/IntroductionToData/ChaptionToData/IntroductionToDataAroundUs.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
@@ -1382,11 +1371,16 @@ Underfull \vbox (badness 3668) has occurred while \output is active []
 
 ]
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `NotoSansEgyptianHieroglyphs' (encoding: TU).
+(microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
 [2]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `NotoSansEgyptianHieroglyphs' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [3]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -1394,29 +1388,32 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 LaTeX Font Warning: Font shape `TU/lmss/bx/sc' undefined
-(Font)              using `TU/lmss/bx/n' instead on input line 89.
+(Font)              using `TU/lmss/bx/n' instead on input line 131.
 
-) (chapters/IntroductionToData/AskingQuestionsAboutData.tex
+) (chapters/IntroductionToData/AskingQuestionsAboutData.tex [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3]
-Overfull \hbox (21.1028pt too wide) in paragraph at lines 37--44
+ [5]
+Overfull \hbox (21.1028pt too wide) in paragraph at lines 48--55
 \TU/lmr/m/n/10.95 It is tempting to believe that all problems can be solved wit
 h data. This sentiment is understandable—
  []
 
-[4] [5] [6])) [7] (main.bbl
+[6] [7] [8] [9]
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-) [8
-\def\@LN@column{1}
+LaTeX Warning: Reference `sec:data-vs-info' on page 10 undefined on input line 
+240.
 
 
+! LaTeX Error: Environment realworldbox undefined.
 
-
-]
-runsystem(latexminted cleantemp  --timestamp 20260612164338 FAD58DE7366495DB465
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.260 \begin{realworldbox}
+                          {COMPAS and the Limits of Prediction}
+? timestamp 20260617171754 FAD58DE7366495DB465
 0CFEFAC2FCD61)...executed.
 
  (main.aux (chapters/IntroductionToData/ChapterOpen.aux))
@@ -1429,15 +1426,15 @@ L3 programming layer <2025-12-24>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 963FB8DFF3AB70975E6A336AFC9BEEC5;1244.
+(rerunfilecheck)             Checksum: 79259A573D22265ECEC62991F4E7AA9A;1533.
  ) 
 Here is how much of TeX's memory you used:
- 46761 strings out of 402987
- 1133119 string characters out of 5448524
- 1845064 words of memory out of 5000000
- 74788 multiletter control sequences out of 15000+600000
+ 46804 strings out of 402987
+ 1133912 string characters out of 5448524
+ 1849194 words of memory out of 5000000
+ 74831 multiletter control sequences out of 15000+600000
  634450 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,8n,97p,1003b,954s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on c:/Repos\Q1\main.pdf (10 pages).
+Output written on c:/Repos\Q1\main.pdf (16 pages).

@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex main"] 1781300283.19261 "main.aux" "main.bbl" "main" 1781300286.65837 0
+["bibtex main"] 1781733822.67001 "main.aux" "main.bbl" "main" 1781733826.11411 0
   "./bib/chapter0x.bib" 1773183688 1089 4d2f068a28cb904850e896490573d59b ""
   "C:/Users/jrfas/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "chapters/IntroductionToData/ChapterOpen.aux" 1781300284 2928 bf4b77b9e9e034c8196cf88db83fb49a "xelatex"
-  "main.aux" 1781300285 351 e4c3b59648366d95454cd29fd6654a69 "xelatex"
+  "chapters/IntroductionToData/ChapterOpen.aux" 1781733824 3201 2e150d3d253f6f462cc08a44dcd39823 "xelatex"
+  "main.aux" 1781733825 351 79babdafcf28b8aa976e7d68995183b5 "xelatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["xdvipdfmx"] 1781300286.41541 "main.xdv" "main.pdf" "main" 1781300286.66383 0
-  "main.xdv" 1781300285 191456 3da3c0eacf116b6b219ab78a5570bb25 "xelatex"
+["xdvipdfmx"] 1781733825.86192 "main.xdv" "main.pdf" "main" 1781733826.11975 0
+  "main.xdv" 1781733825 372804 035ad2262f051578ade130988396867d "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1781300283.41659 "main.tex" "main.xdv" "main" 1781300286.65854 0
+["xelatex"] 1781733822.86691 "main.tex" "main.xdv" "main" 1781733826.11431 0
   "C:/Users/jrfas/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1773359762 27176672 baa263d34b1e0e141da907f6babe1d52 ""
   "C:/Users/jrfas/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136793854 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "C:/Users/jrfas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -256,18 +256,18 @@
   "C:/Users/jrfas/AppData/Local/Programs/MiKTeX/tex/latex/upquote/upquote.sty" 1335534756 1088 517e01cde97c1c0baf72e69d43aa5a2e ""
   "C:/Users/jrfas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/jrfas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "chapters/IntroductionToData/AskingQuestionsAboutData.tex" 1781300274 9764 c6cc2f93913961083eee5ae69f11ecf3 ""
-  "chapters/IntroductionToData/ChapterOpen.aux" 1781300284 2928 bf4b77b9e9e034c8196cf88db83fb49a "xelatex"
+  "chapters/IntroductionToData/AskingQuestionsAboutData.tex" 1781733800 22283 3e46ed1d79bf7f5ec2d32183c80fa6e2 ""
+  "chapters/IntroductionToData/ChapterOpen.aux" 1781733824 3201 2e150d3d253f6f462cc08a44dcd39823 "xelatex"
   "chapters/IntroductionToData/ChapterOpen.tex" 1781299422 268 8eacdd3e68aca1eed4421bb47e8e96db ""
-  "chapters/IntroductionToData/IntroductionToDataAroundUs.tex" 1781294398 8005 995c9d7bc537045f393af45e76c74dd5 ""
-  "macros/finance_commands.tex" 1773012519 346 a603d8269740cc80686b09a6e0d21b54 ""
+  "chapters/IntroductionToData/IntroductionToDataAroundUs.tex" 1781719760 11284 eea30ee8cc524dad70468927975fc677 ""
+  "macros/finance_commands.tex" 1781715911 326 4745e454026c9b830c3bab4fe0e525db ""
   "macros/metaphors.tex" 1773012561 852 c58d0638a7f058560463c46f04237283 ""
-  "main.aux" 1781300285 351 e4c3b59648366d95454cd29fd6654a69 "xelatex"
-  "main.bbl" 1781300283 52 0eba253fc001332e731e8aba3f23127b "bibtex main"
-  "main.out" 1781300285 1244 963fb8dff3ab70975e6a336afc9beec5 "xelatex"
+  "main.aux" 1781733825 351 79babdafcf28b8aa976e7d68995183b5 "xelatex"
+  "main.bbl" 1781733822 52 0eba253fc001332e731e8aba3f23127b "bibtex main"
+  "main.out" 1781733825 1533 79259a573d22265ecec62991f4e7aa9a "xelatex"
   "main.tex" 1781211177 487 0036d68a34fbbbb051c5009b0cc9bdef ""
-  "main.toc" 1781300285 615 836e937d12e35a44cb3090d77360cdba "xelatex"
-  "preamble/settings.tex" 1781293384 4109 8845b07226d3632ac7cc68fc4aed2f5c ""
+  "main.toc" 1781733825 729 2f6202e484df5b9ececdcc2a2517dbe7 "xelatex"
+  "preamble/settings.tex" 1781729075 5421 974f27fb9a5928c265c94adc4f1fcc4c ""
   (generated)
   "chapters/IntroductionToData/ChapterOpen.aux"
   "main.aux"

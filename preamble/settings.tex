@@ -54,6 +54,62 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable, skins}
 
+% Key Terms Box - vocabulary anchor
+\newtcolorbox{keyterms}[1][]{%
+  enhanced,
+  colback=teal!5!white,
+  colframe=teal!50!black,
+  fonttitle=\bfseries\sffamily,
+  title={\textsc{Key Terms}},
+  coltitle=white,
+  colbacktitle=teal!50!black,
+  boxrule=0.6pt,
+  arc=3pt,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+}
+
+% Real World Box - case studies
+\newtcolorbox{realworld}[1][]{%
+  enhanced,
+  colback=blue!5!white,
+  colframe=blue!40!black,
+  fonttitle=\bfseries\sffamily,
+  title={\textsc{Real World}},
+  coltitle=white,
+  colbacktitle=blue!40!black,
+  boxrule=0.6pt,
+  arc=3pt,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+}
+
+% Checkpoint Box - pause & reflect
+\newtcolorbox{checkpoint}[1][]{%
+  enhanced,
+  colback=gray!5!white,
+  colframe=gray!50!black,
+  fonttitle=\bfseries\sffamily,
+  title={\textsc{Checkpoint}},
+  coltitle=white,
+  colbacktitle=gray!50!black,
+  boxrule=0.6pt,
+  arc=3pt,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+}
+
+% Key Insight Box - pull quotes
+\newtcolorbox{keyinsight}[1][]{%
+  enhanced,
+  colback=teal!3!white,
+  colframe=teal!60!black,
+  fonttitle=\bfseries\sffamily,
+  title={\textsc{Key Insight}},
+  coltitle=white,
+  colbacktitle=teal!60!black,
+  boxrule=0.6pt,
+  arc=3pt,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+}
+
 % Definition box
 \newtcolorbox{definition}[1][]{%
   enhanced,

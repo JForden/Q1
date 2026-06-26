@@ -1,0 +1,53 @@
+{
+  "metrics": {
+    "average_sentence_length": 18,
+    "rhetorical_question_ratio": 0.12,
+    "typical_paragraph_length": "3-5 sentences"
+  },
+  "sample_sentences": [
+    "What does this say? What is the author trying to tell me?",
+    "A CPU is the chef in the kitchen, following recipes step by step, one dish at a time.",
+    "Imagine a detector as a stadium filled with 10,000 diligent students. Individually, each student can only do basic arithmetic, but working together, they can crunch through mountains of data.",
+    "The data sits silent until we interrogate it.",
+    "Consider the symbols you just read: letters formed into words, words into sentences.",
+    "This is the fundamental fragility of data: without context, it becomes a guessing game.",
+    "But what is it, really?",
+    "Think about it: why does this matter?"
+  ],
+  "rejected_examples": [
+    {
+      "text": "The advent of digital technologies at the turn of the 21st century fundamentally augmented humanity's relationship with the world around us.",
+      "reason": "Too formal, abstract, and pompous - uses 'augmented' and 'humanity's relationship' instead of direct language"
+    },
+    {
+      "text": "That tension is not a paradox to be dismissed.",
+      "reason": "Abstract, academic phrasing - doesn't match conversational tone"
+    },
+    {
+      "text": "It is unfortunate, but the trade off for using the modern technology that we know and love is often the implicit understanding that in some way, we are being monitored or tracked.",
+      "reason": "Wordy, passive construction - should be direct and punchy"
+    },
+    {
+  "text": "That tension is not a paradox to be dismissed---it is the central challenge of data science.",
+  "reason": "Dramatic em-dash pivot. Hollow reframe. Sounds like an AI trying to sound profound."
+    },
+    {
+    "text": "This revolution kickstarted the modern understanding of 'data' as a fundamental resource for decision-making, communication, and innovation.",
+    "reason": "Abstract noun pile. 'Kickstarted' is fine but the rest is filler."
+    }
+  ],
+  "key_phrases": [
+    "We must first grasp",
+    "Consider the symbols you just read",
+    "The data sits silent until we interrogate it",
+    "What does this say?",
+    "Think about it",
+    "But what is it, really?",
+    "Here's the catch"
+  ],
+  "voice_notes": {
+    "perspective": "First-person plural ('we', 'our') mixed with direct second-person ('you') to engage reader",
+    "tone": "Conversational, enthusiastic about ideas, never hype-driven",
+    "structure": "Medium sentences with short punchy transitions; frequent rhetorical questions and analogies"
+  }
+}

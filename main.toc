@@ -1,7 +1,8 @@
 \contentsline {chapter}{\numberline {1}Codes of Life}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Data vs. Information}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Asking Questions About Data}{4}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Understanding The Problem}{4}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}What Makes a Question Answerable?}{5}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}The Role of Context}{6}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}The Question Hierarchy}{7}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.1}Understanding The Problem}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Isolating the Principal Parts of a Problem}{7}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}What Makes a Question Answerable?}{8}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}The Role of Context}{10}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}The Question Hierarchy}{12}{subsection.1.2.5}%

@@ -28,9 +28,17 @@ AI excels at \textit{answering} questions. But it cannot tell you whether you as
 To get at the best questions, we must start with the highest order question: \textit{What is the unknown?}. 
 This can be phrased however you might like, the core idea is to stimulate curiosity and encourage deeper thinking about the data at hand.
 Asking questions and solving problems are practical skills that require practice and experience. 
-Much like any practical skill, writing, reading, sports, we aquire these abilities through consistent practice and real-world application.
+Much like any practical skill, writing, reading, sports, we acquire these abilities through consistent practice and real-world application.
 
 Before diving into the specifics of statistical analysis, let's first explore four fundamental steps in asking effective questions outlined in G. Polya's book "How to Solve It".
+
+\begin{keyterms}
+These terms will anchor our discussion:
+\begin{itemize}
+    \item \textbf{Hypothesis}: The underlying claim or relationship we are trying to understand or prove.
+    \item \textbf{Decomposition}: Breaking a complex question into smaller, answerable parts.
+\end{itemize}
+\end{keyterms}
 
 \subsection{Understanding The Problem}
 
@@ -42,6 +50,7 @@ problem and answers will emerge.
 This line of thought is a dangerous one, without understanding the problem and the wider context, data can and will be misused or misinterpreted.
 This often arises from hubris directly as a result of data scientists and engineers who overestimate their own understanding of the problem and the data at hand.
 
+\begin{realworld}
 In 2008, Google launched \textit{Google Flu Trends}, a system designed to 
 predict influenza outbreaks by analyzing search query patterns. The premise 
 was elegant: if people are getting sick, they will search for flu symptoms, 
@@ -59,6 +68,7 @@ This failure had a name. Researchers writing in \textit{Science} called it
 careful problem understanding. It remains one of the most instructive 
 cautionary tales in the field precisely because the data was abundant, 
 the engineering was sophisticated, and the question still came out wrong.
+\end{realworld}
 
 Polya's first step is deceptively simple: \textit{understand the problem}. 
 In practice, this means resisting the impulse to reach for data 
@@ -68,6 +78,76 @@ What are we actually trying to learn?} Only then can we ask a harder
 follow-up question---one that turns out to matter enormously in practice: 
 \textit{Can this question even be answered with data?}
 
+Yet understanding the problem is a challenging task. How does one build institutional knowledge about something unknown? Is that not what we are trying to do when we ask questions about data?
+To do this, we can break our phase of understanding into several key components:
+\begin{itemize}
+    \item Isolate the principal parts of the problem.
+    \item Identify the core issue or phenomenon.
+    \item Evaluate the feasibility of answering these questions with available data.
+    \item Gather background information and context.
+\end{itemize}
+
+\begin{checkpoint}
+\textbf{Pause and reflect:} What problem are we \textit{really} trying to solve when we ask questions about data? In the Flu Trends case, Google asked ``Can search volume predict flu?'' but should have asked ``Does search volume measure actual illness?'' What unknown are \textit{you} chasing in your own analysis?
+\end{checkpoint}
+
+\subsection{Isolating the Principal Parts of a Problem}
+
+The ability to isolate the principal parts of a problem is similar to outlining an essay.
+Before writing, you identify your main points and organize them logically.
+Each point builds on the last, transitioning smoothly from one idea to the next.
+The end result: a coherent argument that communicates your original intent.
+
+Asking questions of data works the same way.
+It's a scientific approach to breaking down a complex hypothesis into smaller,
+manageable components that build toward comprehensive understanding.
+
+Consider a simple essay prompt: \textit{``How did the printing press change European society?''}
+
+A well-written essay doesn't answer this directly. The writer would break it down:
+\begin{itemize}
+    \item What was information dissemination like before the printing press?
+    \item How quickly did printing technology spread across Europe?
+    \item Which social groups gained access to written materials?
+    \item What new ideas emerged that couldn't have spread before?
+\end{itemize}
+
+Each sub-question is narrower. Each is answerable with specific evidence.
+Together, they build toward answering the original prompt.
+
+The hypothesis is ultimately the principal reason we might be interested in some dataset.
+It's the underlying thing we are trying to understand or prove.
+
+Consider Google Flu Trends again. The principal hypothesis was that search
+volume could predict flu infections. The unknown relationship: the causal
+link between search behavior and actual illness.
+
+But this single question hides multiple unknowns:
+\begin{itemize}
+    \item Do people search for flu symptoms when they get sick?
+    \item Do search patterns change during flu season, or only during outbreaks?
+    \item Are searches correlated with actual infections, or just awareness of flu?
+\end{itemize}
+
+The Google team asked the first question. They never asked the third.
+That omission cost them dearly. 
+
+Isolating principal parts forces you to clarify what you're actually trying
+to prove---and to determine whether your data can prove it. Datasets rarely
+yield challenging answers easily. The Flu Trends analysis required layers of
+examination: the initial hypothesis broken into components, each component
+tested through various combinations, the results analyzed and re-analyzed.
+
+This is the foundation of scientific inquiry. You move from curiosity about
+a phenomenon to a carefully framed question that data can address. Without
+this understanding, even sophisticated tools produce misleading conclusions.
+
+The hardest part of understanding a problem is finding the right \textit{first}
+question to ask. That requires deep consideration of the problem's principal parts.
+
+\begin{checkpoint}
+\textbf{Try it yourself:} Take a complex question you're curious about. Break it into 3--4 smaller, specific parts. Which parts are directly answerable with data? Which require inference or judgment?
+\end{checkpoint}
 
 \subsection{What Makes a Question Answerable?}
 
@@ -81,10 +161,30 @@ the exchange floor to brokerages across the country. By 1929, ticker
 machines were widespread and had materially improved market information 
 flow. But they carried a hard physical constraint: even improved models 
 could relay data at roughly 285 characters per minute. When trade volume 
-surged beyond that throughput, the tape fell behind.
+surged beyond that throughput, the tape fell behind. 
 
 During the crash of October 1929, that lag grew from minutes to hours---
 roughly 100 minutes on October 21, and nearly four hours by October 24. 
+This delay ultimately proved catastrophic.
+
+Picture a trader in a brokerage office on Black Tuesday. Their ticker tape 
+clicks out a price: \$30 per share for U.S. Steel. The trader makes their move, 
+selling what they think is \$30 worth of stock. But that tape is four hours 
+behind. On the exchange floor, panic selling has already crushed the price 
+to \$10. The trader didn't sell at \$30. They sold at \$10 and lost three-quarters 
+of their money without knowing it until the next day's paper confirmed the 
+disaster.
+
+The ticker tape showed \$30. The floor price was \$10. The data wasn't 
+wrong---it was just old. And in a market crash, old data might as well be 
+fiction.
+
+Panicked traders kept asking questions like ``What is the current price?'' 
+and ``How much has it fallen?'' But the system couldn't answer those 
+questions. It could only tell them what the price \textit{had been}---hours 
+ago. Investors sold based on outdated information, making decisions that 
+felt rational but were grounded in data that no longer described reality.
+
 Traders were making decisions on prices that no longer existed. The system 
 never stopped producing data. It simply stopped producing 
 \textit{timely} data, and timeliness was the very context that made 
@@ -99,11 +199,17 @@ Now consider what a data analyst in 1929 could and could not have answered:
     delays?''}
 \end{itemize}
 
-The first question is answerable. The second is not---at least not by 
-data alone. Causation in complex systems involves economic conditions, 
+The first question was a directly measurable one at the time. 
+An analyst would have been able to answer the first question by examining when a signal was sent from the exchange floor and when it was received by the ticker tape machine. 
+This would provide a clear measure of the delay.
+
+The second question, however, is far more complex. Based on the narrative above, it \textit{seems} likely that ticker tape delays were the primary cause of the crash. 
+However, this is a causal question that goes beyond what the data can directly tell us. 
+Ticker tape data alone offers no insight into the economic conditions, 
 human psychology, regulatory failures, and cascading feedback loops that 
-no dataset fully captures. Asking that question of the data will not 
-produce a wrong answer so much as a dangerously incomplete one.
+no dataset fully captures.
+
+Asking that question of the data will not produce a wrong answer so much as a dangerously incomplete one.
 
 A question is answerable by data when it satisfies three conditions:
 
@@ -118,13 +224,103 @@ A question is answerable by data when it satisfies three conditions:
 
 Questions that fail these criteria are not ``bad'' questions---they are simply not data questions. ``Why did investors panic in 1929?'' is a profound historical question, but no amount of trading volume data can fully answer it. What data can do is show us \textit{when} panic began, \textit{how fast} it spread, and \textit{which} securities were affected first.
 
-The key insight: \textbf{Data answers ``what'' and ``when'' questions reliably. It answers ``why'' questions only through careful inference and modeling---and even then, with uncertainty.}
+\begin{keyterms}
+Now that we've seen what makes a question answerable, here are three key criteria:
+\begin{itemize}
+    \item \textbf{Observability}: Whether a phenomenon can be measured or recorded.
+    \item \textbf{Specificity}: Whether a question defines clear conditions for what counts as an answer.
+    \item \textbf{Falsifiability}: Whether some possible observation could prove the answer wrong.
+\end{itemize}
+\end{keyterms}
+
+\begin{keyinsight}
+Data answers ``what'' and ``when'' questions reliably. It answers ``why'' questions only through careful inference and modeling---and even then, with uncertainty.
+\end{keyinsight}
+
+\begin{checkpoint}
+\textbf{Synthesis:} Both Google Flu Trends and the 1929 ticker tape failed for the same reason: the data existed, but it didn't measure what people \textit{thought} it measured. Flu searches didn't equal flu cases. Ticker prices didn't equal current market value. What's the gap between what your data \textit{does} measure and what you \textit{need} it to measure?
+\end{checkpoint}
 
 \subsection{The Role of Context}
 
-Recall from Section 1 the identical hieroglyphs that meant different things depending on their structure. The same principle applies to data questions.
+Recall from Section 1 the identical hieroglyphs that meant different things depending on their structure. 
+The importance of understanding the context of how a dataset was collected and what bias it might contain cannot be overstated. 
+Many of the most high-profile examples of data and algorithmic misuse have been due to this very reason.
+As they say: ``The road to hell is paved with good intentions.''
 
-Consider the question: ``Is 50 a high value?'' Without context, the question is unanswerable. Fifty what? High compared to what? High for whom, and for what purpose?
+Consider an algorithm designed to predict the likelihood of breast 
+cancer from medical imaging. The hypothesis is straightforward: if 
+trained on enough historical examples, a model could learn to identify 
+the visual markers of malignancy and flag high-risk cases earlier than 
+a human radiologist might catch them. The unknown is the degree to 
+which the algorithm can generalize---whether patterns learned from 
+past cases transfer reliably to new patients.
+
+To test this hypothesis, we need a large labeled dataset: historical 
+scans marked as malignant or benign, drawn from clinical records and 
+published studies. The more data, the better. Or so the thinking goes.
+
+\begin{checkpoint}
+Before reading further, consider the dataset described above---
+historical medical records and clinical studies.
+\begin{enumerate}
+    \item Who has historically had access to high-quality clinical 
+    imaging and follow-up care? Who has not?
+    \item If certain populations are underrepresented in the training 
+    data, what happens when the algorithm encounters them?
+    \item The goal is a generalizable model. What assumptions are 
+    embedded in using historical records to build it?
+\end{enumerate}
+\end{checkpoint}
+
+\begin{realworld}
+\textbf{Mammography AI and Racial Disparity}
+
+In 2024, researchers published a study in \textit{Radiology} examining 
+a commercially available, FDA-approved AI algorithm used to assist 
+radiologists in reading screening mammograms. They analyzed more than 
+4,800 mammograms that had already been confirmed as cancer-free by 
+physicians---meaning any case the algorithm flagged as suspicious was, 
+by definition, a false positive.
+
+The results were striking. Black women were 50 percent more likely to 
+receive a false positive result than white women. The algorithm 
+repeatedly flagged tissue as suspicious in patients who did not have 
+cancer---at significantly higher rates for Black patients than for any 
+other demographic group in the study.
+
+The cause was not a flaw in the algorithm's code. It was a flaw in the 
+data it learned from. AI breast cancer tools are predominantly trained 
+on imaging datasets drawn from majority-white patient populations. When 
+those models encounter mammograms from Black women---who on average have 
+denser breast tissue and different tissue characteristics---the algorithm 
+has less experience with those patterns and performs less reliably.
+
+The consequences are real. A false positive triggers a recall: 
+additional imaging, possible biopsy, anxiety, and financial cost. As 
+the study authors noted, if radiologists normalize AI recommendations 
+calibrated primarily on white patients, they risk driving higher recall 
+rates for Black patients---worsening the very health care disparities 
+the technology was meant to reduce.
+
+The FDA, at the time of the study, had no requirement that AI 
+software be tested on a demographically diverse population before 
+approval.
+\end{realworld}
+
+The altruistic intent behind the development of AI in healthcare is commendable. Now, and more so in the future, these systems will provide significant benefits to patients and healthcare providers. 
+This idealized outcome is only achievable if we carefully consider the context and potential biases in the data. This understanding, however, is \textbf{not} always easy to achieve.
+Again, this often happens due to a disconnect between the subject matter experts and a lack of understanding about the problem set itself. 
+Importantly, the accuracy of the tested model depends entirely on the quality and representativeness of the training data. 
+The algorithm developers likely did not have a full understanding of the data's limitations or the potential for bias. The data itself was correctly collected, but it was not representative of the diverse patient population that would ultimately use the AI system.
+The data didn't lie. But it didn't tell the whole truth either.
+
+Understanding context means understanding the gaps---what's missing, 
+whose voices aren't represented, what got smoothed over in the name 
+of cleanliness. 
+
+Context is not simply understanding the data itself, but the world in which the data lives and the ultimate results it produces. 
+As an example, consider the question: ``Is 50 a high value?'' Without context, the question is unanswerable. Fifty what? High compared to what? High for whom, and for what purpose?
 
 \begin{itemize}
     \item 50 shares traded on the NYSE in 1929: \textit{vanishingly small}
@@ -143,6 +339,8 @@ Context determines:
 \end{itemize}
 
 The 1929 crash illustrates the cost of missing context. Investors reading delayed ticker tape saw falling prices but lacked the context of \textit{why} prices were falling, \textit{how many} others were selling, and \textit{what} the actual state of the market was. They acted on incomplete information---not because the data was wrong, but because the context was missing.
+
+While this book will try to emphasize the importance of context in data analysis, to truly grasp the implications of this, I encourage readers to pick up a copy of \textit{Weapons of Math Destruction} by Cathy O'Neil.
 
 \textbf{Key principle}: A question without context is a map without a scale. You may know where you want to go, but you cannot know how far it is, or whether you have arrived.
 
